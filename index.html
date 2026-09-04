@@ -1,93 +1,73 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bongekile AI FREE - Chancele KZN</title>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bongekile AI Store + Real Photos</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@900;700&display=swap" rel="stylesheet">
 <style>body{font-family:Outfit}</style>
 </head>
 <body class="bg-black text-white">
-
 <div class="max-w-md mx-auto">
 
-<!-- HEADER -->
 <div class="p-4 flex justify-between items-center sticky top-0 bg-black z-50 border-b border-zinc-800">
-<h1 class="font-black text-lg">BONGEKILE<span class="text-yellow-400">.FREE AI</span><br><span class="text-[8px] opacity-40">CHANCELE KZN • 100% FREE • NO KEY</span></h1>
-<div class="bg-green-500 text-black px-3 py-1 rounded-full font-black text-[10px]">● FREE AI LIVE</div>
+<h1 class="font-black">BONGEKILE<span class="text-yellow-400">.AI</span> 📸<br><span class="text-[8px] opacity-40">REAL PHOTOS • FREE AI • CHANCELE</span></h1>
+<div class="bg-yellow-400 text-black px-3 py-1 rounded-full font-black text-[10px]">📸 PHOTOS LIVE</div>
 </div>
 
-<!-- AI CHAT -->
-<div class="m-4 bg-zinc-900 rounded-[28px] p-5 border border-yellow-500/30">
-<div class="flex gap-2 items-center"><div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center text-black font-black">AI</div><div><p class="font-black text-sm">Bongekile Free AI</p><p class="text-[10px] opacity-50">Speaks Zulu • English • Bargains • No key needed</p></div></div>
-
-<div id="chat" class="mt-4 bg-black rounded-2xl p-4 h-72 overflow-y-auto text-[13px] space-y-3">
-<div class="bg-zinc-800 p-3 rounded-2xl"><b class="text-yellow-400">AI:</b> Sawubona! Ngiyi AI yamahhala ka Bongekile! 🆓<br><br>100% FREE, no OpenAI key! I can:<br>• Find cheapest food<br>• Plan dinner for R100-R300<br>• Speak Zulu: "Ngifuna ushukela"<br>• Bargain prices<br>• Check delivery Chancele/Harding<br><br>Try: "Dinner for 4 under R200" or "Yini eshibhile?"</div>
+<div class="m-4 bg-zinc-900 rounded-[24px] p-4 border">
+<div id="chat" class="bg-black rounded-xl p-3 h-48 overflow-y-auto text-[13px]"><b class="text-yellow-400">AI:</b> Sawubona! Now with REAL product photos! Ask me "show me maize" 🆓</div>
+<div class="flex gap-2 mt-3"><input id="q" onkeypress="if(event.key==='Enter')ask()" placeholder="Ask FREE AI..." class="flex-1 p-3 rounded-full bg-zinc-800 border text-sm"><button onclick="ask()" class="bg-yellow-400 text-black px-4 rounded-full font-black text-sm">Ask</button></div>
 </div>
 
-<div class="flex gap-2 mt-3">
-<input id="q" onkeypress="if(event.key==='Enter')ask()" placeholder="Ask FREE AI anything..." class="flex-1 p-4 rounded-full bg-zinc-800 border border-zinc-700 text-sm">
-<button onclick="ask()" id="btn" class="bg-yellow-400 text-black px-5 rounded-full font-black">Ask</button>
-</div>
+<div id="grid" class="grid grid-cols-2 gap-3 p-4"></div>
 
-<div class="flex gap-2 mt-3 flex-wrap">
-<button onclick="quick('Yini eshibhile namhlanje?')" class="bg-zinc-800 px-3 py-1 rounded-full text-[11px]">💰 Zulu: Yini eshibhile?</button>
-<button onclick="quick('Dinner for family R150')" class="bg-zinc-800 px-3 py-1 rounded-full text-[11px]">🍲 Dinner R150</button>
-<button onclick="quick('Cheapest groceries')" class="bg-zinc-800 px-3 py-1 rounded-full text-[11px]">🥫 Cheapest</button>
-<button onclick="quick('Bargain please Bongekile')" class="bg-zinc-800 px-3 py-1 rounded-full text-[11px]">🤝 Bargain</button>
-</div>
-</div>
+<div id="cartBtn" onclick="document.getElementById('cart').classList.remove('hidden')" class="fixed bottom-4 right-4 bg-yellow-400 text-black px-5 py-3 rounded-full font-black">🛒 <span id="count">0</span></div>
 
-<!-- PRODUCTS -->
-<div class="px-4"><p class="font-black text-sm">🔥 AI Picks for You Today</p><div id="grid" class="grid grid-cols-2 gap-3 mt-3"></div></div>
-
-<!-- CART -->
-<div id="cartBtn" onclick="document.getElementById('cart').classList.remove('hidden')" class="fixed bottom-4 right-4 bg-yellow-400 text-black px-6 py-4 rounded-full font-black shadow-xl">🛒 <span id="count">0</span> • R<span id="miniTotal">0</span></div>
-
-<div id="cart" class="hidden fixed inset-0 bg-black/90 z-50 p-4"><div class="max-w-sm mx-auto bg-white text-black rounded-[32px] p-6">
-<h3 class="font-black">Your Order + AI Discount 🧠</h3><div id="list" class="mt-3 space-y-2 text-sm"></div>
-<div class="bg-yellow-100 p-3 rounded-2xl mt-3"><p class="font-black text-xs">🧠 FREE AI Discount: <span id="disc">R0</span></p><p id="reason" class="text-[11px]">Add 3 items = 5% off, 5 items = 10% off!</p></div>
-<p class="font-black text-2xl mt-3">Total R<span id="total">0</span> <span id="old" class="line-through text-sm opacity-30"></span></p>
-<input id="name" placeholder="Your name" class="w-full p-3 rounded-full border mt-3 text-sm font-bold"><input id="phone" placeholder="Phone 078..." class="w-full p-3 rounded-full border mt-2 text-sm font-bold">
-<button onclick="order()" class="w-full bg-black text-white py-4 rounded-full font-black mt-3">Order on WhatsApp - FREE AI</button>
-<button onclick="document.getElementById('cart').classList.add('hidden')" class="w-full bg-zinc-100 py-3 rounded-full font-bold mt-2 text-sm">Continue shopping</button>
-</div></div>
-
+<div id="cart" class="hidden fixed inset-0 bg-black/90 z-50 p-4"><div class="max-w-sm mx-auto bg-white text-black rounded-[32px] p-5"><div id="list" class="space-y-2 text-sm"></div><p class="font-black text-xl mt-3">Total R<span id="total">0</span></p><button onclick="order()" class="w-full bg-black text-white py-3 rounded-full font-black mt-3">Order WhatsApp</button><button onclick="document.getElementById('cart').classList.add('hidden')" class="w-full bg-zinc-100 py-2 rounded-full mt-2">Close</button></div></div>
 </div>
 
 <script>
 let products=[
-{id:1,n:"Maize Meal 10kg",p:120,e:"🌽",t:"maize pap mpuphu staple food cheap",k:"mpuphu"},
-{id:2,n:"Cooking Oil 2L",p:65,e:"🫙",t:"oil fry braai amafutha",k:"amafutha"},
-{id:3,n:"Sugar 2.5kg",p:55,e:"🍚",t:"sugar tea ushukela",k:"ushukela"},
-{id:4,n:"Eggs Tray 30",p:95,e:"🥚",t:"eggs protein breakfast amaqanda",k:"amaqanda"},
-{id:5,n:"Chicken 5pcs",p:110,e:"🍗",t:"chicken meat dinner braai inkukhu",k:"inkukhu"},
-{id:6,n:"Lotion Even Lovely",p:35,e:"🧴",t:"lotion beauty skin okugcoba",k:"okugcoba"},
-{id:7,n:"Braids",p:85,e:"💇🏾‍♀️",t:"hair braids wedding beauty izinwele",k:"izinwele"},
-{id:8,n:"Kiddies Dress",p:150,e:"👗",t:"dress clothes kids ingubo",k:"ingubo"},
-{id:9,n:"Sunlight Soap",p:45,e:"🧼",t:"soap washing insipho",k:"insipho"},
-{id:10,n:"Airtime R20",p:20,e:"📱",t:"airtime data mtn vodacom umoya",k:"umoya"}
+{id:1,n:"Maize Meal 10kg",p:120,img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400",t:"maize mpuphu pap"},
+{id:2,n:"Cooking Oil 2L Sunfoil",p:65,img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400",t:"oil amafutha"},
+{id:3,n:"Sugar White 2.5kg",p:55,img:"https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=400",t:"sugar ushukela"},
+{id:4,n:"Eggs Tray 30 Large",p:95,img:"https://images.unsplash.com/photo-1518569656558-1f25e69d93d7?w=400",t:"eggs amaqanda"},
+{id:5,n:"Chicken 5pcs Fresh",p:110,img:"https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=400",t:"chicken inkukhu"},
+{id:6,n:"Even & Lovely Lotion",p:35,img:"https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400",t:"lotion beauty"},
+{id:7,n:"Braids 1kg",p:85,img:"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400",t:"hair braids"},
+{id:8,n:"Kiddies Dress Floral",p:150,img:"https://images.unsplash.com/photo-1518831959646-742c3a379ebf?w=400",t:"dress clothes"},
+{id:9,n:"Sunlight Soap 2kg",p:45,img:"https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?w=400",t:"soap"},
+{id:10,n:"Airtime MTN/Vodacom",p:20,img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400",t:"airtime"}
 ];
-let cart=JSON.parse(localStorage.getItem('free_cart')||'[]');
+let cart=JSON.parse(localStorage.getItem('c')||'[]');
 
 function render(){
- let f=products;
- document.getElementById('grid').innerHTML=f.map(x=>`<div class="bg-zinc-900 p-4 rounded-[20px] border border-zinc-800"><div class="text-3xl text-center">${x.e}</div><p class="font-bold text-[13px] mt-2 leading-tight">${x.n}</p><p class="text-yellow-400 font-black">R${x.p}</p><button onclick="add(${x.id})" class="w-full mt-2 bg-white text-black py-2 rounded-full font-black text-xs">Add + AI</button></div>`).join('');
- update();
+ document.getElementById('grid').innerHTML=products.map(x=>`
+ <div class="bg-zinc-900 rounded-[20px] overflow-hidden border border-zinc-800">
+ <img src="${x.img}" class="w-full h-32 object-cover">
+ <div class="p-3">
+ <p class="font-bold text-[13px] leading-tight">${x.n}</p>
+ <p class="text-yellow-400 font-black">R${x.p}</p>
+ <button onclick="add(${x.id})" class="w-full mt-2 bg-white text-black py-2 rounded-full font-black text-xs">Add 🛒</button>
+ </div>
+ </div>`).join('');
+ upd();
 }
-function add(id){ let p=products.find(a=>a.id===id); let ex=cart.find(a=>a.id===id); if(ex)ex.q++; else cart.push({...p,q:1}); localStorage.setItem('free_cart',JSON.stringify(cart)); update(); say(`Added ${p.n}! AI: Buy ${Math.max(0,3-cart.reduce((a,b)=>a+b.q,0))} more for discount!`); document.getElementById('cartBtn').classList.add('animate-bounce'); setTimeout(()=>document.getElementById('cartBtn').classList.remove('animate-bounce'),1000); }
-function update(){
+function add(id){ let p=products.find(a=>a.id===id); let ex=cart.find(a=>a.id===id); if(ex)ex.q++; else cart.push({...p,q:1}); localStorage.setItem('c',JSON.stringify(cart)); upd(); }
+function upd(){
  document.getElementById('count').innerText=cart.reduce((a,b)=>a+b.q,0);
- let sub=cart.reduce((a,b)=>a+b.p*b.q,0); let d=0; let r="Add 3 items = 5% OFF!";
- if(cart.reduce((a,b)=>a+b.q,0)>=3){d=sub*0.05; r="5% AI discount ON! Add 2 more for 10%!";} if(cart.reduce((a,b)=>a+b.q,0)>=5){d=sub*0.1; r="10% VIP AI discount! 🔥";}
- document.getElementById('miniTotal').innerText=(sub-d).toFixed(0); document.getElementById('total').innerText=(sub-d).toFixed(0); document.getElementById('old').innerText=sub?'R'+sub:''; document.getElementById('disc').innerText='R'+d.toFixed(0); document.getElementById('reason').innerText=r;
- document.getElementById('list').innerHTML=cart.map((c,i)=>`<div class="flex justify-between bg-zinc-50 p-2 rounded-xl"><span>${c.n} x${c.q}</span><b>R${c.p*c.q} <button onclick="cart.splice(${i},1);localStorage.setItem('free_cart',JSON.stringify(cart));update()" class="text-red-500">x</button></b></div>`).join('')||'Empty';
+ let tot=cart.reduce((a,b)=>a+b.p*b.q,0); document.getElementById('total').innerText=tot;
+ document.getElementById('list').innerHTML=cart.map((c,i)=>`<div class="flex gap-2 bg-zinc-50 p-2 rounded-xl"><img src="${c.img}" class="w-10 h-10 rounded object-cover"><span>${c.n} x${c.q}</span><b class="ml-auto">R${c.p*c.q} <button onclick="cart.splice(${i},1);localStorage.setItem('c',JSON.stringify(cart));upd()" class="text-red-500">x</button></b></div>`).join('');
 }
-function say(t){ let c=document.getElementById('chat'); c.innerHTML+=`<div class="bg-zinc-800 p-3 rounded-2xl"><b class="text-yellow-400">AI:</b> ${t}</div>`; c.scrollTop=c.scrollHeight; }
 function ask(){
- let q=document.getElementById('q').value; if(!q) return;
- let c=document.getElementById('chat'); c.innerHTML+=`<div class="bg-yellow-400 text-black p-3 rounded-2xl ml-6">You: ${q}</div>`;
- document.getElementById('q').value=''; let l=q.toLowerCase(); let reply='';
- if(l.includes('sawubona')||l.includes('yebo')||l.includes('dumela')) reply=`Yebo sawubona! 🙏 Ngiyakwamukela e-shop ka Bongekile e-Chancele! Unjani? Ngifuna ukuthenga ini namhlanje? We have Maize R120, Sugar R55!`;
- else if(l.includes('eshibhile')||l.includes('cheap')||l.includes('malini')||l.includes('shib')) reply=`Okushibhile namhlanje 🔥:<br>• Sugar 2.5kg R55 (cheapest!)<br>• Lotion R35<br>• Airtime R20<br>• Soap R45<br><br>Combo: Maize R120 + Sugar R55 + Oil R65 = R240 → AI makes R228 (5% off)!`;
- else if(l.includes('dinner')||l.includes('supper')||l.includes('isidlo')||l.includes('idla')||l.includes('family')||l.includes('umndeni')) reply=`🍲 FREE AI Meal Planner for R150-R200:<br><br>Option 1: Chicken R110 + Maize R120 = R230 → AI discount R207 feeds 4!<br>Option 2: Eggs R95 + Maize R120 + Oil R65 = R280 → AI R252 feeds 5!<br>Option 3: Cheap: Maize R120 + Sugar R55 = R175 → R166 with AI!<br><br>Which you want? I add to cart!`;
- else if(l.includes('braai')||l.includes('nyama')) reply=`🔥 Braai combo FREE AI: Chicken 5pcs R110 + Oil R65 + Maize R120 = R295 → AI 10% = R265! Add Sunlight R45 to clean after! Want?`;
- else if(l.includes('bargain')||l.includes('discount')||l.includes('ncela')||l.includes('shibisa
+ let q=document.getElementById('q').value.toLowerCase(); if(!q) return;
+ let chat=document.getElementById('chat'); chat.innerHTML+=`<div class="bg-yellow-400 text-black p-2 rounded-xl ml-6 mt-2">You: ${q}</div>`;
+ let found=products.filter(p=>p.t.includes(q)||p.n.toLowerCase().includes(q));
+ let reply=found.length?`Found with REAL photo:<br>${found.map(f=>`<img src="${f.img}" class="w-16 h-16 rounded mt-1 inline-block"> ${f.n} R${f.p}`).join('<br>')}`:`We have: ${products.map(p=>p.n).join(', ')}`;
+ chat.innerHTML+=`<div class="bg-zinc-800 p-2 rounded-xl mt-2"><b class="text-yellow-400">AI:</b> ${reply}</div>`; document.getElementById('q').value=''; chat.scrollTop=chat.scrollHeight;
+ // filter grid
+ if(found.length){ document.getElementById('grid').innerHTML=found.map(x=>`<div class="bg-zinc-900 rounded-[20px] overflow-hidden border border-yellow-500"><img src="${x.img}" class="w-full h-32 object-cover"><div class="p-3"><p class="font-bold text-[13px]">${x.n}</p><p class="text-yellow-400 font-black">R${x.p}</p><button onclick="add(${x.id})" class="w-full mt-2 bg-yellow-400 text-black py-2 rounded-full font-black text-xs">Add AI Pick</button></div></div>`).join(''); }
+}
+function order(){ let tot=cart.reduce((a,b)=>a+b.p*b.q,0); let msg=`Order Chancele:\n${cart.map(c=>c.n+' x'+c.q).join('\n')}\nTotal R${tot}`; window.open('https://wa.me/27784444444?text='+encodeURIComponent(msg)); }
+render();
+</script>
+</body></html>

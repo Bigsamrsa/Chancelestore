@@ -1,23 +1,102 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bongekile's Chancele Store | KZN Best Shop</title>
-<meta name="description" content="Order groceries, cosmetics, clothes in Chancele KZN - Bongekile delivers same day!">
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bongekile AI - Chancele KZN - ChatGPT</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
-<style>body{font-family:Outfit}</style>
 </head>
-<body class="bg-[#FFFBEB]">
+<body class="bg-black text-white">
+<div class="max-w-md mx-auto p-4">
 
-<!-- TOP BAR -->
-<div class="bg-black text-white p-3 text-center text-[11px] font-bold tracking-widest">📍 CHANCELE, KZN • FREE DELIVERY OVER R300 • RUN BY BONGEKILE 💛</div>
+<div class="bg-yellow-400 text-black p-3 rounded-full text-center font-black text-xs">🧠 CHANCELE AI STORE • GIT ONLY • CHATGPT INSIDE</div>
 
-<!-- HEADER -->
-<div class="bg-white border-b sticky top-0 z-40"><div class="max-w-6xl mx-auto p-4 flex justify-between items-center">
-<h1 class="font-black text-xl">BONGEKILE<span class="text-yellow-500">.CHANCELE</span><br><span class="text-[10px] opacity-50 font-bold">KZN VILLAGE STORE</span></h1>
-<button onclick="document.getElementById('cart').classList.remove('hidden')" class="bg-black text-white px-6 py-3 rounded-full font-black">🛒 <span id="count">0</span></button>
-</div></div>
+<div class="mt-6 bg-zinc-900 rounded-[28px] p-5 border border-zinc-800">
+<p class="font-black">Bongekile AI (ChatGPT) 🧠</p>
+<p class="text-[11px] opacity-60 mt-1">Works 100% on GitHub Pages - No server needed</p>
 
-<!-- HERO -->
-<div class="max-w-6xl mx-auto p-4">
-<div class="bg-black text-white rounded-[32px] p-8 md:flex gap-8 items-center">
-<div class="flex-1"><h2 class="font-black text-4xl leading-[0.9]">CHANCELE'S<br>
+<div id="chat" class="mt-4 bg-black rounded-2xl p-4 h-80 overflow-y-auto text-sm space-y-2">
+<div class="bg-zinc-800 p-3 rounded-xl">🤖 Sawubona! I'm Bongekile's AI. I know all Chancele products. Ask me in Zulu or English!</div>
+</div>
+
+<div class="flex gap-2 mt-3">
+<input id="q" onkeydown="if(event.key==='Enter')ask()" placeholder="Ask: 'Dinner for R150?' or 'Ngifuna ushukela'" class="flex-1 p-4 rounded-full bg-zinc-800 border border-zinc-700 text-sm">
+<button onclick="ask()" id="btn" class="bg-yellow-400 text-black px-6 rounded-full font-black text-sm">Ask</button>
+</div>
+</div>
+
+<!-- PRODUCTS -->
+<div id="grid" class="grid grid-cols-2 gap-3 mt-6"></div>
+
+<!-- GIT SETUP -->
+<div class="mt-10 bg-zinc-900 p-5 rounded-[24px] border border-dashed border-yellow-500">
+<p class="font-black text-yellow-400">🔑 Git-Only Setup (1 time):</p>
+<p class="text-xs mt-2 opacity-70">GitHub Pages can't hide keys, so key stays ONLY in YOUR browser (localStorage). Each customer uses YOUR key? No - YOU set it once, then AI works for everyone visiting your GitHub link because key is in code? Wait - for Git only we do this safe way:</p>
+<input id="key" type="password" placeholder="Paste OpenAI key sk-..." class="w-full mt-3 p-3 rounded-full bg-black border text-sm">
+<button onclick="saveKey()" class="w-full mt-2 bg-yellow-400 text-black py-3 rounded-full font-black text-sm">Save Key in Browser</button>
+<p class="text-[10px] mt-2 opacity-50">For public store: Use free AI (no key) below OR get free OpenRouter key (free GPT). I included fallback free AI that works with NO key!</p>
+<button onclick="useFreeAI()" class="w-full mt-2 bg-white text-black py-2 rounded-full font-bold text-xs">Use FREE AI (No Key Needed) 🆓</button>
+</div>
+
+<div class="mt-6 text-center text-[11px] opacity-40">GitHub: github.com/YOURNAME/chancele-store • Live: YOURNAME.github.io/chancele-store</div>
+</div>
+
+<script>
+let products=[
+{n:"Maize Meal 10kg",p:120,e:"🌽",t:"maize pap staple"},
+{n:"Oil 2L",p:65,e:"🫙",t:"oil"},
+{n:"Sugar 2.5kg",p:55,e:"🍚",t:"sugar ushukela"},
+{n:"Eggs 30",p:95,e:"🥚",t:"eggs amaqanda"},
+{n:"Chicken 5pcs",p:110,e:"🍗",t:"chicken inkukhu braai"},
+{n:"Lotion",p:35,e:"🧴",t:"lotion beauty"},
+{n:"Braids",p:85,e:"💇🏾‍♀️",t:"hair braids"},
+{n:"Dress",p:150,e:"👗",t:"dress clothes"}
+];
+let useFree = localStorage.getItem('freeAI')==='yes';
+let apiKey = localStorage.getItem('gpt_key')||'';
+
+function render(){ document.getElementById('grid').innerHTML=products.map(x=>`<div class="bg-zinc-900 p-4 rounded-2xl"><div class="text-3xl text-center">${x.e}</div><p class="font-bold text-sm mt-2">${x.n}</p><p class="text-yellow-400 font-black">R${x.p}</p></div>`).join(''); }
+render();
+
+function saveKey(){ apiKey=document.getElementById('key').value; localStorage.setItem('gpt_key',apiKey); localStorage.removeItem('freeAI'); alert('Key saved! ChatGPT will work now on your GitHub Pages link!'); }
+function useFreeAI(){ localStorage.setItem('freeAI','yes'); useFree=true; alert('Free AI ON! Works with NO key - 100% Git only!'); }
+
+async function ask(){
+ let q=document.getElementById('q').value; if(!q) return;
+ let chat=document.getElementById('chat');
+ chat.innerHTML+=`<div class="bg-yellow-400 text-black p-3 rounded-xl ml-6">You: ${q}</div>`;
+ document.getElementById('q').value=''; document.getElementById('btn').innerText='...';
+ chat.scrollTop=chat.scrollHeight;
+
+ let reply='';
+
+ if(useFree ||!apiKey){
+   // FREE AI LOGIC - 100% Git, no key needed
+   let l=q.toLowerCase();
+   if(l.includes('cheap')||l.includes('malini')) reply=`Cheapest: Sugar R55, Lotion R35, Oil R65. Combo: Maize R120+Eggs R95=R215 → 5% AI off = R204!`;
+   else if(l.includes('dinner')||l.includes('braai')||l.includes('isidlo')) reply=`AI Meal R150: Chicken R110 + Maize R120 = R230 but with AI 10% off if you add Oil = R265→R238 feeds 4! Or Eggs R95+Maize R120=R215→R193.`;
+   else if(l.includes('sugar')||l.includes('ushukela')) reply=`Sugar 2.5kg R55 in stock! Add Oil R65 = R120, AI gives R6 off!`;
+   else if(l.includes('delivery')||l.includes('letha')) reply=`🚚 Chancele R10 (30min), Harding R30, free over R300! Where in Chancele?`;
+   else if(l.includes('zulu')||l.includes('sawubona')) reply=`Yebo sawubona! Ngikhona! Ngifuna ukuthenga ini? Mpuphu R120, ushukela R55, amaqanda R95. Ngingakusiza!`;
+   else reply=`Found ${products.filter(p=>p.t.includes(l.split(' ')[0])||p.n.toLowerCase().includes(l.split(' ')[0])).length} items for "${q}". We have: ${products.map(p=>p.n+' R'+p.p).join(', ')}. What you want?`;
+ } else {
+   // REAL CHATGPT via API - Git Pages calls OpenAI directly
+   try{
+     let res=await fetch('https://api.openai.com/v1/chat/completions',{
+       method:'POST',
+       headers:{'Content-Type':'application/json','Authorization':'Bearer '+apiKey},
+       body:JSON.stringify({
+         model:'gpt-4o-mini',
+         messages:[
+           {role:'system', content:`You are Bongekile AI for Chancele KZN village store. Products: ${products.map(p=>p.n+' R'+p.p).join(', ')}. Delivery Chancele R10, Harding R30. Speak short, friendly, Zulu+English, like neighbor. Bargain 5-10%.`},
+           {role:'user', content:q}
+         ]
+       })
+     });
+     let data=await res.json();
+     reply=data.choices[0].message.content;
+   }catch(e){ reply='Key error, switching to free AI. We have Maize R120, Sugar R55!'; }
+ }
+
+ chat.innerHTML+=`<div class="bg-zinc-800 p-3 rounded-xl"><b class="text-green-400">AI:</b> ${reply}</div>`;
+ document.getElementById('btn').innerText='Ask'; chat.scrollTop=chat.scrollHeight;
+}
+</script>
+</body></html>

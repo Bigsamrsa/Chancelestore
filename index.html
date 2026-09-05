@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bongekile Store - Chancele - Working</title>
+<title>Admin - Bongekile Photos</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-black text-white">
-<div class="max-w-md mx-auto p-4">
-<h1 class="font-black text-xl">BONGEKILE<span class="text-yellow-400">.STORE</span> ✅<br><span class="text-[10px] opacity-50">CHANCELE KZN • WORKING ON GIT</span></h1>
+<body class="bg-black text-white p-4 max-w-md mx-auto">
+<h1 class="font-black text-xl">📸 ADMIN - ADD PHOTOS<br><span class="text-[10px] opacity-50">Take photo → Save → Works on GitHub</span></h1>
 
-<div class="mt-4 bg-zinc-900 rounded-2xl p-4">
-<div id="chat" class="bg-black rounded-xl p-3 h-40 overflow-y-auto text-sm">AI: Sawubona! Ask me! 🆓</div>
-<div class="flex gap-2 mt-2"><input id="q" onkeypress="if(event.key==='Enter')ask()" placeholder="e.g. maize" class="flex-1 p-3 rounded-full bg-zinc-800 text-sm"><button onclick="ask()" class="bg-yellow-400 text-black px-4 rounded-full font-black">Ask</button></div>
+<div class="mt-6 bg-zinc-900 rounded-2xl p-4">
+<input id="name" placeholder="Product name e.g. Maize 10kg" class="w-full p-3 rounded-full bg-zinc-800 border text-sm">
+<input id="price" type="number" placeholder="Price e.g. 120" class="w-full p-3 rounded-full bg-zinc-800 border mt-2 text-sm">
+<input id="file" type="file" accept="image/*" capture="environment" class="w-full mt-3 text-sm">
+<img id="preview" class="w-full h-40 object-cover rounded-xl mt-3 hidden">
+<button onclick="save()" class="w-full bg-yellow-400 text-black py-4 rounded-full font-black mt-4">Save Product + Photo</button>
 </div>
 
-<div id="grid" class="grid grid-cols-2 gap-3 mt-6"></div>
+<div id="list" class="mt-6 space-y-3"></div>
 
-<div id="btn" onclick="document.getElementById('cart').classList.remove('hidden')" class="fixed bottom-4 right-4 bg-yellow-400 text-black px-5 py-3 rounded-full font-black">🛒 <span id="c">0</span></div>
+<button onclick="exportData()" class="w-full bg-white text-black py-4 rounded-full font-black mt-6">Export to Store (Copy to index.html)</button>
+<p id="export" class="text-[10px] mt-3 break-all bg-zinc-900 p-3 rounded-xl hidden"></p>
 
-<div id="cart" class="hidden fixed inset-0 bg-black/90 p-4"><div class="max-w-sm mx-auto bg-white text-black rounded-[24px] p-4"><div id="list"></div><p class="font-black mt-3">R<span id="t">0</span></p><button onclick="order()" class="w-full bg-black text-white py-3 rounded-full font-black mt-3">WhatsApp Order</button><button onclick="document.getElementById('cart').classList.add('hidden')" class="w-full bg-zinc-100 py-2 rounded-full mt-2">Close</button></div></div>
-</div>
+<a href="index.html" class="block text-center mt-4 text-yellow-400 font-bold">← Go to Store</a>
 
 <script>
-let products=[
-{id:1,n:"Maize 10kg",p:120,img:"https://picsum.photos/seed/maize/300/200"},
-{id:2,n:"Oil 2L",p:65,img:"https://picsum.photos/seed/oil/300/200"},
-{id:3,n:"Sugar 2.5kg",p:55,img:"https://picsum.photos/seed/sugar/300/200"},
-{id:4,n:"Eggs 30",p:95,img:"https://picsum.photos/seed/eggs/300/200"},
-{id:5,n:"Chicken 5pcs",p:110,img:"https://picsum.photos/seed/chicken/300/200"},
-{id:6,n:"Lotion",p:35,img:"https://picsum.photos/seed/lotion/300/200"},
-{id:7,n:"Braids",p:85,img:"https://picsum.photos/seed/hair/300/200"},
-{id:8,n:"Dress",p:150,img:"https://picsum.photos/seed/dress/300/200"}
-];
-let cart=JSON.parse(localStorage.getItem('c')||'[]');
+let products=JSON.parse(localStorage.getItem('myProducts')||'[]');
+let currentImg='';
 
-function render(filter=null){
- let list=filter||products;
- document.getElementById('grid').innerHTML=list.map(x=>`
- <div class="bg-zinc-900 rounded-2xl overflow-hidden">
- <img src="${x.img}" class="w-full h-28 object-cover" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(x.n)}'">
- <div class="p-3"><p class="font-bold text-sm">${x.n}</p><p class="text-yellow-400 font-black">R${x.p}</p><button onclick="add(${x.id})" class="w-full mt-2 bg-white text-black py-2 rounded-full font-black text-xs">Add</button></div>
- </div>`).join('');
- upd();
+document.getElementById('file').onchange=e=>{
+ let r=new FileReader();
+ r.onload=()=>{ currentImg=r.result; document.getElementById('preview').src=currentImg; document.getElementById('preview').classList.remove('hidden'); }
+ r.readAsDataURL(e.target.files[0]);
 }
-function add(id){ let p=products.find(a=>a.id==id); let e=cart.find(a=>a.id==id); if(e)e.q++; else cart.push({...p,q:1}); localStorage.setItem('c',JSON.stringify(cart)); upd(); }
-function upd(){
- document.getElementById('c').innerText=cart.reduce((a,b)=>a+b.q,0);
- document.getElementById('t').innerText=cart.reduce((a,b)=>a+b.p*b.q,0);
- document.getElementById('list').innerHTML=cart.map((c,i)=>`<div class="flex justify-between bg-zinc-50 p-2 rounded-xl text-sm"><span>${c.n} x${c.q}</span><b>R${c.p*c.q} <button onclick="cart.splice(${i},1);localStorage.setItem('c',JSON.stringify(cart));upd()" class="text-red-500">x</button></b></div>`).join('')||'Empty';
+
+function save(){
+ let n=document.getElementById('name').value;
+ let p=document.getElementById('price').value;
+ if(!n||!p||!currentImg) return alert('Add name, price, photo');
+ products.push({id:Date.now(),n:n,p:parseInt(p),img:currentImg});
+ localStorage.setItem('myProducts',JSON.stringify(products));
+ document.getElementById('name').value=''; document.getElementById('price').value='';
+ alert('Saved! '+n); render();
 }
-function ask(){
- let q=document.getElementById('q').value.toLowerCase(); if(!q) return;
- let found=products.filter(p=>p.n.toLowerCase().includes(q));
- document.getElementById('chat').innerHTML+=`<div class="text-yellow-400 mt-2">You: ${q}</div><div class="bg-zinc-800 p-2 rounded-xl mt-1">AI: Found ${found.length} - ${found.map(f=>f.n).join(', ')||'Try maize, oil, sugar'}</div>`;
- render(found.length?found:null);
- document.getElementById('q').value='';
+
+function render(){
+ document.getElementById('list').innerHTML=products.map((x,i)=>`
+ <div class="bg-zinc-900 rounded-xl p-3 flex gap-3">
+ <img src="${x.img}" class="w-16 h-16 rounded-xl object-cover">
+ <div><p class="font-bold text-sm">${x.n}</p><p class="text-yellow-400 font-black">R${x.p}</p>
+ <button onclick="products.splice(${i},1);localStorage.setItem('myProducts',JSON.stringify(products));render()" class="text-red-400 text-xs">Delete</button></div>
+ </div>`).join('')||'No products yet';
 }
-function order(){ let t=cart.reduce((a,b)=>a+b.p*b.q,0); window.open('https://wa.me/27784444444?text='+encodeURIComponent('Order Chancele:\n'+cart.map(c=>c.n+' x'+c.q).join('\n')+'\nTotal R'+t)); }
+function exportData(){
+ let code=JSON.stringify(products);
+ document.getElementById('export').classList.remove('hidden');
+ document.getElementById('export').innerText='COPY THIS INTO index.html:\n\nlet products='+code+';\n\nThen git push';
+ navigator.clipboard.writeText(code);
+ alert('Copied! Now paste into index.html');
+}
 render();
 </script>
 </body></html>

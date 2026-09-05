@@ -1,31 +1,115 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bongekile - Works</title>
+<title>Bongekile Admin - Easy Add</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
+<style>body{font-family:Outfit}</style>
 </head>
 <body class="bg-black text-white">
-<div class="max-w-md mx-auto p-4">
-<h1 class="font-black">BONGEKILE <span class="text-yellow-400">STORE</span></h1>
+<div class="max-w-md mx-auto min-h-screen">
 
-<button onclick="document.getElementById('admin').classList.toggle('hidden')" class="bg-zinc-800 px-4 py-2 rounded-full text-xs mt-2">⚙️ Admin - Add Photo</button>
-
-<div id="admin" class="hidden mt-4 bg-zinc-900 p-4 rounded-2xl">
-<p class="font-bold text-sm">Add Product with Camera</p>
-<input id="n" placeholder="Name" class="w-full p-3 rounded-full bg-black border mt-2 text-sm">
-<input id="p" type="number" placeholder="Price" class="w-full p-3 rounded-full bg-black border mt-2 text-sm">
-<input id="f" type="file" accept="image/*" class="mt-3 text-xs">
-<button onclick="addP()" class="w-full bg-yellow-400 text-black py-3 rounded-full font-black mt-3">Save</button>
+<!-- TOP -->
+<div class="p-4 flex justify-between items-center border-b border-zinc-800 sticky top-0 bg-black z-10">
+<h1 class="font-black leading-none">BONGEKILE<br><span class="text-yellow-400 text-sm">EASY ADMIN</span></h1>
+<button onclick="toggleAdmin()" class="bg-yellow-400 text-black px-4 py-2 rounded-full font-black text-xs">⚙️ ADMIN</button>
 </div>
 
-<div id="grid" class="grid grid-cols-2 gap-3 mt-6"></div>
+<!-- STORE VIEW -->
+<div id="storeView">
+<div class="p-4"><p class="font-black">Products <span id="countStore" class="text-yellow-400">0</span></p><div id="grid" class="grid grid-cols-2 gap-3 mt-3"></div></div>
+<div id="cartBtn" onclick="document.getElementById('cart').classList.remove('hidden')" class="fixed bottom-4 right-4 bg-yellow-400 text-black px-6 py-4 rounded-full font-black">🛒 <span id="cartCount">0</span> • R<span id="cartTotal">0</span></div>
+</div>
 
-<div id="btn" onclick="document.getElementById('cart').classList.remove('hidden')" class="fixed bottom-4 right-4 bg-yellow-400 text-black px-5 py-3 rounded-full font-black">🛒 <span id="c">0</span></div>
-<div id="cart" class="hidden fixed inset-0 bg-black/90 p-4"><div class="bg-white text-black rounded-2xl p-4 max-w-sm mx-auto"><div id="list"></div><p class="font-black mt-3">R<span id="t">0</span></p><button onclick="order()" class="w-full bg-black text-white py-3 rounded-full font-black mt-2">WhatsApp</button><button onclick="document.getElementById('cart').classList.add('hidden')" class="w-full bg-zinc-100 py-2 rounded-full mt-2">Close</button></div></div>
+<!-- ADMIN VIEW - EASY -->
+<div id="adminView" class="hidden p-4">
+<div class="bg-yellow-400 text-black rounded-2xl p-4 font-black">📸 ADD PRODUCT - SUPER EASY<br><span class="text-[11px] font-bold opacity-70">1. Type name 2. Price 3. Pick photo 4. Save</span></div>
+
+<div class="bg-zinc-900 rounded-[24px] p-5 mt-4 border border-zinc-800">
+<label class="text-xs opacity-50">Product Name *</label>
+<input id="pName" placeholder="e.g. Maize Meal 10kg" class="w-full p-4 rounded-full bg-black border border-zinc-700 mt-1 font-bold">
+<label class="text-xs opacity-50 mt-3 block">Price R *</label>
+<input id="pPrice" type="number" placeholder="e.g. 120" class="w-full p-4 rounded-full bg-black border border-zinc-700 mt-1 font-bold">
+<label class="text-xs opacity-50 mt-3 block">Photo - From Camera or Gallery *</label>
+<input id="pFile" type="file" accept="image/*" class="w-full p-3 bg-black rounded-full border mt-1 text-xs">
+<img id="preview" class="w-full h-48 object-cover rounded-2xl mt-3 hidden border-2 border-yellow-400">
+<div class="flex gap-2 mt-4">
+<button onclick="saveProduct()" class="flex-1 bg-yellow-400 text-black py-4 rounded-full font-black">✅ SAVE PRODUCT</button>
+<button onclick="clearForm()" class="bg-zinc-800 px-6 rounded-full font-bold">Clear</button>
+</div>
+<p id="status" class="text-xs mt-3 text-center opacity-50"></p>
+</div>
+
+<div class="mt-6"><p class="font-black">Your Products (<span id="adminCount">0</span>) - Click to Edit/Delete</p><div id="adminList" class="space-y-3 mt-3"></div></div>
+
+<div class="bg-zinc-900 rounded-2xl p-4 mt-6">
+<p class="font-black text-sm">📤 Make it LIVE for customers (GitHub)</p><p class="text-[11px] opacity-60 mt-1">After adding photos, click below, copy, paste into GitHub</p>
+<button onclick="showExport()" class="w-full bg-white text-black py-3 rounded-full font-black mt-3 text-sm">Copy Code for GitHub Push</button>
+<textarea id="exportBox" class="hidden w-full h-32 bg-black border rounded-xl p-3 text-[10px] mt-3"></textarea>
+</div>
+
+<button onclick="toggleAdmin()" class="w-full bg-zinc-800 py-4 rounded-full font-black mt-6">← Back to Store</button>
+</div>
+
+<!-- CART -->
+<div id="cart" class="hidden fixed inset-0 bg-black/90 z-50 p-4"><div class="bg-white text-black rounded-[24px] p-5 max-w-sm mx-auto"><h3 class="font-black">Your Cart</h3><div id="cartList" class="mt-3 space-y-2"></div><p class="font-black text-xl mt-3">Total R<span id="total">0</span></p><button onclick="orderWA()" class="w-full bg-black text-white py-3 rounded-full font-black mt-3">Order WhatsApp</button><button onclick="document.getElementById('cart').classList.add('hidden')" class="w-full bg-zinc-100 py-3 rounded-full mt-2">Close</button></div></div>
+
 </div>
 
 <script>
-let products=JSON.parse(localStorage.getItem('bongekile_v3')||'[{"id":1,"n":"Maize 10kg","p":120,"img":"https://via.placeholder.com/300x200/FFD700/000?text=Maize+R120"},{"id":2,"n":"Oil 2L","p":65,"img":"https://via.placeholder.com/300x200/FFA500/000?text=Oil+R65"},{"id":3,"n":"Sugar 2.5kg","p":55,"img":"https://via.placeholder.com/300x200/FFF/000?text=Sugar+R55"}]');
-let cart=[];
+let products=JSON.parse(localStorage.getItem('bongekile_final')||'[]');
+if(products.length===0){
+ products=[
+  {id:1,n:"Maize Meal 10kg",p:120,img:"https://via.placeholder.com/400x300/FFD700/000?text=Maize+R120"},
+  {id:2,n:"Cooking Oil 2L",p:65,img:"https://via.placeholder.com/400x300/FFA500/000?text=Oil+R65"},
+  {id:3,n:"Sugar 2.5kg",p:55,img:"https://via.placeholder.com/400x300/FFF/000?text=Sugar+R55"}
+ ];
+ save();
+}
+let cart=[]; let editId=null; let tempImg='';
+
+document.getElementById('pFile').addEventListener('change',function(e){
+ let file=e.target.files[0]; if(!file) return;
+ let reader=new FileReader();
+ reader.onload=function(ev){
+   let img=new Image();
+   img.onload=function(){
+     let canvas=document.createElement('canvas');
+     canvas.width=400; canvas.height=300;
+     let ctx=canvas.getContext('2d'); ctx.drawImage(img,0,0,400,300);
+     tempImg=canvas.toDataURL('image/jpeg',0.6);
+     document.getElementById('preview').src=tempImg;
+     document.getElementById('preview').classList.remove('hidden');
+     document.getElementById('status').innerText='Photo ready ✅ '+Math.round(tempImg.length/1000)+'KB';
+   }
+   img.src=ev.target.result;
+ }
+ reader.readAsDataURL(file);
+});
+
+function saveProduct(){
+ let name=document.getElementById('pName').value.trim();
+ let price=parseInt(document.getElementById('pPrice').value);
+ if(!name||!price){ alert('Add name and price'); return; }
+ if(!tempImg){ alert('Pick a photo first'); return; }
+ if(editId){ let idx=products.findIndex(a=>a.id===editId); products[idx]={id:editId,n:name,p:price,img:tempImg}; editId=null; }
+ else { products.push({id:Date.now(),n:name,p:price,img:tempImg}); }
+ save(); clearForm(); render(); document.getElementById('status').innerText='Saved! ✅ '+name;
+}
+function clearForm(){ document.getElementById('pName').value=''; document.getElementById('pPrice').value=''; document.getElementById('pFile').value=''; document.getElementById('preview').classList.add('hidden'); tempImg=''; editId=null; }
+function save(){ localStorage.setItem('bongekile_final',JSON.stringify(products)); }
 function render(){
- document.getElementById('grid').innerHTML=products.map(x=>`
- <div class="bg-zinc-900 rounded-2xl overflow-hidden border border
+ document.getElementById('grid').innerHTML=products.map(x=>`<div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800"><img src="${x.img}" class="w-full h-28 object-cover"><div class="p-3"><p class="font-bold text-xs">${x.n}</p><p class="text-yellow-400 font-black">R${x.p}</p><button onclick="addToCart(${x.id})" class="w-full mt-2 bg-white text-black py-2 rounded-full font-black text-xs">Add 🛒</button></div></div>`).join('');
+ document.getElementById('adminList').innerHTML=products.map((x,i)=>`<div class="bg-zinc-900 rounded-2xl p-3 flex gap-3"><img src="${x.img}" class="w-16 h-16 rounded-xl object-cover"><div class="flex-1"><p class="font-bold text-sm">${x.n}</p><p class="text-yellow-400 font-black text-sm">R${x.p}</p><div class="flex gap-2 mt-1"><button onclick="editProduct(${x.id})" class="bg-white text-black px-3 py-1 rounded-full text-[10px] font-black">Edit</button><button onclick="deleteProduct(${x.id})" class="bg-red-500 text-white px-3 py-1 rounded-full text-[10px] font-black">Delete</button></div></div></div>`).join('');
+ document.getElementById('countStore').innerText=products.length; document.getElementById('adminCount').innerText=products.length;
+ updateCart();
+}
+function editProduct(id){ let p=products.find(a=>a.id===id); document.getElementById('pName').value=p.n; document.getElementById('pPrice').value=p.p; document.getElementById('preview').src=p.img; document.getElementById('preview').classList.remove('hidden'); tempImg=p.img; editId=id; window.scrollTo(0,0); document.getElementById('status').innerText='Editing: '+p.n; }
+function deleteProduct(id){ if(confirm('Delete?')){ products=products.filter(a=>a.id!==id); save(); render(); } }
+function addToCart(id){ let p=products.find(a=>a.id===id); let ex=cart.find(a=>a.id===id); if(ex)ex.q++; else cart.push({...p,q:1}); updateCart(); }
+function updateCart(){ document.getElementById('cartCount').innerText=cart.reduce((a,b)=>a+b.q,0); document.getElementById('cartTotal').innerText=cart.reduce((a,b)=>a+b.p*b.q,0); document.getElementById('total').innerText=cart.reduce((a,b)=>a+b.p*b.q,0); document.getElementById('cartList').innerHTML=cart.map((c,i)=>`<div class="flex justify-between bg-zinc-100 p-2 rounded-xl text-sm"><span>${c.n} x${c.q}</span><b>R${c.p*c.q} <button onclick="cart.splice(${i},1);updateCart()" class="text-red-500">x</button></b></div>`).join('')||'Empty'; }
+function toggleAdmin(){ document.getElementById('adminView').classList.toggle('hidden'); document.getElementById('storeView').classList.toggle('hidden'); }
+function showExport(){ let box=document.getElementById('exportBox'); box.classList.remove('hidden'); box.value="let products="+JSON.stringify(products)+";"; box.select(); document.execCommand('copy'); alert('Copied! Paste into GitHub index.html to make LIVE for all'); }
+function orderWA(){ let t=cart.reduce((a,b)=>a+b.p*b.q,0); window.open('https://wa.me/27784444444?text='+encodeURIComponent('Order Bongekile:\n'+cart.map(c=>c.n+' x'+c.q).join('\n')+'\nTotal R'+t)); }
+render();
+</script>
+</body></html>

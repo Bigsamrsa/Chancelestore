@@ -1,39 +1,104 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bongekile Store - 066 189 8133</title>
+<title>CHANCELE ONLINE STORE - 066 189 8133</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{font-family:system-ui}
+@keyframes shine{0%{background-position:-600px 0}100%{background-position:600px 0}}
+.gold-shine{font-size:52px;font-weight:900;text-align:center;background:black;padding:30px 10px 20px;font-family:Impact, sans-serif;letter-spacing:1px;line-height:0.85;border-bottom:2px solid #FFD700}
+.gold-text{background:linear-gradient(90deg,#8A6D3B 0%,#FFD700 20%,#FFF8DC 40%,#FFD700 60%,#8A6D3B 100%);background-size:1000px 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shine 3s infinite linear;display:block;text-shadow:0 0 30px rgba(255,215,0,0.6);filter:drop-shadow(0 2px 8px gold)}
+.small-gold{font-size:11px;letter-spacing:3px;color:#FFD700;display:block;margin-top:10px;font-family:system-ui;font-weight:700}
+</style>
 </head>
 <body class="bg-black text-white">
-<div class="max-w-md mx-auto">
-<div class="p-4 flex justify-between sticky top-0 bg-black border-b border-zinc-800"><h1 class="font-black">BONGEKILE<span class="text-yellow-400">.STORE</span><br><span class="text-[9px] opacity-50">WhatsApp 066 189 8133 • Chancele</span></h1><button onclick="document.getElementById('adminView').classList.toggle('hidden');document.getElementById('storeView').classList.toggle('hidden')" class="bg-yellow-400 text-black px-3 py-2 rounded-full font-black text-xs">⚙️ ADMIN</button></div>
+<div class="max-w-md mx-auto min-h-screen">
 
+<!-- ANIMATED GOLD TITLE -->
+<div class="gold-shine">
+<span style="font-size:14px;color:#FFD700;letter-spacing:2px;font-family:system-ui;font-weight:700;display:block;margin-bottom:8px;opacity:0.9">Code Chancele online store</span>
+<span class="gold-text">CHANCELE<br>ONLINE STORE</span>
+<span class="small-gold">PREMIUM • AFRICAN • 066 189 8133 • CHANCELE</span>
+</div>
+
+<div class="p-3 flex justify-between items-center bg-zinc-900">
+<p class="font-black text-xs">BONGEKILE STORE • <span class="text-yellow-400">LIVE</span></p>
+<button onclick="toggleAdmin()" class="bg-yellow-400 text-black px-3 py-2 rounded-full font-black text-[10px]">⚙️ ADMIN</button>
+</div>
+
+<!-- STORE VIEW -->
 <div id="storeView">
-<div class="m-4 bg-zinc-900 rounded-2xl p-3"><div id="chat" class="bg-black rounded-xl p-3 h-28 overflow-y-auto text-xs">AI: Sawubona! Ask "Yini eshibhile?" 🆓</div><div class="flex gap-2 mt-2"><input id="q" onkeypress="if(event.key==='Enter')askAI()" placeholder="Ask..." class="flex-1 p-3 rounded-full bg-zinc-800 text-xs"><button onclick="askAI()" class="bg-yellow-400 text-black px-4 rounded-full font-black text-xs">Ask</button></div></div>
-<div class="px-4 flex gap-2 overflow-x-auto text-[10px]"><button onclick="filterCat('all')" class="bg-yellow-400 text-black px-3 py-1 rounded-full font-black">All</button><button onclick="filterCat('food')" class="bg-zinc-800 px-3 py-1 rounded-full">Food</button><button onclick="filterCat('beauty')" class="bg-zinc-800 px-3 py-1 rounded-full">Beauty</button><button onclick="filterCat('clothes')" class="bg-zinc-800 px-3 py-1 rounded-full">Clothes</button></div>
-<div id="grid" class="grid grid-cols-2 gap-3 p-4"></div>
-<div id="cartBtn" onclick="document.getElementById('cart').classList.remove('hidden')" class="fixed bottom-4 right-4 bg-yellow-400 text-black px-5 py-3 rounded-full font-black">🛒 <span id="cartCount">0</span></div>
+<div class="m-3 bg-zinc-900 rounded-2xl p-3 border border-yellow-500/20">
+<p class="font-black text-[10px]">🧠 FREE AI - Ask in Zulu</p>
+<div id="chat" class="bg-black rounded-xl p-3 h-24 overflow-y-auto text-[11px] mt-2">AI: Sawubona! Try "Yini eshibhile?" or "Dinner R150"</div>
+<div class="flex gap-2 mt-2"><input id="q" onkeypress="if(event.key==='Enter')askAI()" placeholder="Ask AI..." class="flex-1 p-3 rounded-full bg-black border text-xs"><button onclick="askAI()" class="bg-yellow-400 text-black px-4 rounded-full font-black text-xs">Ask</button></div>
 </div>
 
-<div id="adminView" class="hidden p-4">
-<div class="bg-zinc-900 rounded-2xl p-4"><input id="pName" placeholder="Name" class="w-full p-3 rounded-full bg-black border text-sm"><input id="pPrice" type="number" placeholder="Price" class="w-full p-3 rounded-full bg-black border mt-2 text-sm"><input id="pStock" type="number" value="10" placeholder="Stock" class="w-full p-3 rounded-full bg-black border mt-2 text-sm"><select id="pCat" class="w-full p-3 rounded-full bg-black border mt-2 text-sm"><option value="food">Food</option><option value="beauty">Beauty</option><option value="clothes">Clothes</option><option value="house">House</option></select><input id="pFile" type="file" accept="image/*" class="w-full mt-2 text-xs"><img id="preview" class="hidden w-full h-40 object-cover rounded-xl mt-2 border-2 border-yellow-400"><button onclick="saveProduct()" class="w-full bg-yellow-400 text-black py-3 rounded-full font-black mt-3">✅ SAVE PRODUCT</button><div id="adminList" class="mt-4 space-y-2"></div><button onclick="document.getElementById('adminView').classList.add('hidden');document.getElementById('storeView').classList.remove('hidden')" class="w-full bg-zinc-800 py-3 rounded-full font-black mt-4">Back</button></div>
+<div class="px-3 flex gap-2 overflow-x-auto text-[10px]"><button onclick="filterCat('all')" id="f-all" class="bg-yellow-400 text-black px-3 py-1 rounded-full font-black">All</button><button onclick="filterCat('food')" id="f-food" class="bg-zinc-800 px-3 py-1 rounded-full">🍚 Food</button><button onclick="filterCat('beauty')" id="f-beauty" class="bg-zinc-800 px-3 py-1 rounded-full">💄 Beauty</button><button onclick="filterCat('clothes')" id="f-clothes" class="bg-zinc-800 px-3 py-1 rounded-full">👗 Clothes</button><button onclick="filterCat('house')" id="f-house" class="bg-zinc-800 px-3 py-1 rounded-full">🏠 House</button></div>
+
+<div id="grid" class="grid grid-cols-2 gap-3 p-3"></div>
+<div id="cartBtn" onclick="document.getElementById('cart').classList.remove('hidden')" class="fixed bottom-4 right-4 bg-yellow-400 text-black px-6 py-4 rounded-full font-black shadow-2xl z-30">🛒 <span id="cartCount">0</span> • R<span id="cartTotal">0</span></div>
 </div>
 
-<div id="cart" class="hidden fixed inset-0 bg-black/90 p-4 z-50"><div class="bg-white text-black rounded-2xl p-4 max-w-sm mx-auto"><div id="cartList"></div><p class="font-black mt-2">R<span id="total">0</span></p><button onclick="orderWA()" class="w-full bg-black text-white py-3 rounded-full font-black mt-2">Order via WhatsApp 066 189 8133</button><button onclick="document.getElementById('cart').classList.add('hidden')" class="w-full bg-zinc-100 py-2 rounded-full mt-2">Close</button></div></div>
+<!-- ADMIN VIEW -->
+<div id="adminView" class="hidden p-3">
+<div class="bg-yellow-400 text-black rounded-2xl p-4 font-black">📸 ADD PRODUCT - EASY<br><span class="text-[11px]">Name, Price, Stock, Photo</span></div>
+<div class="bg-zinc-900 rounded-2xl p-4 mt-3 border border-zinc-800">
+<input id="pName" placeholder="Name e.g. Maize 10kg" class="w-full p-3 rounded-full bg-black border border-zinc-700 text-sm">
+<input id="pPrice" type="number" placeholder="Price e.g. 120" class="w-full p-3 rounded-full bg-black border border-zinc-700 mt-2 text-sm">
+<input id="pStock" type="number" placeholder="Stock e.g. 20" value="10" class="w-full p-3 rounded-full bg-black border border-zinc-700 mt-2 text-sm">
+<select id="pCat" class="w-full p-3 rounded-full bg-black border border-zinc-700 mt-2 text-sm"><option value="food">🍚 Food</option><option value="beauty">💄 Beauty</option><option value="clothes">👗 Clothes</option><option value="house">🏠 House</option></select>
+<input id="pFile" type="file" accept="image/*" capture="environment" class="w-full p-2 bg-black rounded-full border border-zinc-700 mt-2 text-xs">
+<img id="preview" class="hidden w-full h-48 object-cover rounded-xl mt-3 border-2 border-yellow-400">
+<button onclick="saveProduct()" class="w-full bg-yellow-400 text-black py-4 rounded-full font-black mt-3">✅ SAVE PRODUCT</button>
+<p id="status" class="text-xs text-center mt-2 opacity-60"></p>
 </div>
+<div id="adminList" class="mt-4 space-y-2"></div>
+<button onclick="toggleAdmin()" class="w-full bg-zinc-800 py-4 rounded-full font-black mt-6">← Back to Store</button>
+</div>
+
+<!-- CART -->
+<div id="cart" class="hidden fixed inset-0 bg-black/90 z-50 p-4"><div class="bg-white text-black rounded-[24px] p-5 max-w-sm mx-auto"><h3 class="font-black">Your Order</h3><div id="cartList" class="mt-3 space-y-2"></div><p class="font-black text-xl mt-3">Total R<span id="total">0</span></p><button onclick="orderWA()" class="w-full bg-black text-white py-4 rounded-full font-black mt-3">📲 Order WhatsApp 066 189 8133</button><button onclick="document.getElementById('cart').classList.add('hidden')" class="w-full bg-zinc-100 py-3 rounded-full mt-2 font-bold">Close</button></div></div>
+
+</div>
+
 <script>
 const WA_NUMBER="27661898133";
-let products=JSON.parse(localStorage.getItem('bongekile_wa')||'[]'); if(!products.length) products=[{id:1,n:"Maize 10kg",p:120,s:15,c:"food",img:"https://via.placeholder.com/300x200/FFD700/000?text=Maize"},{id:2,n:"Oil 2L",p:65,s:8,c:"food",img:"https://via.placeholder.com/300x200/FFA500/000?text=Oil"},{id:3,n:"Sugar",p:55,s:20,c:"food",img:"https://via.placeholder.com/300x200/FFF/000?text=Sugar"}];
+let products=JSON.parse(localStorage.getItem('bongekile_full')||'null');
+if(!products){
+ products=[
+  {id:1,n:"Maize Meal 10kg",p:120,s:15,c:"food",img:"https://via.placeholder.com/400x300/FFD700/000?text=Maize+R120"},
+  {id:2,n:"Cooking Oil 2L",p:65,s:8,c:"food",img:"https://via.placeholder.com/400x300/FFA500/000?text=Oil+R65"},
+  {id:3,n:"Sugar 2.5kg",p:55,s:20,c:"food",img:"https://via.placeholder.com/400x300/FFF/000?text=Sugar+R55"},
+  {id:4,n:"Body Lotion",p:35,s:12,c:"beauty",img:"https://via.placeholder.com/400x300/FFB6C1/000?text=Lotion+R35"}
+ ];
+ localStorage.setItem('bongekile_full',JSON.stringify(products));
+}
 let cart=[],tempImg='',editId=null,curFilter='all';
-document.getElementById('pFile').addEventListener('change',e=>{let f=e.target.files[0]; if(!f)return; let r=new FileReader(); r.onload=ev=>{let im=new Image(); im.onload=()=>{let ca=document.createElement('canvas'); ca.width=400; ca.height=300; ca.getContext('2d').drawImage(im,0,0,400,300); tempImg=ca.toDataURL('image/jpeg',0.6); document.getElementById('preview').src=tempImg; document.getElementById('preview').classList.remove('hidden');}; im.src=ev.target.result;}; r.readAsDataURL(f);});
-function saveProduct(){let n=document.getElementById('pName').value.trim(),p=parseInt(document.getElementById('pPrice').value),s=parseInt(document.getElementById('pStock').value)||10,c=document.getElementById('pCat').value; if(!n||!p)return alert('Name+Price'); if(!tempImg)return alert('Pick photo'); if(editId){let i=products.findIndex(a=>a.id===editId); products[i]={id:editId,n:n,p:p,s:s,c:c,img:tempImg}; editId=null;} else products.push({id:Date.now(),n:n,p:p,s:s,c:c,img:tempImg}); localStorage.setItem('bongekile_wa',JSON.stringify(products)); document.getElementById('pName').value=''; document.getElementById('pPrice').value=''; render();}
-function render(){let list=curFilter==='all'?products:products.filter(a=>a.c===curFilter); document.getElementById('grid').innerHTML=list.map(x=>`<div class="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800"><img src="${x.img}" class="w-full h-24 object-cover"><div class="p-2"><p class="font-bold text-xs">${x.n}</p><p class="text-yellow-400 font-black text-xs">R${x.p} <span class="text-[9px] opacity-50">${x.s} left</span></p><button onclick="addCart(${x.id})" class="w-full mt-1 bg-white text-black py-1 rounded-full font-black text-xs">Add</button></div></div>`).join(''); document.getElementById('adminList').innerHTML=products.map(x=>`<div class="bg-zinc-900 rounded-xl p-2 flex gap-2"><img src="${x.img}" class="w-12 h-12 rounded object-cover"><div><p class="font-bold text-xs">${x.n} R${x.p}</p><button onclick="editP(${x.id})" class="bg-white text-black px-2 py-1 rounded-full text-[9px]">Edit</button><button onclick="delP(${x.id})" class="bg-red-500 text-white px-2 py-1 rounded-full text-[9px] ml-1">Del</button></div></div>`).join(''); updateCart();}
-function editP(id){let p=products.find(a=>a.id===id); document.getElementById('pName').value=p.n; document.getElementById('pPrice').value=p.p; document.getElementById('pStock').value=p.s; document.getElementById('pCat').value=p.c; document.getElementById('preview').src=p.img; document.getElementById('preview').classList.remove('hidden'); tempImg=p.img; editId=id;}
-function delP(id){if(confirm('Delete?')){products=products.filter(a=>a.id!==id); localStorage.setItem('bongekile_wa',JSON.stringify(products)); render();}}
-function addCart(id){let p=products.find(a=>a.id===id); let ex=cart.find(a=>a.id===id); if(ex)ex.q++; else cart.push({...p,q:1}); updateCart();}
-function updateCart(){document.getElementById('cartCount').innerText=cart.reduce((a,b)=>a+b.q,0); document.getElementById('total').innerText=cart.reduce((a,b)=>a+b.p*b.q,0); document.getElementById('cartList').innerHTML=cart.map((c,i)=>`<div class="flex justify-between text-sm bg-zinc-100 p-2 rounded-xl"><span>${c.n} x${c.q}</span><b>R${c.p*c.q} <button onclick="cart.splice(${i},1);updateCart()" class="text-red-500">x</button></b></div>`).join('')||'Empty';}
-function filterCat(c){curFilter=c; render();}
-function askAI(){let q=document.getElementById('q').value.toLowerCase(); if(!q)return; let chat=document.getElementById('chat'); chat.innerHTML+=`<div class="text-yellow-400">You: ${q}</div>`; let f=products.filter(p=>p.n.toLowerCase().includes(q)||p.c.includes(q)); let reply=f.length?f.map(p=>p.n+' R'+p.p).join('<br>'):'Try maize, oil, sugar'; chat.innerHTML+=`<div class="bg-zinc-800 p-2 rounded-xl mt-1">AI: ${reply}</div>`; document.getElementById('q').value='';}
-function orderWA(){let t=cart.reduce((a,b)=>a+b.p*b.q,0); window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent('Sawubona Bongekile! Order from Chancele:\n'+cart.map(c=>c.n+' x'+c.q+' R'+c.p*c.q).join('\n')+'\nTotal R'+t+'\n\nDeliver to: '));}
-render();
-</script>
-</body></html>
+
+document.getElementById('pFile').addEventListener('change',e=>{
+ let file=e.target.files[0]; if(!file) return;
+ let r=new FileReader(); r.onload=ev=>{
+   let im=new Image(); im.onload=()=>{
+     let ca=document.createElement('canvas'); ca.width=400; ca.height=300; ca.getContext('2d').drawImage(im,0,0,400,300);
+     tempImg=ca.toDataURL('image/jpeg',0.6);
+     let pre=document.getElementById('preview'); pre.src=tempImg; pre.classList.remove('hidden');
+     document.getElementById('status').innerText='Photo ready ✅ '+Math.round(tempImg.length/1000)+'KB';
+   }; im.src=ev.target.result;
+ }; r.readAsDataURL(file);
+});
+
+function saveProduct(){
+ let n=document.getElementById('pName').value.trim();
+ let p=parseInt(document.getElementById('pPrice').value);
+ let s=parseInt(document.getElementById('pStock').value)||10;
+ let c=document.getElementById('pCat').value;
+ if(!n||!p) return alert('Add name + price');
+ if(!tempImg) return alert('Pick photo - Camera/Gallery');
+ if(editId){ let i=products.findIndex(a=>a.id===editId); products[i]={id:editId,n:n,p:p,s:s,c:c,img:tempImg}; editId=null; }
+ else products.push({id:Date.now(),n:n,p:p,s:s,c:c,img:tempImg});
+ localStorage.setItem('bongekile_full',JSON.stringify(products));
+ document.getElementById('pName').value=''; document.getElementById('pPrice').value=''; document.getElementById('pStock').value='10'; document.getElementById('pFile').value=''; document.getElementById('preview').classList.add('hidden'); tempImg='';
+ render(); document.getElementById('status').innerText='Saved! ✅ '+n;
+}
+function render(){
+ let list=curFilter==='all'?products:products.filter(a=>a.c===

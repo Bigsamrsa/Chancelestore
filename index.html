@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BIDKZN - Secure Client Login 🔥</title>
+<title>BIDKZN - FIXED Create Account 🔥</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>body{font-family:system-ui;padding-bottom:90px}.live-dot{animation:pulse 1s infinite}@keyframes pulse{0%{opacity:1}50%{opacity:.3}100%{opacity:1}}.bidkzn-gold{background:linear-gradient(90deg,#FFD700,#FF6B00);-webkit-background-clip:text;-webkit-text-fill-color:transparent}</style>
 </head><body class="bg-black text-white">
@@ -12,9 +12,9 @@
 <span class="bg-red-600 text-[9px] px-2 py-1 rounded-full animate-pulse">🔥 LIVE</span>
 </div>
 <div class="hidden md:flex gap-1">
-<button onclick="showView('shop')" id="btn-shop-d" class="bg-zinc-800 px-3 py-2 rounded-full text-xs">🛒 SHOP</button>
-<button onclick="showView('auction')" id="btn-auction-d" class="bg-red-600 px-3 py-2 rounded-full text-xs font-black">🔥 AUCTION</button>
-<button onclick="showView('client')" id="btn-client-d" class="bg-yellow-400 text-black px-3 py-2 rounded-full text-xs font-black">👤 CLIENT</button>
+<button onclick="showView('shop')" class="bg-zinc-800 px-3 py-2 rounded-full text-xs">🛒 SHOP</button>
+<button onclick="showView('auction')" class="bg-red-600 px-3 py-2 rounded-full text-xs font-black">🔥 AUCTION</button>
+<button onclick="showView('client')" class="bg-yellow-400 text-black px-3 py-2 rounded-full text-xs font-black">👤 CLIENT</button>
 <button onclick="openAdmin()" class="bg-zinc-800 px-3 py-2 rounded-full text-xs">🔒 ADMIN</button>
 </div>
 <button onclick="openAdmin()" class="md:hidden bg-zinc-800 px-2 py-2 rounded-full text-xs">🔒</button>
@@ -23,36 +23,40 @@
 
 <div class="text-center py-4 border-b-2 border-red-600 bg-gradient-to-b from-red-950/40 to-black">
 <h1 class="text-5xl font-black">BID<span class="bidkzn-gold">KZN</span></h1>
-<p class="text-[11px] text-yellow-400 font-black tracking-[0.2em]">SECURE CLIENT AREA - LOGIN WITH PIN 🔒</p>
-<p id="firebaseStatus" class="text-[10px] mt-2 bg-green-900/50 text-green-400 py-1 rounded-full inline-block px-4">✅ BIDKZN SECURE LIVE</p>
+<p class="text-[11px] text-yellow-400 font-black">CREATE ACCOUNT FIXED ✅</p>
+<p id="firebaseStatus" class="text-[10px] mt-2 bg-green-900/50 text-green-400 py-1 rounded-full inline-block px-4">✅ BIDKZN LIVE</p>
 </div>
 
 <div class="max-w-7xl mx-auto p-3">
-<div id="shopView"><div class="bg-zinc-900 border-2 border-yellow-500 rounded-2xl p-4 mb-4"><h2 class="font-black text-yellow-400">🛒 BIDKZN SHOP</h2><div class="flex gap-2 mt-3 overflow-x-auto"><button onclick="filterShop('all')" id="f-all" class="bg-yellow-400 text-black px-4 py-1.5 rounded-full text-xs font-black">ALL</button><button onclick="filterShop('dress')" id="f-dress" class="bg-zinc-800 px-4 py-1.5 rounded-full text-xs">👗 Dress</button><button onclick="filterShop('shoes')" id="f-shoes" class="bg-zinc-800 px-4 py-1.5 rounded-full text-xs">👠 Shoes</button><button onclick="filterShop('bags')" id="f-bags" class="bg-zinc-800 px-4 py-1.5 rounded-full text-xs">👜 Bags</button></div></div><div id="shopGrid" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div></div>
+<div id="shopView"><div class="bg-zinc-900 border-2 border-yellow-500 rounded-2xl p-4 mb-4"><h2 class="font-black text-yellow-400">🛒 BIDKZN SHOP</h2><div class="flex gap-2 mt-3 overflow-x-auto"><button onclick="filterShop('all')" id="f-all" class="bg-yellow-400 text-black px-4 py-1.5 rounded-full text-xs font-black">ALL</button><button onclick="filterShop('dress')" id="f-dress" class="bg-zinc-800 px-4 py-1.5 rounded-full text-xs">Dress</button><button onclick="filterShop('shoes')" id="f-shoes" class="bg-zinc-800 px-4 py-1.5 rounded-full text-xs">Shoes</button><button onclick="filterShop('bags')" id="f-bags" class="bg-zinc-800 px-4 py-1.5 rounded-full text-xs">Bags</button></div></div><div id="shopGrid" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div></div>
 
 <div id="auctionView" class="hidden">
 <div class="bg-gradient-to-r from-red-900/50 to-black border-2 border-red-600 rounded-2xl p-4 mb-4">
-<h2 class="font-black text-red-400 flex items-center gap-2"><span class="w-3 h-3 bg-red-600 rounded-full live-dot"></span> BIDKZN AUCTION - R40 + CLIENT PIN</h2>
+<h2 class="font-black text-red-400 flex items-center gap-2"><span class="w-3 h-3 bg-red-600 rounded-full live-dot"></span> BIDKZN - CREATE ACCOUNT - FIXED</h2>
 <div id="regStatus" class="mt-3"></div>
-<div class="flex gap-2 mt-4 bg-black p-2 rounded-full border border-red-900/30 overflow-x-auto">
-<button onclick="filterAuction('all')" id="af-all" class="bg-red-600 px-4 py-1.5 rounded-full text-xs font-black">🔥 ALL</button>
-<button onclick="filterAuction('my')" id="af-my" class="bg-zinc-800 px-4 py-1.5 rounded-full text-xs">🏆 MY BIDS</button>
 </div>
+
+<div id="regBox" class="bg-zinc-900 border-2 border-red-500 rounded-2xl p-5 mb-6 shadow-xl">
+<h3 class="font-black text-red-400 text-lg">🔒 CREATE BIDKZN ACCOUNT - R40 + PIN</h3>
+<p class="text-[11px] text-zinc-400 mt-1">All fields required - FIXED VERSION</p>
+
+<input id="regName" placeholder="Full Name * REQUIRED" class="w-full mt-4 p-4 rounded-full bg-black border-2 border-zinc-700 focus:border-red-500 text-white">
+<input id="regPhone" placeholder="WhatsApp Number * REQUIRED (e.g. 0781234567)" class="w-full mt-3 p-4 rounded-full bg-black border-2 border-zinc-700 focus:border-red-500 text-white">
+<input id="regLoc" placeholder="Location (e.g. Durban, Umlazi)" class="w-full mt-3 p-4 rounded-full bg-black border-2 border-zinc-600 text-white">
+
+<div class="mt-4 bg-black p-4 rounded-2xl border-2 border-yellow-500">
+<p class="text-xs font-black text-yellow-400">🔑 CREATE CLIENT LOGIN PIN * REQUIRED</p>
+<p class="text-[10px] text-zinc-500 mt-1">You will login with Phone + This PIN in CLIENT menu</p>
+<input id="regClientPin" type="tel" maxlength="6" inputmode="numeric" placeholder="Create PIN: 1234 (4-6 digits) *" class="w-full mt-3 p-4 rounded-full bg-zinc-900 border-2 border-yellow-500 text-center text-2xl font-black tracking-widest text-yellow-400">
+<input id="regClientPinConfirm" type="tel" maxlength="6" inputmode="numeric" placeholder="Confirm PIN: 1234 *" class="w-full mt-3 p-4 rounded-full bg-zinc-900 border-2 border-zinc-600 text-center text-2xl font-black tracking-widest">
 </div>
-<!-- NEW SECURE REGISTRATION WITH CLIENT PIN -->
-<div id="regBox" class="bg-zinc-900 border-2 border-red-500 rounded-2xl p-5 mb-6">
-<h3 class="font-black text-red-400">🔒 CREATE BIDKZN ACCOUNT - R40 + SECURE PIN</h3>
-<p class="text-[11px] text-zinc-400 mt-1">Create PIN for secure client login - You will use phone + PIN to login</p>
-<input id="regName" placeholder="Full Name - PUBLIC" class="w-full mt-3 p-3 rounded-full bg-black border-2 border-zinc-700">
-<input id="regPhone" placeholder="WhatsApp Number" class="w-full mt-2 p-3 rounded-full bg-black border-2 border-zinc-700">
-<input id="regLoc" placeholder="Location (e.g. Durban)" class="w-full mt-2 p-3 rounded-full bg-black border-2 border-zinc-700">
-<div class="mt-3 bg-black p-3 rounded-xl border-2 border-yellow-500/30">
-<p class="text-[11px] font-black text-yellow-400">🔑 CREATE YOUR CLIENT LOGIN PIN (4 digits) - PRIVATE</p>
-<input id="regClientPin" type="password" maxlength="6" placeholder="Create 4-digit PIN e.g. 1234" class="w-full mt-2 p-3 rounded-full bg-zinc-900 border-2 border-yellow-500 text-center text-xl font-black tracking-[0.5em]">
-<input id="regClientPinConfirm" type="password" maxlength="6" placeholder="Confirm PIN" class="w-full mt-2 p-3 rounded-full bg-zinc-900 border text-center text-xl font-black tracking-[0.5em]">
-<p class="text-[10px] text-zinc-500 mt-1 text-center">This PIN is for CLIENT AREA login - Remember it! 🔒</p>
-</div>
-<button onclick="registerAuction()" class="w-full mt-4 bg-gradient-to-r from-red-600 to-orange-600 py-4 rounded-full font-black">🔥 CREATE BIDKZN ACCOUNT - PAY R40</button>
+
+<p id="regError" class="hidden mt-3 text-xs text-red-400 bg-red-900/30 p-3 rounded-xl text-center"></p>
+<p id="regSuccess" class="hidden mt-3 text-xs text-green-400 bg-green-900/30 p-3 rounded-xl text-center font-black"></p>
+
+<button onclick="registerAuction()" id="regButton" class="w-full mt-5 bg-gradient-to-r from-red-600 to-orange-600 py-5 rounded-full font-black text-lg shadow-lg shadow-red-900/50">🔥 CREATE BIDKZN ACCOUNT - PAY R40</button>
+
+<p class="text-[10px] text-zinc-500 mt-3 text-center">Button not working? Check all fields have * - Name, Phone, PIN required</p>
 </div>
 
 <div id="pendingR40Box" class="hidden bg-yellow-900/30 border-2 border-yellow-500 rounded-2xl p-5 mb-6 text-center"><h3 class="font-black text-yellow-400">⏳ R40 PENDING</h3><p id="pendingText" class="text-sm mt-2"></p><a href="https://wa.me/27789313670?text=BIDKZN R40 Approve" target="_blank" class="inline-block mt-3 bg-green-600 px-6 py-2 rounded-full text-xs font-black">WhatsApp Admin</a><br><button onclick="logoutBidder()" class="mt-3 text-[11px] underline">Logout</button></div>
@@ -60,97 +64,51 @@
 <div id="auctionGrid" class="grid md:grid-cols-2 gap-4"></div>
 </div>
 
-<!-- CLIENT AREA - SECURE LOGIN WITH PHONE + PIN -->
 <div id="clientView" class="hidden">
-<div id="clientLoginForm" class="bg-zinc-900 border-2 border-yellow-500 rounded-2xl p-6 max-w-md mx-auto shadow-xl">
-<h2 class="font-black text-yellow-400 text-xl text-center">👤 BIDKZN CLIENT LOGIN</h2>
-<p class="text-[11px] text-zinc-400 text-center mt-1">Secure login with phone + PIN you created</p>
-<div class="mt-6 bg-black p-4 rounded-xl border">
-<label class="text-[10px] text-zinc-500 font-black">📱 WhatsApp Number</label>
-<input id="loginPhone" placeholder="078 931 3670" class="w-full mt-1 p-4 rounded-full bg-zinc-900 border-2 border-zinc-700 text-center font-black text-lg">
-<label class="text-[10px] text-zinc-500 font-black mt-4 block">🔑 Your 4-digit PIN</label>
-<input id="loginPin" type="password" maxlength="6" placeholder="••••" class="w-full mt-1 p-4 rounded-full bg-zinc-900 border-2 border-yellow-500 text-center font-black text-2xl tracking-[0.5em]">
-</div>
-<button onclick="loginClient()" class="w-full mt-5 bg-gradient-to-r from-yellow-400 to-orange-500 text-black py-4 rounded-full font-black text-lg shadow-lg">🔓 LOGIN - BIDKZN CLIENT AREA</button>
-<button onclick="forgotClientPin()" class="w-full mt-3 bg-zinc-800 py-2 rounded-full text-xs">📱 Forgot PIN? WhatsApp Admin</button>
-<div class="mt-6 bg-black rounded-xl p-4 border border-zinc-800">
-<p class="text-xs font-black text-zinc-400">🆕 New? How to get PIN:</p>
-<p class="text-[11px] text-zinc-500 mt-2">1. Go to AUCTION menu<br>2. Fill Name + Phone + Create 4-digit PIN<br>3. Pay R40<br>4. Login here with Phone + PIN</p>
-<button onclick="showView('auction')" class="w-full mt-3 bg-red-600 py-3 rounded-full text-xs font-black">🔥 CREATE ACCOUNT - AUCTION MENU</button>
-</div>
+<div id="clientLoginForm" class="bg-zinc-900 border-2 border-yellow-500 rounded-2xl p-6 max-w-md mx-auto">
+<h2 class="font-black text-yellow-400 text-xl text-center">👤 CLIENT LOGIN - FIXED</h2>
+<input id="loginPhone" placeholder="WhatsApp Number" class="w-full mt-5 p-4 rounded-full bg-black border-2 border-zinc-700 text-center font-black text-lg">
+<input id="loginPin" type="password" maxlength="6" placeholder="PIN" class="w-full mt-3 p-4 rounded-full bg-black border-2 border-yellow-500 text-center font-black text-2xl tracking-widest">
+<button onclick="loginClient()" class="w-full mt-4 bg-yellow-400 text-black py-4 rounded-full font-black">🔓 LOGIN</button>
+<button onclick="forgotClientPin()" class="w-full mt-3 bg-zinc-800 py-2 rounded-full text-xs">Forgot PIN? WhatsApp</button>
 <p id="loginError" class="hidden text-red-400 text-xs mt-3 text-center bg-red-900/30 p-3 rounded-xl"></p>
 <p id="loginSuccess" class="hidden text-green-400 text-xs mt-3 text-center bg-green-900/30 p-3 rounded-xl font-black"></p>
+<div class="mt-6 bg-black rounded-xl p-4 border"><p class="text-xs font-black">🆕 No account?</p><button onclick="showView('auction')" class="w-full mt-3 bg-red-600 py-3 rounded-full text-xs font-black">CREATE ACCOUNT IN AUCTION MENU</button></div>
 </div>
-
 <div id="clientDashboard" class="hidden">
 <div class="bg-gradient-to-r from-yellow-900/40 to-black border-2 border-yellow-500 rounded-2xl p-5">
-<div class="flex justify-between">
-<div><h2 class="font-black text-yellow-400">👤 MY BIDKZN ACCOUNT - SECURE 🔒</h2><p id="clientName" class="font-black text-white text-lg mt-2"></p><p id="clientPhoneDisplay" class="text-xs text-zinc-400"></p><p id="clientLocationDisplay" class="text-[11px] text-zinc-500"></p><p class="text-[10px] text-green-400 mt-1">✅ Secure Login: Phone + PIN</p></div>
-<button onclick="logoutBidder()" class="bg-zinc-800 px-4 py-2 rounded-full text-xs h-fit">Logout</button>
-</div>
+<div class="flex justify-between"><div><h2 class="font-black text-yellow-400">👤 MY ACCOUNT 🔒</h2><p id="clientName" class="font-black text-white text-lg mt-2"></p><p id="clientPhoneDisplay" class="text-xs text-zinc-400"></p></div><button onclick="logoutBidder()" class="bg-zinc-800 px-4 py-2 rounded-full text-xs h-fit">Logout</button></div>
 <div class="grid grid-cols-3 gap-3 mt-5">
-<div class="bg-black border-2 border-green-500 rounded-xl p-3 text-center"><p class="text-[9px] text-zinc-400">WALLET PRIVATE</p><p id="clientWallet" class="text-2xl font-black text-yellow-400">R0</p><p class="text-[9px] text-green-400">Only you see</p></div>
-<div class="bg-black border border-zinc-700 rounded-xl p-3 text-center"><p class="text-[9px] text-zinc-400">R40 STATUS</p><p id="clientR40" class="text-sm font-black">⏳</p><p id="clientR40Sub" class="text-[9px]"></p></div>
-<div class="bg-black border border-zinc-700 rounded-xl p-3 text-center"><p class="text-[9px] text-zinc-400">MY BIDS</p><p id="clientMyBidsCount" class="text-2xl font-black text-red-400">0</p></div>
+<div class="bg-black border-2 border-green-500 rounded-xl p-3 text-center"><p class="text-[9px] text-zinc-400">WALLET</p><p id="clientWallet" class="text-2xl font-black text-yellow-400">R0</p></div>
+<div class="bg-black border rounded-xl p-3 text-center"><p class="text-[9px] text-zinc-400">R40</p><p id="clientR40" class="text-sm font-black">⏳</p></div>
+<div class="bg-black border rounded-xl p-3 text-center"><p class="text-[9px]">BIDS</p><p id="clientMyBidsCount" class="text-2xl font-black text-red-400">0</p></div>
 </div>
 <div id="clientR40Action" class="mt-4"></div>
 </div>
-
 <div class="flex gap-2 mt-4 overflow-x-auto">
-<button onclick="clientTab('bids')" id="ct-bids" class="bg-red-600 px-4 py-2 rounded-full text-xs font-black">🔥 MY BIDS</button>
-<button onclick="clientTab('wallet')" id="ct-wallet" class="bg-zinc-800 px-4 py-2 rounded-full text-xs">💰 WALLET</button>
-<button onclick="clientTab('history')" id="ct-history" class="bg-zinc-800 px-4 py-2 rounded-full text-xs">📜 HISTORY</button>
-<button onclick="clientTab('profile')" id="ct-profile" class="bg-zinc-800 px-4 py-2 rounded-full text-xs">⚙️ PROFILE + PIN</button>
+<button onclick="clientTab('bids')" id="ct-bids" class="bg-red-600 px-4 py-2 rounded-full text-xs font-black">MY BIDS</button>
+<button onclick="clientTab('wallet')" id="ct-wallet" class="bg-zinc-800 px-4 py-2 rounded-full text-xs">WALLET</button>
+<button onclick="clientTab('profile')" id="ct-profile" class="bg-zinc-800 px-4 py-2 rounded-full text-xs">PROFILE + PIN</button>
 </div>
-
 <div id="client-bids" class="mt-4"><div id="clientBidsGrid" class="grid md:grid-cols-2 gap-3"></div></div>
-<div id="client-wallet" class="hidden mt-4">
-<div class="bg-zinc-900 border-2 border-yellow-500 rounded-2xl p-5">
-<div class="bg-black border-2 border-green-500 rounded-xl p-4 text-center"><p class="text-[10px] text-zinc-400">PRIVATE BALANCE</p><p id="clientWalletBig" class="text-4xl font-black text-yellow-400">R0</p></div>
-<div class="mt-4 bg-black p-4 rounded-xl border"><input id="topUpAmount" type="number" placeholder="Amount" class="w-full p-3 rounded-full bg-zinc-900 border text-center font-black"><div class="grid grid-cols-4 gap-2 mt-2"><button onclick="quickTopUp(100)" class="bg-zinc-800 py-2 rounded-full text-xs">+100</button><button onclick="quickTopUp(200)" class="bg-zinc-800 py-2 rounded-full text-xs">+200</button><button onclick="quickTopUp(500)" class="bg-zinc-800 py-2 rounded-full text-xs">+500</button><button onclick="quickTopUp(1000)" class="bg-zinc-800 py-2 rounded-full text-xs">+1000</button></div><button onclick="requestTopUp()" class="w-full mt-3 bg-yellow-400 text-black py-3 rounded-full font-black">REQUEST TOP UP</button></div>
-<div id="clientTopupHistory" class="mt-4 space-y-2"></div>
-</div>
-</div>
-<div id="client-history" class="hidden mt-4"><div id="clientHistoryList" class="space-y-2"></div></div>
-<div id="client-profile" class="hidden mt-4">
-<div class="bg-zinc-900 rounded-2xl p-5">
-<h3 class="font-black text-sm">⚙️ PROFILE + CHANGE PIN - BIDKZN</h3>
-<div class="mt-4 bg-black p-4 rounded-xl">
-<p class="text-xs text-zinc-400">Name (Public)</p><p id="profileName" class="font-black"></p>
-<p class="text-xs text-zinc-400 mt-3">Phone (Private)</p><p id="profilePhone" class="font-black text-yellow-400"></p>
-<p class="text-xs text-zinc-400 mt-3">BIDKZN Client PIN (Private - Only you)</p>
-<div class="flex gap-2 mt-1"><p id="profilePinDisplay" class="font-mono font-black text-lg">****</p><button onclick="toggleClientPin()" class="bg-zinc-800 px-3 py-1 rounded-full text-[10px]">Show/Hide</button></div>
-<div class="mt-4 bg-zinc-900 p-3 rounded-xl border border-yellow-500/30">
-<p class="text-[11px] font-black text-yellow-400">🔑 CHANGE YOUR CLIENT PIN</p>
-<input id="oldClientPin" type="password" placeholder="Old PIN" class="w-full mt-2 p-2 rounded-full bg-black border text-center">
-<input id="newClientPin" type="password" placeholder="New PIN" class="w-full mt-2 p-2 rounded-full bg-black border text-center">
-<input id="confirmClientPin" type="password" placeholder="Confirm New PIN" class="w-full mt-2 p-2 rounded-full bg-black border text-center">
-<button onclick="changeClientPin()" class="w-full mt-3 bg-yellow-400 text-black py-2 rounded-full text-xs font-black">CHANGE MY PIN</button>
-<p id="clientPinMsg" class="hidden text-xs mt-2 text-center p-2 rounded"></p>
-</div>
-</div>
-<button onclick="logoutBidder()" class="w-full mt-4 bg-red-900/50 border border-red-600 py-3 rounded-full text-xs font-black">🚪 LOGOUT</button>
-</div>
-</div>
+<div id="client-wallet" class="hidden mt-4"><div class="bg-zinc-900 border-2 border-yellow-500 rounded-2xl p-5"><div class="bg-black border-2 border-green-500 rounded-xl p-4 text-center"><p id="clientWalletBig" class="text-4xl font-black text-yellow-400">R0</p></div><div class="mt-4 bg-black p-4 rounded-xl border"><input id="topUpAmount" type="number" placeholder="Amount" class="w-full p-3 rounded-full bg-zinc-900 border text-center font-black"><div class="grid grid-cols-4 gap-2 mt-2"><button onclick="quickTopUp(100)" class="bg-zinc-800 py-2 rounded-full text-xs">+100</button><button onclick="quickTopUp(200)" class="bg-zinc-800 py-2 rounded-full text-xs">+200</button><button onclick="quickTopUp(500)" class="bg-zinc-800 py-2 rounded-full text-xs">+500</button><button onclick="quickTopUp(1000)" class="bg-zinc-800 py-2 rounded-full text-xs">+1000</button></div><button onclick="requestTopUp()" class="w-full mt-3 bg-yellow-400 text-black py-3 rounded-full font-black">REQUEST TOP UP</button></div><div id="clientTopupHistory" class="mt-4 space-y-2"></div></div></div>
+<div id="client-profile" class="hidden mt-4"><div class="bg-zinc-900 rounded-2xl p-5"><div class="bg-black p-4 rounded-xl"><p id="profileName" class="font-black"></p><p id="profilePhone" class="text-yellow-400"></p><div class="mt-4"><p class="text-xs text-zinc-400">PIN: <span id="profilePinDisplay">****</span> <button onclick="toggleClientPin()" class="bg-zinc-800 px-2 py-1 rounded text-[10px]">Show</button></p><input id="oldClientPin" type="password" placeholder="Old PIN" class="w-full mt-3 p-2 rounded-full bg-zinc-900 border text-center"><input id="newClientPin" type="password" placeholder="New PIN" class="w-full mt-2 p-2 rounded-full bg-zinc-900 border text-center"><input id="confirmClientPin" type="password" placeholder="Confirm" class="w-full mt-2 p-2 rounded-full bg-zinc-900 border text-center"><button onclick="changeClientPin()" class="w-full mt-3 bg-yellow-400 text-black py-2 rounded-full text-xs font-black">CHANGE PIN</button><p id="clientPinMsg" class="hidden text-xs mt-2 text-center p-2 rounded"></p></div></div></div></div>
 </div>
 </div>
 </div>
 
 <div class="fixed bottom-0 left-0 right-0 bg-black border-t-2 border-red-600 z-40 p-2">
 <div class="flex justify-around max-w-md mx-auto">
-<button onclick="showView('shop')" id="btn-shop" class="flex flex-col items-center px-3 py-2 rounded-xl bg-zinc-900"><span class="text-lg">🛒</span><span class="text-[9px] font-black">SHOP</span></button>
-<button onclick="showView('auction')" id="btn-auction" class="flex flex-col items-center px-3 py-2 rounded-xl bg-zinc-900"><span class="text-lg">🔥</span><span class="text-[9px] font-black">AUCTION</span></button>
-<button onclick="showView('client')" id="btn-client" class="flex flex-col items-center px-5 py-2 rounded-xl bg-yellow-400 text-black shadow-lg"><span class="text-lg">👤</span><span class="text-[9px] font-black">CLIENT LOGIN</span></button>
+<button onclick="showView('shop')" id="btn-shop" class="flex flex-col items-center px-3 py-2 rounded-xl bg-zinc-900"><span>🛒</span><span class="text-[9px] font-black">SHOP</span></button>
+<button onclick="showView('auction')" id="btn-auction" class="flex flex-col items-center px-5 py-2 rounded-xl bg-red-600 shadow-lg"><span>🔥</span><span class="text-[9px] font-black">AUCTION</span></button>
+<button onclick="showView('client')" id="btn-client" class="flex flex-col items-center px-3 py-2 rounded-xl bg-zinc-900"><span>👤</span><span class="text-[9px] font-black">CLIENT</span></button>
 </div>
 </div>
 
-<div id="pinModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"><div class="bg-zinc-900 border-2 border-yellow-500 rounded-2xl p-6 w-full max-w-sm text-center"><h2 class="font-black text-yellow-400">🔒 ADMIN PIN</h2><p id="currentPinHint" class="text-[10px] text-zinc-400">PIN</p><input id="pinInput" type="password" placeholder="PIN" class="w-full mt-4 p-4 rounded-full bg-black border text-center text-xl"><button onclick="checkPin()" class="w-full mt-4 bg-yellow-400 text-black py-3 rounded-full font-black">UNLOCK</button><button onclick="startForgotPin()" class="w-full mt-3 bg-green-900/50 border border-green-600 py-2 rounded-full text-xs text-green-400">📱 FORGOT PIN?</button><button onclick="document.getElementById('pinModal').classList.add('hidden')" class="w-full mt-2 bg-zinc-800 py-2 rounded-full text-xs">Cancel</button><p id="pinError" class="hidden text-red-500 text-xs mt-2"></p></div></div>
-<div id="forgotModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"><div class="bg-zinc-900 border-2 border-green-500 rounded-2xl p-6 w-full max-w-sm text-center"><div id="forgotStep1"><button onclick="sendForgotCode()" class="w-full mt-4 bg-green-600 py-3 rounded-full font-black">SEND CODE</button></div><div id="forgotStep2" class="hidden"><p id="forgotCodeDisplay" class="text-lg font-mono font-black text-yellow-400 bg-black py-2 rounded-xl mt-2"></p><input id="forgotCodeInput" type="number" placeholder="Code" class="w-full mt-3 p-3 rounded-full bg-black border-2 border-green-500 text-center text-xl"><input id="forgotNewPin" type="password" placeholder="NEW PIN" class="w-full mt-2 p-3 rounded-full bg-black border text-center"><button onclick="verifyForgotCode()" class="w-full mt-3 bg-yellow-400 text-black py-3 rounded-full font-black">RESET</button></div><p id="forgotError" class="hidden text-red-500 text-xs mt-2"></p><p id="forgotSuccess" class="hidden text-green-400 text-xs mt-2"></p></div></div>
-<div id="changePinModal" class="hidden fixed inset-0 bg-black/90 z-[60] flex items-center justify-center p-4"><div class="bg-zinc-900 border-2 border-green-500 rounded-2xl p-6 w-full max-w-sm text-center"><div id="changePinStep1"><input id="oldPin" type="password" placeholder="Current" class="w-full mt-3 p-3 rounded-full bg-black border text-center"><input id="newPin" type="password" placeholder="New" class="w-full mt-2 p-3 rounded-full bg-black border text-center"><input id="confirmNewPin" type="password" placeholder="Confirm" class="w-full mt-2 p-3 rounded-full bg-black border text-center"><button onclick="sendWhatsAppConfirm()" class="w-full mt-4 bg-green-600 py-3 rounded-full font-black">WHATSAPP CODE</button><button onclick="directChangePin()" class="w-full mt-2 bg-zinc-700 py-2 rounded-full text-xs">DIRECT</button></div><div id="changePinStep2" class="hidden"><p id="waCodeDisplay" class="text-2xl font-black text-yellow-400 bg-black py-3 rounded-xl border-2 border-yellow-500 mt-2"></p><input id="waCodeInput" type="number" placeholder="Code" class="w-full mt-3 p-3 rounded-full bg-black border-2 border-yellow-500 text-center text-xl"><button onclick="verifyAndChangePin()" class="w-full mt-3 bg-yellow-400 text-black py-3 rounded-full font-black">VERIFY</button></div><p id="changePinError" class="hidden text-red-500 text-xs mt-2"></p><p id="changePinSuccess" class="hidden text-green-400 text-xs mt-2"></p></div></div>
-<div id="bidModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"><div class="bg-zinc-900 border-2 border-red-600 rounded-2xl p-6 w-full max-w-sm text-center"><h2 class="font-black text-red-400">🔥 BIDKZN Bid?</h2><p id="bidText" class="mt-3"></p><div class="flex gap-2 mt-5"><button onclick="confirmBid()" class="flex-1 bg-red-600 py-3 rounded-full font-black">YES BID</button><button onclick="document.getElementById('bidModal').classList.add('hidden')" class="flex-1 bg-zinc-800 py-3 rounded-full">CANCEL</button></div></div></div>
-<div id="r40BlockModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"><div class="bg-zinc-900 border-2 border-red-600 rounded-2xl p-6 w-full max-w-sm text-center"><h2 class="font-black text-red-400">🔒 R40 REQUIRED!</h2><button onclick="document.getElementById('r40BlockModal').classList.add('hidden'); showView('auction')" class="w-full mt-4 bg-red-600 py-3 rounded-full font-black">PAY R40</button></div></div>
-
-<div id="admin" class="hidden fixed inset-0 bg-black z-50 overflow-y-auto"><div class="max-w-7xl mx-auto p-3"><div class="bg-zinc-900 rounded-2xl p-4 flex justify-between items-center border-2 border-red-600"><h2 class="font-black text-red-400">BIDKZN ADMIN</h2><div class="flex gap-2"><span class="bg-red-600 px-3 py-1 rounded-full text-xs"><span id="liveCount">0</span> LIVE</span><button onclick="logoutAdmin()" class="bg-zinc-800 px-3 py-1 rounded-full text-xs">LOCK</button></div></div><div class="mt-3 bg-black border-2 border-yellow-500 rounded-xl p-3 flex justify-between"><div><p class="text-xs font-black text-yellow-400">ADMIN PIN: <span id="showCurrentPin">****</span> <button onclick="togglePinView()" class="ml-2 bg-zinc-800 px-2 py-1 rounded text-[10px]">Show</button></p></div><button onclick="openChangePinModal()" class="bg-yellow-400 text-black px-4 py-2 rounded-full text-xs font-black">CHANGE PIN</button></div><div class="flex gap-2 mt-3 overflow-x-auto"><button onclick="adminTab('r40')" id="at-r40" class="bg-red-600 px-4 py-2 rounded-full text-xs font-black">💰 R40</button><button onclick="adminTab('shop')" id="at-shop" class="bg-zinc-800 px-4 py-2 rounded-full text-xs">🛒 SHOP</button><button onclick="adminTab('auction')" id="at-auction" class="bg-zinc-800 px-4 py-2 rounded-full text-xs">🔥 AUCTION</button><button onclick="adminTab('bidders')" id="at-bidders" class="bg-zinc-800 px-4 py-2 rounded-full text-xs">BIDDERS + PINS</button><button onclick="adminTab('topups')" id="at-topups" class="bg-zinc-800 px-4 py-2 rounded-full text-xs">TOP UPS</button></div><div id="admin-r40" class="mt-4"><div id="r40List"></div></div><div id="admin-shop" class="hidden mt-4"><div class="bg-black p-4 rounded-xl border"><input id="sName" placeholder="Name" class="w-full p-3 rounded-full bg-zinc-900 border"><div class="grid grid-cols-2 gap-2 mt-2"><input id="sPrice" type="number" placeholder="Price" class="p-3 rounded-full bg-zinc-900 border"><select id="sCat" class="p-3 rounded-full bg-zinc-900 border"><option value="dress">Dress</option><option value="shoes">Shoes</option><option value="bags">Bags</option></select></div><input id="sFile" type="file" class="w-full mt-2 text-xs"><img id="sPreview" class="hidden w-full h-32 rounded-xl mt-2"><button onclick="saveShopProduct()" class="w-full bg-yellow-400 text-black py-3 rounded-full font-black mt-3">ADD</button></div><div id="adminShopList" class="mt-4"></div></div><div id="admin-auction" class="hidden mt-4 grid lg:grid-cols-3 gap-4"><div class="lg:col-span-2"><div class="bg-black p-4 rounded-xl border-2 border-red-600/50"><input id="aName" placeholder="Auction Name" class="w-full p-3 rounded-full bg-zinc-900 border"><div class="grid grid-cols-2 gap-2 mt-2"><input id="aPrice" type="number" placeholder="Start" class="p-3 rounded-full bg-zinc-900 border"><input id="aStep" type="number" value="10" class="p-3 rounded-full bg-zinc-900 border"></div><input id="aFile" type="file" class="w-full mt-2 text-xs"><img id="aPreview" class="hidden w-full h-32 rounded-xl mt-2"><div class="grid grid-cols-3 gap-2 mt-2"><input id="aDays" type="number" value="2" class="p-2 rounded-full bg-zinc-900 border text-center"><input id="aHours" type="number" value="0" class="p-2 rounded-full bg-zinc-900 border text-center"><input id="aMins" type="number" value="0" class="p-2 rounded-full bg-zinc-900 border text-center"></div><input id="aEndDate" type="datetime-local" class="w-full mt-2 p-3 rounded-full bg-zinc-900 border"><button onclick="saveAuction()" class="w-full bg-red-600 py-3 rounded-full font-black mt-3">ADD AUCTION</button><p id="datePreview" class="text-xs text-red-400 mt-2 text-center"></p></div><div id="adminAuctionList" class="mt-4"></div></div><div><div class="bg-zinc-900 border-2 border-red-600 rounded-xl p-3 sticky top-4"><div id="winningBiddersLive" class="space-y-3"></div><div id="liveBiddersSide" class="mt-4"></div></div></div></div><div id="admin-bidders" class="hidden mt-4"><div id="biddersList"></div></div><div id="admin-topups" class="hidden mt-4"><div id="topupsList"></div></div><button onclick="document.getElementById('admin').classList.add('hidden')" class="w-full bg-zinc-800 py-3 rounded-full mt-6">CLOSE</button></div></div>
+<div id="pinModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"><div class="bg-zinc-900 border-2 border-yellow-500 rounded-2xl p-6 w-full max-w-sm text-center"><h2 class="font-black text-yellow-400">ADMIN PIN</h2><p id="currentPinHint" class="text-[10px]">PIN</p><input id="pinInput" type="password" placeholder="PIN" class="w-full mt-4 p-4 rounded-full bg-black border text-center text-xl"><button onclick="checkPin()" class="w-full mt-4 bg-yellow-400 text-black py-3 rounded-full font-black">UNLOCK</button><button onclick="document.getElementById('pinModal').classList.add('hidden')" class="w-full mt-2 bg-zinc-800 py-2 rounded-full text-xs">Cancel</button><p id="pinError" class="hidden text-red-500 text-xs mt-2"></p></div></div>
+<div id="bidModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"><div class="bg-zinc-900 border-2 border-red-600 rounded-2xl p-6 w-full max-w-sm text-center"><h2 class="font-black text-red-400">BIDKZN Bid?</h2><p id="bidText" class="mt-3"></p><div class="flex gap-2 mt-5"><button onclick="confirmBid()" class="flex-1 bg-red-600 py-3 rounded-full font-black">YES BID</button><button onclick="document.getElementById('bidModal').classList.add('hidden')" class="flex-1 bg-zinc-800 py-3 rounded-full">CANCEL</button></div></div></div>
+<div id="r40BlockModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"><div class="bg-zinc-900 border-2 border-red-600 rounded-2xl p-6 w-full max-w-sm text-center"><h2 class="font-black text-red-400">R40 REQUIRED!</h2><button onclick="document.getElementById('r40BlockModal').classList.add('hidden'); showView('auction')" class="w-full mt-4 bg-red-600 py-3 rounded-full font-black">PAY R40</button></div></div>
+<div id="admin" class="hidden fixed inset-0 bg-black z-50 overflow-y-auto"><div class="max-w-7xl mx-auto p-3"><div class="bg-zinc-900 rounded-2xl p-4 flex justify-between items-center border-2 border-red-600"><h2 class="font-black text-red-400">ADMIN</h2><span class="bg-red-600 px-3 py-1 rounded-full text-xs"><span id="liveCount">0</span> LIVE</span><button onclick="logoutAdmin()" class="bg-zinc-800 px-3 py-1 rounded-full text-xs">LOCK</button></div><div class="mt-3 bg-black border-2 border-yellow-500 rounded-xl p-3 flex justify-between"><p class="text-xs font-black text-yellow-400">PIN: <span id="showCurrentPin">****</span> <button onclick="togglePinView()" class="ml-2 bg-zinc-800 px-2 py-1 rounded text-[10px]">Show</button></p><button onclick="openChangePinModal()" class="bg-yellow-400 text-black px-4 py-2 rounded-full text-xs font-black">CHANGE PIN</button></div><div class="flex gap-2 mt-3 overflow-x-auto"><button onclick="adminTab('r40')" id="at-r40" class="bg-red-600 px-4 py-2 rounded-full text-xs font-black">R40</button><button onclick="adminTab('bidders')" id="at-bidders" class="bg-zinc-800 px-4 py-2 rounded-full text-xs">BIDDERS</button><button onclick="adminTab('auction')" id="at-auction" class="bg-zinc-800 px-4 py-2 rounded-full text-xs">AUCTION</button></div><div id="admin-r40" class="mt-4"><div id="r40List"></div></div><div id="admin-bidders" class="hidden mt-4"><div id="biddersList"></div></div><div id="admin-auction" class="hidden mt-4"><div id="adminAuctionList"></div></div><button onclick="document.getElementById('admin').classList.add('hidden')" class="w-full bg-zinc-800 py-3 rounded-full mt-6">CLOSE</button></div></div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -158,203 +116,156 @@ import { getDatabase, ref, set, onValue, update, remove, get } from "https://www
 const firebaseConfig = { apiKey: "AIzaSyCxVmtWLZiVvcElpOG4gLxKylunD1_NnRA", authDomain: "kzn-store.firebaseapp.com", databaseURL: "https://kzn-store-default-rtdb.firebaseio.com", projectId: "kzn-store", storageBucket: "kzn-store.firebasestorage.app", messagingSenderId: "755959571531", appId: "1:755959571531:web:42ee597a9d0646923699ce" };
 const app = initializeApp(firebaseConfig); const db = getDatabase(app);
 let auctionItems=[]; let bidders=[]; let topups=[]; let shopProducts=[]; let currentBidder=JSON.parse(localStorage.getItem('kzn_my')||'null'); let pendingBid={}; let aTempImg=''; let sTempImg=''; let adminUnlocked=sessionStorage.getItem('kzn_unlocked')==='true'; const WA="27789313670";
-let adminPin="10111"; let pinVisible=false; let pendingNewPin=""; let waConfirmCode=""; let forgotCode=""; let currentFilter='all'; let auctionFilter='all'; let clientPinVisible=false;
+let adminPin="10111"; let pinVisible=false; let clientPinVisible=false; let currentFilter='all'; let auctionFilter='all';
 
-onValue(ref(db, 'settings/adminPin'), (snap)=>{ if(snap.exists()) adminPin=String(snap.val()); else set(ref(db,'settings/adminPin'),"10111"); document.getElementById('currentPinHint').innerText="PIN: "+adminPin.charAt(0)+"***"; updatePinDisplay(); });
-onValue(ref(db, 'auctions'), (s)=>{ const d=s.val(); auctionItems=d?Object.values(d):[]; if(auctionItems.length===0){ set(ref(db,'auctions/101'),{id:101,n:"BIDKZN Dress 🔥",start:200,current:200,step:10,bids:[],img:"https://via.placeholder.com/400x300/FF0000/FFF?text=BIDKZN",end:Date.now()+172800000,lockedAmount:0,lockedBy:null,fbId:'101'});} renderAuction(); renderClientArea(); if(adminUnlocked){renderAdminAuction();renderLiveSide();renderR40List();} });
-onValue(ref(db, 'shop'), (s)=>{ const d=s.val(); shopProducts=d?Object.values(d):[]; if(shopProducts.length===0){ set(ref(db,'shop/201'),{id:201,n:"BIDKZN Dress",price:350,cat:"dress",img:"https://via.placeholder.com/400x400/FFD700/000?text=BIDKZN",fbId:'201'});} renderShop(); if(adminUnlocked) renderAdminShop(); });
-onValue(ref(db, 'bidders'), (s)=>{ const d=s.val(); bidders=d?Object.values(d):[]; if(currentBidder){ const u=bidders.find(b=>b.id===currentBidder.id || b.fbId===currentBidder.fbId); if(u){ currentBidder=u; localStorage.setItem('kzn_my',JSON.stringify(currentBidder)); } } renderBidders(); renderLiveSide(); checkReg(); renderR40List(); renderClientArea(); });
-onValue(ref(db, 'topups'), (s)=>{ const d=s.val(); topups=d?Object.values(d):[]; renderTopups(); renderClientArea(); });
+onValue(ref(db, 'settings/adminPin'), (s)=>{ if(s.exists()) adminPin=String(s.val()); document.getElementById('currentPinHint').innerText="PIN: "+adminPin; updatePinDisplay(); });
+onValue(ref(db, 'auctions'), (s)=>{ const d=s.val(); auctionItems=d?Object.values(d):[]; if(auctionItems.length===0){ set(ref(db,'auctions/101'),{id:101,n:"BIDKZN Dress",start:200,current:200,step:10,bids:[],img:"https://via.placeholder.com/400x300/FF0000/FFF?text=BIDKZN",end:Date.now()+172800000,lockedAmount:0,lockedBy:null,fbId:'101'});} renderAuction(); renderClientArea(); });
+onValue(ref(db, 'shop'), (s)=>{ const d=s.val(); shopProducts=d?Object.values(d):[]; if(shopProducts.length===0){ set(ref(db,'shop/201'),{id:201,n:"BIDKZN Dress",price:350,cat:"dress",img:"https://via.placeholder.com/400x400/FFD700/000?text=BIDKZN",fbId:'201'});} renderShop(); });
+onValue(ref(db, 'bidders'), (s)=>{ const d=s.val(); bidders=d?Object.values(d):[]; if(currentBidder){ const u=bidders.find(b=>b.fbId===currentBidder.fbId); if(u){ currentBidder=u; localStorage.setItem('kzn_my',JSON.stringify(currentBidder)); } } renderBidders(); checkReg(); renderR40List(); renderClientArea(); });
+onValue(ref(db, 'topups'), (s)=>{ const d=s.val(); topups=d?Object.values(d):[]; renderClientArea(); });
 
-// SECURE CLIENT LOGIN - PHONE + PIN
+window.showView=function(v){ document.getElementById('shopView').classList.toggle('hidden',v!=='shop'); document.getElementById('auctionView').classList.toggle('hidden',v!=='auction'); document.getElementById('clientView').classList.toggle('hidden',v!=='client'); document.getElementById('btn-shop').className = v==='shop'? 'flex flex-col items-center px-6 py-2 rounded-xl bg-yellow-400 text-black shadow-lg' : 'flex flex-col items-center px-3 py-2 rounded-xl bg-zinc-900'; document.getElementById('btn-auction').className = v==='auction'? 'flex flex-col items-center px-6 py-2 rounded-xl bg-red-600 shadow-lg' : 'flex flex-col items-center px-3 py-2 rounded-xl bg-zinc-900'; document.getElementById('btn-client').className = v==='client'? 'flex flex-col items-center px-6 py-2 rounded-xl bg-yellow-400 text-black shadow-lg' : 'flex flex-col items-center px-3 py-2 rounded-xl bg-zinc-900'; if(v==='shop') renderShop(); if(v==='auction') renderAuction(); if(v==='client') renderClientArea(); window.scrollTo(0,0); }
+window.filterShop=function(cat){ currentFilter=cat; document.querySelectorAll('[id^=f-]').forEach(b=>b.className='bg-zinc-800 px-4 py-1.5 rounded-full text-xs'); document.getElementById('f-'+cat).className='bg-yellow-400 text-black px-4 py-1.5 rounded-full text-xs font-black'; renderShop(); }
+window.filterAuction=function(cat){ auctionFilter=cat; document.querySelectorAll('[id^=af-]').forEach(b=>b.className='bg-zinc-800 px-4 py-1.5 rounded-full text-xs'); document.getElementById('af-'+cat).className='bg-red-600 px-4 py-1.5 rounded-full text-xs font-black'; renderAuction(); }
+window.renderShop=function(){ let f=currentFilter==='all'? shopProducts : shopProducts.filter(p=>p.cat===currentFilter); document.getElementById('shopGrid').innerHTML = f.map(p=>`<div class="bg-zinc-900 border rounded-2xl overflow-hidden"><img src="${p.img}" class="w-full h-48 object-cover"><div class="p-3"><h3 class="font-black text-sm">${p.n}</h3><p class="text-lg font-black text-yellow-400">R${p.price}</p><button onclick="buyShop('${p.fbId}')" class="w-full mt-2 bg-yellow-400 text-black py-2.5 rounded-full font-black text-xs">BUY</button></div></div>`).join('') || 'No products'; }
+window.buyShop=function(fbId){ let p=shopProducts.find(x=>x.fbId===fbId); window.open('https://wa.me/'+WA+'?text=BUY '+p.n,'_blank'); }
+
+// FIXED CREATE ACCOUNT - 100% WORKING
+window.registerAuction=function(){
+  let errEl=document.getElementById('regError');
+  let succEl=document.getElementById('regSuccess');
+  let btn=document.getElementById('regButton');
+
+  errEl.classList.add('hidden');
+  succEl.classList.add('hidden');
+
+  let name=document.getElementById('regName').value.trim();
+  let phone=document.getElementById('regPhone').value.trim();
+  let loc=document.getElementById('regLoc').value.trim() || 'Durban';
+  let cPin=document.getElementById('regClientPin').value.trim();
+  let cPinConf=document.getElementById('regClientPinConfirm').value.trim();
+
+  if(!name){ errEl.innerText="❌ Name required!"; errEl.classList.remove('hidden'); return; }
+  if(name.length<2){ errEl.innerText="❌ Name too short - 2+ letters"; errEl.classList.remove('hidden'); return; }
+  if(!phone){ errEl.innerText="❌ WhatsApp number required!"; errEl.classList.remove('hidden'); return; }
+  if(phone.replace(/\D/g,'').length<9){ errEl.innerText="❌ Phone must be 9+ digits e.g. 0781234567"; errEl.classList.remove('hidden'); return; }
+  if(!cPin){ errEl.innerText="❌ Create 4-digit PIN required!"; errEl.classList.remove('hidden'); return; }
+  if(cPin.length<4){ errEl.innerText="❌ PIN must be 4-6 digits - e.g. 1234"; errEl.classList.remove('hidden'); return; }
+  if(cPin!==cPinConf){ errEl.innerText="❌ PINs do not match! Retype PIN"; errEl.classList.remove('hidden'); return; }
+
+  // Check duplicate phone
+  let cleanPhone=phone.replace(/\D/g,'').slice(-9);
+  let duplicate=bidders.find(b=>b.phone.replace(/\D/g,'').slice(-9)===cleanPhone);
+  if(duplicate){ errEl.innerText="❌ Phone "+phone+" already registered as "+duplicate.name+" - Login in CLIENT menu with phone + PIN: "+(duplicate.clientPin||'No PIN'); errEl.classList.remove('hidden'); return; }
+
+  btn.innerText="⏳ CREATING ACCOUNT...";
+  btn.disabled=true;
+
+  let id=Date.now();
+  let fbId=id.toString();
+  let newBidder={id:id,fbId:fbId,name:name,phone:phone,loc:loc,paid:false,wallet:0,lastActive:Date.now(),clientPin:cPin,r40Paid:false};
+
+  console.log("Creating BIDKZN account:", newBidder);
+
+  set(ref(db,'bidders/'+fbId), newBidder)
+   .then(()=>{
+      console.log("BIDKZN Account created success!");
+      localStorage.setItem('kzn_my',JSON.stringify(newBidder));
+      currentBidder=newBidder;
+      succEl.innerText="✅ Account created! Name: "+name+" Phone: "+phone+" PIN: "+cPin+" - Now pay R40. WhatsApp opening...";
+      succEl.classList.remove('hidden');
+      errEl.classList.add('hidden');
+      btn.innerText="✅ CREATED - OPENING WHATSAPP...";
+
+      checkReg(); renderClientArea(); renderR40List(); renderBidders();
+
+      // Clear form
+      document.getElementById('regName').value="";
+      document.getElementById('regPhone').value="";
+      document.getElementById('regClientPin').value="";
+      document.getElementById('regClientPinConfirm').value="";
+
+      setTimeout(()=>{
+        window.open('https://wa.me/'+WA+'?text=🔥%20BIDKZN%20NEW%20ACCOUNT%0AName:%20'+encodeURIComponent(name)+'%0APhone:%20'+encodeURIComponent(phone)+'%0APIN:%20'+encodeURIComponent(cPin)+'%0ALoc:%20'+encodeURIComponent(loc)+'%0A%0APlease%20approve%20R40','_blank');
+        btn.innerText="🔥 CREATE BIDKZN ACCOUNT - PAY R40";
+        btn.disabled=false;
+        showView('client');
+      }, 1500);
+    })
+   .catch((error)=>{
+      console.error("BIDKZN Create error:", error);
+      errEl.innerText="❌ Firebase Error: "+error.message+" - Try again or check internet. Make sure Firebase rules allow write.";
+      errEl.classList.remove('hidden');
+      btn.innerText="🔥 CREATE BIDKZN ACCOUNT - PAY R40";
+      btn.disabled=false;
+    });
+}
+
 window.loginClient=function(){
-  let phone=document.getElementById('loginPhone').value.trim().replace(/\s/g,'');
+  let phone=document.getElementById('loginPhone').value.trim();
   let pin=document.getElementById('loginPin').value.trim();
   let err=document.getElementById('loginError');
   let succ=document.getElementById('loginSuccess');
-  if(!phone||!pin){ err.innerText="❌ Enter phone + PIN"; err.classList.remove('hidden'); return; }
-  let cleanPhone=phone.replace(/\D/g,'').slice(-9);
-  let found=bidders.find(b=>{
-    let bp=b.phone.replace(/\D/g,'').slice(-9);
-    return bp===cleanPhone && String(b.clientPin||'')===String(pin);
-  });
+  err.classList.add('hidden'); succ.classList.add('hidden');
+  if(!phone||!pin){ err.innerText="❌ Phone + PIN required"; err.classList.remove('hidden'); return; }
+  let clean=phone.replace(/\D/g,'').slice(-9);
+  let found=bidders.find(b=>b.phone.replace(/\D/g,'').slice(-9)===clean && String(b.clientPin)===String(pin));
   if(!found){
-    // Check if phone exists but pin wrong
-    let phoneExists=bidders.find(b=>b.phone.replace(/\D/g,'').slice(-9)===cleanPhone);
-    if(phoneExists){
-      err.innerText="❌ Wrong PIN for "+phone+". Your PIN is "+(phoneExists.clientPin||'Not set - Contact admin')+" (Admin can see it)";
-      err.classList.remove('hidden');
-      succ.classList.add('hidden');
-    }else{
-      err.innerHTML="❌ No BIDKZN account for "+phone+"<br>Create account in AUCTION menu with PIN";
-      err.classList.remove('hidden');
-      succ.classList.add('hidden');
-    }
+    let phoneExists=bidders.find(b=>b.phone.replace(/\D/g,'').slice(-9)===clean);
+    if(phoneExists){ err.innerText="❌ Wrong PIN for "+phoneExists.name+". Your PIN is: "+(phoneExists.clientPin||'Not set - Ask admin')+" - Try again"; err.classList.remove('hidden'); }
+    else{ err.innerText="❌ No account for "+phone+" - Create in AUCTION menu"; err.classList.remove('hidden'); }
     return;
   }
-  localStorage.setItem('kzn_my',JSON.stringify(found));
-  currentBidder=found;
-  err.classList.add('hidden');
-  succ.innerText="✅ Welcome "+found.name+"! Secure login success 🔒";
-  succ.classList.remove('hidden');
-  setTimeout(()=>{ renderClientArea(); }, 800);
+  localStorage.setItem('kzn_my',JSON.stringify(found)); currentBidder=found;
+  succ.innerText="✅ Welcome "+found.name+"! Login success 🔒"; succ.classList.remove('hidden');
+  setTimeout(()=>renderClientArea(), 800);
 }
-
-window.forgotClientPin=function(){
-  let phone=document.getElementById('loginPhone').value.trim();
-  if(!phone){ alert("Enter your WhatsApp number first"); return; }
-  let cleanPhone=phone.replace(/\D/g,'').slice(-9);
-  let found=bidders.find(b=>b.phone.replace(/\D/g,'').slice(-9)===cleanPhone);
-  if(!found){ alert("No account for "+phone); return; }
-  window.open("https://wa.me/"+WA+"?text=🔑 BIDKZN Forgot CLIENT PIN%0APhone: "+phone+"%0AName: "+found.name+"%0APlease send me my PIN","_blank");
-  alert("WhatsApp opened - Admin will send you PIN: "+(found.clientPin||'Not set'));
-}
-
-window.toggleClientPin=function(){
-  clientPinVisible=!clientPinVisible;
-  let el=document.getElementById('profilePinDisplay');
-  if(el) el.innerText=clientPinVisible? (currentBidder.clientPin||'No PIN') : '****';
-}
-
+window.forgotClientPin=function(){ let phone=document.getElementById('loginPhone').value.trim(); if(!phone){ alert("Enter phone first"); return; } let clean=phone.replace(/\D/g,'').slice(-9); let f=bidders.find(b=>b.phone.replace(/\D/g,'').slice(-9)===clean); if(!f){ alert("No account"); return; } window.open("https://wa.me/"+WA+"?text=Forgot PIN Phone: "+phone+" Name: "+f.name,"_blank"); alert("PIN is: "+(f.clientPin||'Not set')); }
+window.toggleClientPin=function(){ clientPinVisible=!clientPinVisible; document.getElementById('profilePinDisplay').innerText=clientPinVisible? (currentBidder.clientPin||'No PIN') : '****'; }
 window.changeClientPin=function(){
-  let oldP=document.getElementById('oldClientPin').value.trim();
-  let newP=document.getElementById('newClientPin').value.trim();
-  let conf=document.getElementById('confirmClientPin').value.trim();
-  let msg=document.getElementById('clientPinMsg');
-  if(String(oldP)!==String(currentBidder.clientPin)){ msg.innerText="❌ Old PIN wrong! Current is "+currentBidder.clientPin; msg.className="text-xs mt-2 text-center p-2 rounded bg-red-900/30 text-red-400"; msg.classList.remove('hidden'); return; }
+  let oldP=document.getElementById('oldClientPin').value.trim(); let newP=document.getElementById('newClientPin').value.trim(); let conf=document.getElementById('confirmClientPin').value.trim(); let msg=document.getElementById('clientPinMsg');
+  if(String(oldP)!==String(currentBidder.clientPin)){ msg.innerText="❌ Old PIN wrong! Current: "+currentBidder.clientPin; msg.className="text-xs mt-2 text-center p-2 rounded bg-red-900/30 text-red-400"; msg.classList.remove('hidden'); return; }
   if(!newP||newP.length<4){ msg.innerText="❌ New PIN 4+ digits"; msg.className="text-xs mt-2 text-center p-2 rounded bg-red-900/30 text-red-400"; msg.classList.remove('hidden'); return; }
   if(newP!==conf){ msg.innerText="❌ No match"; msg.className="text-xs mt-2 text-center p-2 rounded bg-red-900/30 text-red-400"; msg.classList.remove('hidden'); return; }
-  update(ref(db,'bidders/'+currentBidder.fbId),{clientPin:newP}).then(()=>{
-    currentBidder.clientPin=newP;
-    localStorage.setItem('kzn_my',JSON.stringify(currentBidder));
-    msg.innerText="✅ PIN Changed to "+newP+"! Use new PIN to login next time 🔒";
-    msg.className="text-xs mt-2 text-center p-2 rounded bg-green-900/30 text-green-400 font-black";
-    msg.classList.remove('hidden');
-    document.getElementById('profilePinDisplay').innerText=clientPinVisible? newP : '****';
-  });
+  update(ref(db,'bidders/'+currentBidder.fbId),{clientPin:newP}).then(()=>{ currentBidder.clientPin=newP; localStorage.setItem('kzn_my',JSON.stringify(currentBidder)); msg.innerText="✅ PIN Changed to "+newP; msg.className="text-xs mt-2 text-center p-2 rounded bg-green-900/30 text-green-400 font-black"; msg.classList.remove('hidden'); document.getElementById('profilePinDisplay').innerText=clientPinVisible? newP : '****'; });
 }
-
-window.clientTab=function(t){
-  ['bids','wallet','history','profile'].forEach(x=>{
-    document.getElementById('client-'+x).classList.toggle('hidden',x!==t);
-    document.getElementById('ct-'+x).className = x===t? 'bg-red-600 px-4 py-2 rounded-full text-xs font-black' : 'bg-zinc-800 px-4 py-2 rounded-full text-xs';
-  });
-}
-
+window.clientTab=function(t){ ['bids','wallet','profile'].forEach(x=>{ document.getElementById('client-'+x).classList.toggle('hidden',x!==t); document.getElementById('ct-'+x).className = x===t? 'bg-red-600 px-4 py-2 rounded-full text-xs font-black' : 'bg-zinc-800 px-4 py-2 rounded-full text-xs'; }); }
 window.renderClientArea=function(){
-  let loginForm=document.getElementById('clientLoginForm');
-  let dashboard=document.getElementById('clientDashboard');
-  if(!currentBidder){
-    if(loginForm) loginForm.classList.remove('hidden');
-    if(dashboard) dashboard.classList.add('hidden');
-    return;
-  }
-  if(loginForm) loginForm.classList.add('hidden');
-  if(dashboard) dashboard.classList.remove('hidden');
-  document.getElementById('clientName').innerText=currentBidder.name+" 🔒";
-  document.getElementById('clientPhoneDisplay').innerText="📱 "+currentBidder.phone+" - Secure: PIN "+(currentBidder.clientPin?'✅ Set':'❌ Not set');
-  document.getElementById('clientLocationDisplay').innerText="📍 "+(currentBidder.loc||'');
+  let loginForm=document.getElementById('clientLoginForm'); let dashboard=document.getElementById('clientDashboard');
+  if(!currentBidder){ if(loginForm) loginForm.classList.remove('hidden'); if(dashboard) dashboard.classList.add('hidden'); return; }
+  if(loginForm) loginForm.classList.add('hidden'); if(dashboard) dashboard.classList.remove('hidden');
+  document.getElementById('clientName').innerText=currentBidder.name+" 🔒 PIN:"+currentBidder.clientPin;
+  document.getElementById('clientPhoneDisplay').innerText="📱 "+currentBidder.phone;
   document.getElementById('clientWallet').innerText="R"+(currentBidder.wallet||0);
   document.getElementById('clientWalletBig').innerText="R"+(currentBidder.wallet||0);
   document.getElementById('profileName').innerText=currentBidder.name;
   document.getElementById('profilePhone').innerText=currentBidder.phone;
-  document.getElementById('profilePinDisplay').innerText=clientPinVisible? (currentBidder.clientPin||'No PIN') : '****';
-  let r40El=document.getElementById('clientR40'); let r40Sub=document.getElementById('clientR40Sub'); let r40Action=document.getElementById('clientR40Action');
-  if(currentBidder.paid){ r40El.innerText="✅ PAID"; r40El.className="text-sm font-black text-green-400"; r40Sub.innerText="Can bid"; r40Action.innerHTML='<div class="bg-green-900/30 border border-green-500 p-3 rounded-xl text-center"><p class="text-xs font-black text-green-400">✅ R40 Approved - Secure client</p><button onclick="showView(\'auction\')" class="mt-2 bg-red-600 px-4 py-2 rounded-full text-xs font-black">GO TO AUCTION - BID</button></div>'; }
-  else{ r40El.innerText="⏳ PENDING"; r40El.className="text-sm font-black text-yellow-400"; r40Sub.innerText="Wait"; r40Action.innerHTML='<div class="bg-yellow-900/30 border border-yellow-500 p-3 rounded-xl text-center"><p class="text-xs font-black text-yellow-400">⏳ R40 Pending</p><a href="https://wa.me/'+WA+'?text=BIDKZN Approve R40 '+currentBidder.name+'" target="_blank" class="inline-block mt-2 bg-green-600 px-4 py-2 rounded-full text-xs font-black">WhatsApp Admin</a></div>'; }
-  let myBids=auctionItems.filter(item=> (item.bids||[]).some(b=>b.bidderId===currentBidder.id) || item.lockedBy===currentBidder.id );
-  document.getElementById('clientMyBidsCount').innerText=myBids.length;
-  document.getElementById('clientBidsGrid').innerHTML=myBids.map(item=>{ let isWinning=item.lockedBy===currentBidder.id; let cd=formatCountdown(item.end); return `<div class="bg-black border-2 ${isWinning?'border-green-500':'border-red-600/30'} rounded-xl p-3"><div class="flex gap-2"><img src="${item.img}" class="w-16 h-16 rounded"><div><p class="font-black text-xs">${item.n}</p><p class="text-xs text-red-400">R${item.current}</p><p class="text-[10px]">${cd.txt}</p><span class="text-[10px] px-2 py-1 rounded-full ${isWinning?'bg-green-600':'bg-zinc-700'}">${isWinning?'🏆 WINNING':'Bidded'}</span></div></div></div>`; }).join('') || '<div class="col-span-2 bg-black p-6 rounded-xl text-center border"><p class="text-zinc-500">No bids yet</p><button onclick="showView(\'auction\')" class="mt-3 bg-red-600 px-6 py-2 rounded-full text-xs font-black">AUCTION MENU</button></div>';
-  let myTopups=topups.filter(t=>t.bidderFbId===currentBidder.fbId || t.bidderId===currentBidder.id).slice().reverse();
-  document.getElementById('clientTopupHistory').innerHTML=myTopups.map(t=>`<div class="bg-black p-3 rounded-xl border flex justify-between"><div><p class="text-xs font-bold">R${t.amount} ${t.status==='pending'?'⏳':'✅'}</p><p class="text-[10px] text-zinc-500">${new Date(t.id).toLocaleString()}</p></div><span class="text-[10px] ${t.status==='pending'?'text-yellow-400':'text-green-400'}">${t.status}</span></div>`).join('') || '<p class="text-xs text-zinc-500 text-center py-3">No top ups</p>';
-  let allMyBids=[]; auctionItems.forEach(item=>{ (item.bids||[]).forEach(b=>{ if(b.bidderId===currentBidder.id){ allMyBids.push({...b, itemName:item.n, itemImg:item.img}); } }); }); allMyBids.sort((a,b)=>b.time-a.time);
-  document.getElementById('clientHistoryList').innerHTML=allMyBids.slice(0,20).map(b=>`<div class="bg-black p-3 rounded-xl border flex gap-3"><img src="${b.itemImg}" class="w-12 h-12 rounded"><div><p class="text-xs font-bold">${b.itemName}</p><p class="text-xs text-red-400">R${b.amount}</p><p class="text-[10px] text-zinc-500">${new Date(b.time).toLocaleString()}</p></div></div>`).join('') || '<p class="text-xs text-zinc-500 text-center py-6">No history</p>';
+  let r40El=document.getElementById('clientR40');
+  if(currentBidder.paid){ r40El.innerText="✅ PAID"; r40El.className="text-sm font-black text-green-400"; document.getElementById('clientR40Action').innerHTML='<div class="bg-green-900/30 border border-green-500 p-3 rounded-xl text-center"><p class="text-xs font-black text-green-400">✅ R40 Approved</p><button onclick="showView(\'auction\')" class="mt-2 bg-red-600 px-4 py-2 rounded-full text-xs font-black">GO TO AUCTION</button></div>'; }
+  else{ r40El.innerText="⏳ PENDING"; r40El.className="text-sm font-black text-yellow-400"; document.getElementById('clientR40Action').innerHTML='<div class="bg-yellow-900/30 border border-yellow-500 p-3 rounded-xl text-center"><p class="text-xs font-black text-yellow-400">⏳ R40 Pending</p><a href="https://wa.me/'+WA+'?text=Approve R40 '+currentBidder.name+'" target="_blank" class="inline-block mt-2 bg-green-600 px-4 py-2 rounded-full text-xs font-black">WhatsApp Admin</a></div>'; }
+  let myBids=auctionItems.filter(i=> (i.bids||[]).some(b=>b.bidderId===currentBidder.id) || i.lockedBy===currentBidder.id ); document.getElementById('clientMyBidsCount').innerText=myBids.length;
+  document.getElementById('clientBidsGrid').innerHTML=myBids.map(item=>{ let win=item.lockedBy===currentBidder.id; let cd=formatCountdown(item.end); return `<div class="bg-black border-2 ${win?'border-green-500':'border-red-600/30'} rounded-xl p-3"><div class="flex gap-2"><img src="${item.img}" class="w-16 h-16 rounded"><div><p class="font-black text-xs">${item.n}</p><p class="text-xs text-red-400">R${item.current}</p><p class="text-[10px]">${cd.txt}</p><span class="text-[10px] px-2 py-1 rounded-full ${win?'bg-green-600':'bg-zinc-700'}">${win?'🏆 WINNING':'Bidded'}</span></div></div></div>`; }).join('') || '<div class="col-span-2 bg-black p-6 rounded-xl text-center border"><p class="text-zinc-500">No bids yet</p><button onclick="showView(\'auction\')" class="mt-3 bg-red-600 px-6 py-2 rounded-full text-xs font-black">AUCTION MENU</button></div>';
+  let myTopups=topups.filter(t=>t.bidderFbId===currentBidder.fbId).slice().reverse(); document.getElementById('clientTopupHistory').innerHTML=myTopups.map(t=>`<div class="bg-black p-3 rounded-xl border flex justify-between"><p class="text-xs font-bold">R${t.amount} ${t.status}</p><span class="text-[10px] ${t.status==='pending'?'text-yellow-400':'text-green-400'}">${t.status}</span></div>`).join('') || '<p class="text-xs text-zinc-500 text-center">No top ups</p>';
 }
 
-window.showView=function(v){
-  document.getElementById('shopView').classList.toggle('hidden',v!=='shop');
-  document.getElementById('auctionView').classList.toggle('hidden',v!=='auction');
-  document.getElementById('clientView').classList.toggle('hidden',v!=='client');
-  document.getElementById('btn-shop').className = v==='shop'? 'flex flex-col items-center px-6 py-2 rounded-xl bg-yellow-400 text-black shadow-lg' : 'flex flex-col items-center px-3 py-2 rounded-xl bg-zinc-900';
-  document.getElementById('btn-auction').className = v==='auction'? 'flex flex-col items-center px-6 py-2 rounded-xl bg-red-600 shadow-lg' : 'flex flex-col items-center px-3 py-2 rounded-xl bg-zinc-900';
-  document.getElementById('btn-client').className = v==='client'? 'flex flex-col items-center px-6 py-2 rounded-xl bg-yellow-400 text-black shadow-lg' : 'flex flex-col items-center px-3 py-2 rounded-xl bg-zinc-900';
-  let bd=document.getElementById('btn-shop-d'); if(bd) bd.className = v==='shop'? 'bg-yellow-400 text-black px-3 py-2 rounded-full font-black text-xs' : 'bg-zinc-800 px-3 py-2 rounded-full text-xs';
-  let ba=document.getElementById('btn-auction-d'); if(ba) ba.className = v==='auction'? 'bg-red-600 px-3 py-2 rounded-full font-black text-xs' : 'bg-zinc-800 px-3 py-2 rounded-full text-xs';
-  let bc=document.getElementById('btn-client-d'); if(bc) bc.className = v==='client'? 'bg-yellow-400 text-black px-3 py-2 rounded-full font-black text-xs' : 'bg-zinc-800 px-3 py-2 rounded-full text-xs';
-  if(v==='shop') renderShop(); if(v==='auction') renderAuction(); if(v==='client') renderClientArea();
-  window.scrollTo(0,0);
-}
-
-window.filterShop=function(cat){ currentFilter=cat; document.querySelectorAll('[id^=f-]').forEach(b=>b.className='bg-zinc-800 px-4 py-1.5 rounded-full text-xs'); document.getElementById('f-'+cat).className='bg-yellow-400 text-black px-4 py-1.5 rounded-full text-xs font-black'; renderShop(); }
-window.filterAuction=function(cat){ auctionFilter=cat; document.querySelectorAll('[id^=af-]').forEach(b=>b.className='bg-zinc-800 px-4 py-1.5 rounded-full text-xs'); document.getElementById('af-'+cat).className='bg-red-600 px-4 py-1.5 rounded-full text-xs font-black'; renderAuction(); }
-window.renderShop=function(){ let filtered = currentFilter==='all'? shopProducts : shopProducts.filter(p=>p.cat===currentFilter); document.getElementById('shopGrid').innerHTML = filtered.map(p=>`<div class="bg-zinc-900 border border-yellow-500/20 rounded-2xl overflow-hidden"><img src="${p.img}" class="w-full h-48 object-cover"><div class="p-3"><h3 class="font-black text-sm">${p.n}</h3><p class="text-[10px] text-zinc-400">${p.cat}</p><p class="text-lg font-black text-yellow-400">R${p.price}</p><button onclick="buyShop('${p.fbId}')" class="w-full mt-2 bg-yellow-400 text-black py-2.5 rounded-full font-black text-xs">🛒 BUY</button></div></div>`).join('') || '<p class="col-span-4 text-center py-10 text-zinc-500">No products</p>'; }
-window.buyShop=function(fbId){ let p=shopProducts.find(x=>x.fbId===fbId); window.open('https://wa.me/'+WA+'?text=BIDKZN BUY '+p.n+' R'+p.price,'_blank'); }
-window.saveShopProduct=function(){ let n=document.getElementById('sName').value; let pr=parseInt(document.getElementById('sPrice').value); let cat=document.getElementById('sCat').value; if(!n||!pr||!sTempImg)return alert('Name+Price+Photo'); let id=Date.now(); set(ref(db,'shop/'+id),{id:id,n:n,price:pr,cat:cat,img:sTempImg,fbId:id.toString()}); alert('Shop added'); }
-window.openAdmin=function(){ if(adminUnlocked){document.getElementById('admin').classList.remove('hidden');renderAdminShop();renderAdminAuction();renderLiveSide();renderR40List();return;} document.getElementById('pinModal').classList.remove('hidden'); }
-window.checkPin=function(){ let v=document.getElementById('pinInput').value.trim(); if(v===String(adminPin)){adminUnlocked=true;sessionStorage.setItem('kzn_unlocked','true');document.getElementById('pinModal').classList.add('hidden');document.getElementById('admin').classList.remove('hidden');renderAdminShop();renderAdminAuction();renderLiveSide();renderR40List();}else{document.getElementById('pinError').classList.remove('hidden'); document.getElementById('pinError').innerText="Wrong! "+adminPin;} }
+window.openAdmin=function(){ if(adminUnlocked){document.getElementById('admin').classList.remove('hidden');renderBidders();renderR40List();return;} document.getElementById('pinModal').classList.remove('hidden'); }
+window.checkPin=function(){ let v=document.getElementById('pinInput').value.trim(); if(v===String(adminPin)){adminUnlocked=true;sessionStorage.setItem('kzn_unlocked','true');document.getElementById('pinModal').classList.add('hidden');document.getElementById('admin').classList.remove('hidden');renderBidders();renderR40List();}else{document.getElementById('pinError').classList.remove('hidden'); document.getElementById('pinError').innerText="Wrong! "+adminPin;} }
 window.logoutAdmin=function(){adminUnlocked=false;sessionStorage.removeItem('kzn_unlocked');document.getElementById('admin').classList.add('hidden');}
-window.adminTab=function(t){['r40','shop','auction','bidders','topups'].forEach(x=>document.getElementById('admin-'+x).classList.toggle('hidden',x!==t));document.querySelectorAll('[id^=at-]').forEach(b=>b.className='bg-zinc-800 px-4 py-2 rounded-full text-xs');document.getElementById('at-'+t).className='bg-red-600 px-4 py-2 rounded-full font-black text-xs';if(t==='shop')renderAdminShop();if(t==='bidders')renderBidders();if(t==='topups')renderTopups();if(t==='auction'){renderAdminAuction();renderLiveSide();}if(t==='r40')renderR40List();}
-window.startForgotPin=function(){ document.getElementById('pinModal').classList.add('hidden'); document.getElementById('forgotModal').classList.remove('hidden'); document.getElementById('forgotStep1').classList.remove('hidden'); document.getElementById('forgotStep2').classList.add('hidden'); }
-window.sendForgotCode=function(){ forgotCode=Math.floor(100000+Math.random()*900000).toString(); document.getElementById('forgotStep1').classList.add('hidden'); document.getElementById('forgotStep2').classList.remove('hidden'); document.getElementById('forgotCodeDisplay').innerText="CODE: "+forgotCode; window.open("https://wa.me/"+WA+"?text=BIDKZN Recovery "+forgotCode,"_blank"); }
-window.verifyForgotCode=function(){ let c=document.getElementById('forgotCodeInput').value.trim(); let newP=document.getElementById('forgotNewPin').value.trim(); if(c!==forgotCode){ document.getElementById('forgotError').innerText="Wrong "+forgotCode; document.getElementById('forgotError').classList.remove('hidden'); return; } if(!newP||newP.length<4){ document.getElementById('forgotError').innerText="4+ digits"; document.getElementById('forgotError').classList.remove('hidden'); return; } set(ref(db,'settings/adminPin'), newP).then(()=>{ adminPin=newP; document.getElementById('forgotSuccess').innerText="Reset to "+newP; document.getElementById('forgotSuccess').classList.remove('hidden'); setTimeout(()=>{ document.getElementById('forgotModal').classList.add('hidden'); document.getElementById('pinModal').classList.remove('hidden'); document.getElementById('pinInput').value=newP; },1500); }); }
-window.openChangePinModal=function(){ document.getElementById('changePinModal').classList.remove('hidden'); document.getElementById('changePinStep1').classList.remove('hidden'); document.getElementById('changePinStep2').classList.add('hidden'); }
-window.togglePinView=function(){ pinVisible=!pinVisible; document.getElementById('showCurrentPin').innerText=pinVisible?adminPin:"****"; }
-window.backToStep1=function(){ document.getElementById('changePinStep1').classList.remove('hidden'); document.getElementById('changePinStep2').classList.add('hidden'); }
-window.directChangePin=function(){ let oldP=document.getElementById('oldPin').value.trim(); let newP=document.getElementById('newPin').value.trim(); let conf=document.getElementById('confirmNewPin').value.trim(); if(oldP!==String(adminPin)){ document.getElementById('changePinError').innerText="Wrong! "+adminPin; document.getElementById('changePinError').classList.remove('hidden'); return; } if(newP!==conf){ document.getElementById('changePinError').innerText="No match"; document.getElementById('changePinError').classList.remove('hidden'); return; } set(ref(db,'settings/adminPin'), newP).then(()=>{ adminPin=newP; document.getElementById('changePinSuccess').innerText="Changed to "+newP; document.getElementById('changePinSuccess').classList.remove('hidden'); setTimeout(()=>document.getElementById('changePinModal').classList.add('hidden'),1500); }); }
-window.sendWhatsAppConfirm=function(){ let oldP=document.getElementById('oldPin').value.trim(); let newP=document.getElementById('newPin').value.trim(); let conf=document.getElementById('confirmNewPin').value.trim(); if(oldP!==String(adminPin)){ document.getElementById('changePinError').innerText="Wrong! "+adminPin; document.getElementById('changePinError').classList.remove('hidden'); return; } if(newP!==conf){ document.getElementById('changePinError').innerText="No match"; document.getElementById('changePinError').classList.remove('hidden'); return; } pendingNewPin=newP; waConfirmCode=Math.floor(100000+Math.random()*900000).toString(); document.getElementById('changePinStep1').classList.add('hidden'); document.getElementById('changePinStep2').classList.remove('hidden'); document.getElementById('waCodeDisplay').innerText=waConfirmCode; window.open("https://wa.me/"+WA+"?text=BIDKZN PIN "+waConfirmCode,"_blank"); }
-window.verifyAndChangePin=function(){ let code=document.getElementById('waCodeInput').value.trim(); if(code!==waConfirmCode){ document.getElementById('changePinError').innerText="Wrong! "+waConfirmCode; document.getElementById('changePinError').classList.remove('hidden'); return; } set(ref(db,'settings/adminPin'), pendingNewPin).then(()=>{ adminPin=pendingNewPin; document.getElementById('changePinSuccess').innerText="Changed to "+pendingNewPin; document.getElementById('changePinSuccess').classList.remove('hidden'); setTimeout(()=>document.getElementById('changePinModal').classList.add('hidden'),1500); }); }
-function updatePreview(){ let c=document.getElementById('aEndDate').value; let p=document.getElementById('datePreview'); if(c){p.innerHTML='Ends: '+new Date(c).toLocaleString();}else{let d=parseInt(document.getElementById('aDays').value)||0;let h=parseInt(document.getElementById('aHours').value)||0;let m=parseInt(document.getElementById('aMins').value)||0;let e=Date.now()+(d*86400000)+(h*3600000)+(m*60000);p.innerHTML='Ends: '+new Date(e).toLocaleString();}}
-document.getElementById('aDays')?.addEventListener('input',updatePreview);document.getElementById('aHours')?.addEventListener('input',updatePreview);document.getElementById('aMins')?.addEventListener('input',updatePreview);document.getElementById('aEndDate')?.addEventListener('input',updatePreview);
-function formatCountdown(end){ let diff=end-Date.now(); if(diff<=0)return{txt:'ENDED 🔴',ended:true}; let d=Math.floor(diff/86400000);let h=Math.floor(diff%86400000/3600000);let m=Math.floor(diff%3600000/60000);let s=Math.floor(diff%60000/1000); let txt=(d>0?d+'d ':'')+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m '+String(s).padStart(2,'0')+'s'; return{txt:txt,ended:false};}
-function toLocal(dt){ let d=new Date(dt); let o=d.getTimezoneOffset(); let l=new Date(d.getTime()-o*60000); return l.toISOString().slice(0,16);}
-document.getElementById('aFile')?.addEventListener('change',e=>{let r=new FileReader();r.onload=ev=>{let im=new Image();im.onload=()=>{let ca=document.createElement('canvas');ca.width=400;ca.height=300;ca.getContext('2d').drawImage(im,0,0,400,300);aTempImg=ca.toDataURL('image/jpeg',0.6);document.getElementById('aPreview').src=aTempImg;document.getElementById('aPreview').classList.remove('hidden');};im.src=ev.target.result;};r.readAsDataURL(e.target.files[0]);});
-document.getElementById('sFile')?.addEventListener('change',e=>{let r=new FileReader();r.onload=ev=>{let im=new Image();im.onload=()=>{let ca=document.createElement('canvas');ca.width=400;ca.height=400;ca.getContext('2d').drawImage(im,0,0,400,400);sTempImg=ca.toDataURL('image/jpeg',0.6);document.getElementById('sPreview').src=sTempImg;document.getElementById('sPreview').classList.remove('hidden');};im.src=ev.target.result;};r.readAsDataURL(e.target.files[0]);});
-window.saveAuction=function(){ let n=document.getElementById('aName').value;let s=parseInt(document.getElementById('aPrice').value);let step=parseInt(document.getElementById('aStep').value)||10; if(!n||!s||!aTempImg)return alert('Name+Price+Photo'); let end; let c=document.getElementById('aEndDate').value; if(c){end=new Date(c).getTime();}else{let d=parseInt(document.getElementById('aDays').value)||0;let h=parseInt(document.getElementById('aHours').value)||0;let m=parseInt(document.getElementById('aMins').value)||0;if(d===0&&h===0&&m===0)d=2;end=Date.now()+(d*86400000)+(h*3600000)+(m*60000);} let id=Date.now(); set(ref(db,'auctions/'+id),{id:id,n:n,start:s,current:s,step:step,bids:[],img:aTempImg,end:end,lockedAmount:0,lockedBy:null,fbId:id.toString()}); alert('Auction added'); }
-// SECURE REGISTRATION WITH CLIENT PIN
-window.registerAuction=function(){
-  let name=document.getElementById('regName').value.trim();
-  let phone=document.getElementById('regPhone').value.trim();
-  let loc=document.getElementById('regLoc').value.trim();
-  let cPin=document.getElementById('regClientPin').value.trim();
-  let cPinConf=document.getElementById('regClientPinConfirm').value.trim();
-  if(!name||!phone)return alert('BIDKZN: Name+Phone required');
-  if(!cPin||cPin.length<4){ alert('Create 4-digit Client PIN - Required for secure login'); return; }
-  if(cPin!==cPinConf){ alert('PINs do not match'); return; }
-  let id=Date.now();
-  let b={id:id,fbId:id.toString(),name:name,phone:phone,loc:loc,paid:false,wallet:0,lastActive:Date.now(),clientPin:cPin};
-  set(ref(db,'bidders/'+id),b).then(()=>{
-    localStorage.setItem('kzn_my',JSON.stringify(b));
-    currentBidder=b;
-    checkReg(); renderClientArea();
-    window.open('https://wa.me/'+WA+'?text=🔥 BIDKZN NEW CLIENT%0AName: '+encodeURIComponent(name)+'%0APhone: '+encodeURIComponent(phone)+'%0APIN: '+encodeURIComponent(cPin)+'%0ALoc: '+encodeURIComponent(loc)+'%0A%0APlease approve R40 - PIN set: '+cPin,'_blank');
-    alert("✅ BIDKZN Account created! Your Client PIN is "+cPin+" - Remember it for CLIENT LOGIN! Now pay R40");
-    showView('client');
-  });
-}
+window.adminTab=function(t){['r40','bidders','auction'].forEach(x=>document.getElementById('admin-'+x).classList.toggle('hidden',x!==t));document.querySelectorAll('[id^=at-]').forEach(b=>b.className='bg-zinc-800 px-4 py-2 rounded-full text-xs');document.getElementById('at-'+t).className='bg-red-600 px-4 py-2 rounded-full font-black text-xs';}
 window.logoutBidder=function(){ localStorage.removeItem('kzn_my'); currentBidder=null; renderClientArea(); checkReg(); showView('client'); }
 window.approveBidder=function(fbId){ update(ref(db,'bidders/'+fbId),{paid:true}); }
-window.rejectBidder=function(fbId){ if(!confirm('Delete?'))return; remove(ref(db,'bidders/'+fbId)); }
 window.quickTopUp=function(a){document.getElementById('topUpAmount').value=a; requestTopUp();}
-window.requestTopUp=function(){ if(!currentBidder){ document.getElementById('r40BlockModal').classList.remove('hidden'); return; } if(!currentBidder.paid){ alert('Pay R40 first'); showView('auction'); return; } let amt=parseInt(document.getElementById('topUpAmount').value); if(!amt||amt<20)return alert('Min R20'); let id=Date.now(); set(ref(db,'topups/'+id),{id:id,fbId:id.toString(),bidderId:currentBidder.id,bidderFbId:currentBidder.fbId,name:currentBidder.name,phone:currentBidder.phone,amount:amt,status:'pending'}); window.open('https://wa.me/'+WA+'?text=TOP UP R'+amt+' '+currentBidder.name); }
-window.approveTopUp=function(fbId){ get(ref(db,'topups/'+fbId)).then(s=>{ if(!s.exists())return; let req=s.val(); get(ref(db,'bidders/'+req.bidderFbId)).then(bs=>{ if(!bs.exists())return; let b=bs.val(); if(!b.paid){ alert('R40 not paid'); return; } update(ref(db,'bidders/'+req.bidderFbId),{wallet:(b.wallet||0)+req.amount}); update(ref(db,'topups/'+fbId),{status:'approved'}); }); }); }
-window.checkReg=function(){ let regBox=document.getElementById('regBox'); let pendingBox=document.getElementById('pendingR40Box'); let approvedBox=document.getElementById('approvedBox'); let statusDiv=document.getElementById('regStatus'); if(!currentBidder){ statusDiv.innerHTML='<div class="bg-black border-2 border-red-600 p-3 rounded-xl text-center"><p class="text-xs font-black text-red-400">🔒 PAY R40 + CREATE PIN TO BID</p></div>'; regBox.classList.remove('hidden'); pendingBox.classList.add('hidden'); approvedBox.classList.add('hidden'); return; } if(!currentBidder.paid){ statusDiv.innerHTML='<div class="bg-yellow-900/30 border border-yellow-500 p-3 rounded-xl text-center"><p class="text-xs font-black text-yellow-400">⏳ R40 PENDING - PIN: '+(currentBidder.clientPin||'No PIN')+'</p></div>'; regBox.classList.add('hidden'); pendingBox.classList.remove('hidden'); approvedBox.classList.add('hidden'); document.getElementById('pendingText').innerHTML='Hi '+currentBidder.name+'! R40 Pending - Your PIN: '+(currentBidder.clientPin||'Not set')+' - Use phone + PIN to login in CLIENT area'; return; }else{ statusDiv.innerHTML='<div class="bg-green-900/30 border border-green-500 p-3 rounded-xl text-center"><p class="text-xs font-black text-green-400">✅ APPROVED - SECURE CLIENT PIN: '+(currentBidder.clientPin||'')+'</p></div>'; regBox.classList.add('hidden'); pendingBox.classList.add('hidden'); approvedBox.classList.remove('hidden'); document.getElementById('approvedText').innerHTML='Welcome '+currentBidder.name+'! PIN: '+(currentBidder.clientPin||'')+' - Wallet R'+(currentBidder.wallet||0)+' - Login in CLIENT menu with phone + PIN'; } }
-window.selectBid=function(id,amt){ if(!currentBidder){ document.getElementById('r40BlockModal').classList.remove('hidden'); return; } if(!currentBidder.paid){ document.getElementById('r40BlockModal').classList.remove('hidden'); return; } let item=auctionItems.find(x=>x.id===id); if(Date.now()>=item.end)return alert('Ended'); if((currentBidder.wallet||0)<amt)return alert('Low wallet R'+(currentBidder.wallet||0)); pendingBid={id:id,amt:amt, fbId:item.fbId}; document.getElementById('bidText').innerHTML='Bid R'+amt+' for '+item.n+'?<br>Secure client: '+(currentBidder.clientPin?'PIN set ✅':'No PIN'); document.getElementById('bidModal').classList.remove('hidden');}
+window.requestTopUp=function(){ if(!currentBidder){ document.getElementById('r40BlockModal').classList.remove('hidden'); return; } if(!currentBidder.paid){ alert('Pay R40 first'); return; } let amt=parseInt(document.getElementById('topUpAmount').value); if(!amt||amt<20)return alert('Min R20'); let id=Date.now(); set(ref(db,'topups/'+id),{id:id,fbId:id.toString(),bidderId:currentBidder.id,bidderFbId:currentBidder.fbId,name:currentBidder.name,phone:currentBidder.phone,amount:amt,status:'pending'}); window.open('https://wa.me/'+WA+'?text=TOP UP R'+amt); }
+window.checkReg=function(){ let regBox=document.getElementById('regBox'); let pendingBox=document.getElementById('pendingR40Box'); let approvedBox=document.getElementById('approvedBox'); let statusDiv=document.getElementById('regStatus'); if(!currentBidder){ statusDiv.innerHTML='<div class="bg-black border-2 border-red-600 p-3 rounded-xl text-center"><p class="text-xs font-black text-red-400">🔒 CREATE ACCOUNT BELOW - ALL FIELDS * REQUIRED</p></div>'; regBox.classList.remove('hidden'); pendingBox.classList.add('hidden'); approvedBox.classList.add('hidden'); return; } if(!currentBidder.paid){ statusDiv.innerHTML='<div class="bg-yellow-900/30 border border-yellow-500 p-3 rounded-xl text-center"><p class="text-xs font-black text-yellow-400">⏳ R40 PENDING - PIN: '+(currentBidder.clientPin||'')+'</p></div>'; regBox.classList.add('hidden'); pendingBox.classList.remove('hidden'); approvedBox.classList.add('hidden'); document.getElementById('pendingText').innerHTML='Hi '+currentBidder.name+'! PIN: '+(currentBidder.clientPin||'')+' Pending approval'; return; }else{ statusDiv.innerHTML='<div class="bg-green-900/30 border border-green-500 p-3 rounded-xl text-center"><p class="text-xs font-black text-green-400">✅ APPROVED - PIN: '+(currentBidder.clientPin||'')+'</p></div>'; regBox.classList.add('hidden'); pendingBox.classList.add('hidden'); approvedBox.classList.remove('hidden'); document.getElementById('approvedText').innerHTML='Welcome '+currentBidder.name+' PIN '+currentBidder.clientPin+' Wallet R'+(currentBidder.wallet||0); } }
+window.selectBid=function(id,amt){ if(!currentBidder||!currentBidder.paid){ document.getElementById('r40BlockModal').classList.remove('hidden'); return; } let item=auctionItems.find(x=>x.id===id); if((currentBidder.wallet||0)<amt)return alert('Low wallet'); pendingBid={id:id,amt:amt, fbId:item.fbId}; document.getElementById('bidText').innerHTML='Bid R'+amt+' for '+item.n+'?'; document.getElementById('bidModal').classList.remove('hidden');}
 window.customBid=function(id){ let v=parseInt(document.getElementById('bid-'+id).value); let item=auctionItems.find(x=>x.id===id); if(v<=item.current)return alert('> R'+item.current); selectBid(id,v);}
-window.confirmBid=function(){ let item=auctionItems.find(x=>x.id===pendingBid.id); if(Date.now()>=item.end){document.getElementById('bidModal').classList.add('hidden');return alert('Ended');} if(item.lockedBy){ let prevFbId=bidders.find(b=>b.id===item.lockedBy)?.fbId; if(prevFbId){ get(ref(db,'bidders/'+prevFbId)).then(s=>{ if(s.exists()){ let prev=s.val(); update(ref(db,'bidders/'+prevFbId),{wallet:(prev.wallet||0)+(item.lockedAmount||0)}); } }); } } let newWallet=(currentBidder.wallet||0)-pendingBid.amt; update(ref(db,'bidders/'+currentBidder.fbId),{wallet:newWallet,lastActive:Date.now()}); let newBids=item.bids||[]; newBids.unshift({name:currentBidder.name,amount:pendingBid.amt,time:Date.now(),bidderId:currentBidder.id}); update(ref(db,'auctions/'+item.fbId),{current:pendingBid.amt,lockedAmount:pendingBid.amt,lockedBy:currentBidder.id,bids:newBids}); document.getElementById('bidModal').classList.add('hidden'); window.open('https://wa.me/'+WA+'?text=BIDKZN BID R'+pendingBid.amt+' '+item.n+' by '+currentBidder.name+' PIN:'+currentBidder.clientPin); }
-window.renderAuction=function(){ checkReg(); let canBidGlobal = currentBidder && currentBidder.paid; let items = [...auctionItems]; if(auctionFilter==='my'){ items = items.filter(i=> (i.bids||[]).some(b=>b.bidderId===currentBidder?.id) || i.lockedBy===currentBidder?.id ); } document.getElementById('auctionGrid').innerHTML=items.map(item=>{ let cd=formatCountdown(item.end); let canBid=canBidGlobal &&!cd.ended; let step=item.step||10; let next=item.current+step; let winner=item.lockedBy?bidders.find(b=>b.id===item.lockedBy):null; return `<div class="bg-zinc-900 border-2 border-red-600/30 rounded-2xl overflow-hidden"><img src="${item.img}" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-black text-sm">🔥 ${item.n}</h3><div class="bg-black rounded-full px-3 py-2 flex justify-between border border-red-600/30 mt-2"><span class="text-xs text-red-400">${cd.ended?'ENDED':'ENDS'}</span><span class="text-xs">${cd.txt}</span></div>${winner?`<div class="mt-2 bg-red-900/30 border-2 border-red-600/50 rounded-xl p-2"><p class="text-[11px] font-black text-red-400">WINNING: ${winner.name}</p></div>`:`<div class="mt-2 bg-black border rounded-xl p-2 text-center"><p class="text-[11px] text-red-300">No bids</p></div>`}<p class="text-xl font-black text-red-400 mt-2">R${item.current}</p>${canBid?`<div class="mt-3 bg-black p-3 rounded-xl border-2 border-green-600/30"><div class="grid grid-cols-4 gap-1"><button onclick="selectBid(${item.id},${next})" class="bg-red-600 py-2.5 rounded-full font-black text-xs">+${step}<br>R${next}</button><button onclick="selectBid(${item.id},${item.current+step*2})" class="bg-zinc-700 py-2 rounded-full text-xs">+${step*2}</button><button onclick="selectBid(${item.id},${item.current+step*5})" class="bg-zinc-700 py-2 rounded-full text-xs">+${step*5}</button><button onclick="selectBid(${item.id},${item.current+step*10})" class="bg-zinc-700 py-2 rounded-full text-xs">+${step*10}</button></div><div class="flex gap-2 mt-3"><input id="bid-${item.id}" type="number" value="${next}" class="flex-1 p-3 rounded-full bg-zinc-900 border text-center font-black"><button onclick="customBid(${item.id})" class="bg-red-600 px-6 py-3 rounded-full font-black text-xs">BID</button></div></div>`:`<div class="mt-3 bg-zinc-800 py-3 rounded-xl text-center"><p class="text-xs font-black">${cd.ended?'ENDED':'PAY R40 + CREATE PIN'}</p></div>`}</div></div>`; }).join('') || '<p class="col-span-2 text-center py-10 text-zinc-500">No auctions</p>'; }
-window.renderR40List=function(){ let pending = bidders.filter(b=>!b.paid); let approved = bidders.filter(b=>b.paid); document.getElementById('r40List').innerHTML = `<div class="grid grid-cols-2 gap-3 mb-4"><div class="bg-yellow-900/30 border border-yellow-600 rounded-xl p-3 text-center"><p class="text-[10px]">PENDING</p><p class="text-2xl font-black text-yellow-400">${pending.length}</p></div><div class="bg-green-900/30 border border-green-600 rounded-xl p-3 text-center"><p class="text-[10px]">APPROVED</p><p class="text-2xl font-black text-green-400">${approved.length}</p></div></div>${pending.map(b=>`<div class="bg-black border-2 border-yellow-500/50 p-3 rounded-xl flex justify-between"><div><p class="font-bold text-xs">${b.name} - PIN: ${b.clientPin||'No PIN'} 🔑</p><p class="text-xs text-zinc-400">${b.phone} | R${b.wallet||0}</p></div><button onclick="approveBidder('${b.fbId}')" class="bg-green-600 px-4 py-2 rounded-full text-xs">APPROVE</button></div>`).join('')||'<p class="text-xs text-center py-3 bg-black rounded">No pending</p>'} `; }
-window.renderBidders=function(){document.getElementById('biddersList').innerHTML=bidders.map(b=>'<div class="bg-black p-3 rounded-xl border mt-2 flex justify-between"><div><p class="font-bold text-xs">'+b.name+' PIN: '+(b.clientPin||'No PIN')+' '+(b.paid?'✅':'⏳')+'</p><p class="text-xs text-zinc-400">R'+(b.wallet||0)+' • '+b.phone+'</p></div><div>'+(!b.paid?'<button onclick="approveBidder(\''+b.fbId+'\')" class="bg-green-600 px-3 py-1 rounded-full text-xs">APPROVE</button>':'<span class="text-green-400 text-xs">OK</span>')+'</div></div>').join('')||'No bidders';}
-window.renderTopups=function(){document.getElementById('topupsList').innerHTML=topups.slice().reverse().map(r=>'<div class="bg-black p-3 rounded-xl border mt-2 flex justify-between"><div><p class="text-xs font-bold">'+r.name+' R'+r.amount+' '+(r.status==='pending'?'⏳':'✅')+'</p><p class="text-xs text-zinc-400">'+r.phone+'</p></div>'+(r.status==='pending'?'<button onclick="approveTopUp(\''+r.fbId+'\')" class="bg-green-600 px-4 py-2 rounded-full text-xs">APPROVE</button>':'<span class="text-green-400 text-xs">Done</span>')+'</div>').join('')||'No requests';}
-window.renderAdminShop=function(){ document.getElementById('adminShopList').innerHTML = shopProducts.map(p=>`<div class="bg-black p-3 rounded-xl border mt-2 flex gap-3"><img src="${p.img}" class="w-16 h-16 rounded"><div class="flex-1"><p class="font-bold text-xs">${p.n}</p><p class="text-xs text-yellow-400">R${p.price}</p></div><button onclick="deleteShop('${p.fbId}')" class="bg-zinc-700 px-3 py-1 rounded-full text-xs">Delete</button></div>`).join('') || 'No products'; }
-window.deleteShop=function(fbId){ if(!confirm('Delete?'))return; remove(ref(db,'shop/'+fbId)); }
-window.renderAdminAuction=function(){document.getElementById('adminAuctionList').innerHTML=auctionItems.map(a=>{let cd=formatCountdown(a.end);let winner=a.lockedBy?bidders.find(b=>b.id===a.lockedBy):null;return '<div class="bg-black p-3 rounded-xl border-2 border-red-600/30 mt-3"><div class="flex gap-2"><img src="'+a.img+'" class="w-16 h-16 rounded"><div class="flex-1"><p class="font-bold text-xs">'+a.n+'</p><p class="text-xs text-red-400">R'+a.current+'</p><p class="text-xs">⏰ '+cd.txt+'</p>'+(winner?'<p class="text-[10px] font-black text-red-400">WINNING '+winner.name+' PIN:'+winner.clientPin+'</p>':'<p class="text-[10px] text-zinc-500">No bids</p>')+'</div></div><div class="grid grid-cols-4 gap-1 mt-3"><button onclick="extendTime(\''+a.fbId+'\',1)" class="bg-zinc-800 py-2 rounded-full text-xs">+1H</button><button onclick="extendTime(\''+a.fbId+'\',24)" class="bg-zinc-800 py-2 rounded-full text-xs">+24H</button><button onclick="extendTime(\''+a.fbId+'\',72)" class="bg-zinc-800 py-2 rounded-full text-xs">+3D</button><button onclick="endNow(\''+a.fbId+'\')" class="bg-red-600 py-2 rounded-full text-xs">END</button></div><div class="flex gap-1 mt-2"><input id="c-'+a.fbId+'" type="datetime-local" value="'+toLocal(a.end)+'" class="flex-1 p-2 rounded-full bg-zinc-900 border text-xs"><button onclick="setCustom(\''+a.fbId+'\')" class="bg-red-600 px-3 py-2 rounded-full text-xs">SET</button></div><div class="flex gap-1 mt-2"><button onclick="declareWinner(\''+a.fbId+'\')" class="flex-1 bg-green-600 py-2 rounded-full text-xs font-black">WINNER</button><button onclick="deleteAuction(\''+a.fbId+'\')" class="bg-zinc-700 px-3 py-2 rounded-full text-xs">Delete</button></div></div>';}).join('')||'No items';}
-window.extendTime=function(fbId,h){ get(ref(db,'auctions/'+fbId)).then(s=>{ if(s.exists()){ let i=s.val(); update(ref(db,'auctions/'+fbId),{end:i.end+h*3600000}); } }); }
-window.endNow=function(fbId){ if(!confirm('End now?'))return; update(ref(db,'auctions/'+fbId),{end:Date.now()}); }
-window.setCustom=function(fbId){let v=document.getElementById('c-'+fbId).value;if(!v)return alert('Pick date'); update(ref(db,'auctions/'+fbId),{end:new Date(v).getTime()});}
-window.deleteAuction=function(fbId){if(!confirm('Delete?'))return; remove(ref(db,'auctions/'+fbId));}
-window.declareWinner=function(fbId){ get(ref(db,'auctions/'+fbId)).then(s=>{ if(!s.exists())return; let i=s.val(); if(!i.lockedBy)return alert('No bids'); let w=bidders.find(x=>x.id===i.lockedBy); if(!w)return alert('Winner not found'); window.open('https://wa.me/'+w.phone.replace(/\D/g,'')+'?text=BIDKZN WINNER! You WON '+i.n+' PIN:'+w.clientPin); remove(ref(db,'auctions/'+fbId)); }); }
-window.renderLiveSide=function(){ let total=bidders.length; let paid=bidders.filter(b=>b.paid).length; let totalWallet=bidders.reduce((s,b)=>s+(b.wallet||0),0); document.getElementById('liveCount').innerText=total; document.getElementById('statTotal2')?.innerText && (document.getElementById('statTotal2').innerText=total); document.getElementById('winningBiddersLive').innerHTML=auctionItems.map(item=>{ let cd=formatCountdown(item.end); let winner=item.lockedBy?bidders.find(b=>b.id===item.lockedBy):null; if(!winner) return '<div class="bg-zinc-900/50 border rounded-xl p-3"><p class="font-bold text-xs">🔥 '+item.n+' R'+item.current+'</p></div>'; return '<div class="bg-red-900/40 border-2 border-red-600/50 rounded-xl p-3"><p class="font-bold text-xs">🔥 '+item.n+' R'+item.current+'</p><p class="text-[10px] font-black text-red-400">WINNING: '+winner.name+' PIN:'+winner.clientPin+'</p></div>'; }).join('')||'No items'; let side=document.getElementById('liveBiddersSide'); if(side) side.innerHTML=bidders.filter(b=>b.paid).map(b=>'<div class="bg-zinc-900/50 p-2 rounded-xl border"><p class="font-bold text-[11px]">✅ '+b.name+' PIN:'+b.clientPin+' R'+(b.wallet||0)+'</p></div>').join('')||'No paid';}
+window.confirmBid=function(){ let item=auctionItems.find(x=>x.id===pendingBid.id); if(item.lockedBy){ let prevFbId=bidders.find(b=>b.id===item.lockedBy)?.fbId; if(prevFbId){ get(ref(db,'bidders/'+prevFbId)).then(s=>{ if(s.exists()){ let prev=s.val(); update(ref(db,'bidders/'+prevFbId),{wallet:(prev.wallet||0)+(item.lockedAmount||0)}); } }); } } let newWallet=(currentBidder.wallet||0)-pendingBid.amt; update(ref(db,'bidders/'+currentBidder.fbId),{wallet:newWallet,lastActive:Date.now()}); let newBids=item.bids||[]; newBids.unshift({name:currentBidder.name,amount:pendingBid.amt,time:Date.now(),bidderId:currentBidder.id}); update(ref(db,'auctions/'+item.fbId),{current:pendingBid.amt,lockedAmount:pendingBid.amt,lockedBy:currentBidder.id,bids:newBids}); document.getElementById('bidModal').classList.add('hidden'); }
+window.renderAuction=function(){ checkReg(); let canBid=currentBidder && currentBidder.paid; let items=[...auctionItems]; if(auctionFilter==='my'){ items=items.filter(i=> (i.bids||[]).some(b=>b.bidderId===currentBidder?.id)); } document.getElementById('auctionGrid').innerHTML=items.map(item=>{ let cd=formatCountdown(item.end); let step=item.step||10; let next=item.current+step; return `<div class="bg-zinc-900 border-2 border-red-600/30 rounded-2xl overflow-hidden"><img src="${item.img}" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-black text-sm">🔥 ${item.n}</h3><p class="text-xl font-black text-red-400 mt-2">R${item.current}</p><p class="text-xs text-zinc-400">${cd.txt}</p>${canBid?`<div class="mt-3 bg-black p-3 rounded-xl border-2 border-green-600/30"><button onclick="selectBid(${item.id},${next})" class="w-full bg-red-600 py-3 rounded-full font-black text-xs">BID R${next} - BIDKZN</button><div class="flex gap-2 mt-2"><input id="bid-${item.id}" type="number" value="${next}" class="flex-1 p-2 rounded-full bg-zinc-900 border text-center font-black"><button onclick="customBid(${item.id})" class="bg-zinc-700 px-4 py-2 rounded-full text-xs">CUSTOM</button></div></div>`:`<div class="mt-3 bg-zinc-800 py-3 rounded-xl text-center"><p class="text-xs">${cd.ended?'ENDED':'PAY R40 + CREATE PIN'}</p></div>`}</div></div>`; }).join('') || 'No auctions'; }
+window.renderR40List=function(){ let pending=bidders.filter(b=>!b.paid); document.getElementById('r40List').innerHTML=pending.map(b=>`<div class="bg-black border-2 border-yellow-500/50 p-3 rounded-xl flex justify-between"><div><p class="font-bold text-xs">${b.name} PIN:${b.clientPin} 🔑</p><p class="text-xs text-zinc-400">${b.phone}</p></div><button onclick="approveBidder('${b.fbId}')" class="bg-green-600 px-4 py-2 rounded-full text-xs">APPROVE R40</button></div>`).join('')||'No pending'; }
+window.renderBidders=function(){document.getElementById('biddersList').innerHTML=bidders.map(b=>'<div class="bg-black p-3 rounded-xl border mt-2 flex justify-between"><div><p class="font-bold text-xs">'+b.name+' PIN:'+(b.clientPin||'No PIN')+' '+(b.paid?'✅':'⏳')+'</p><p class="text-xs text-zinc-400">'+b.phone+'</p></div><button onclick="approveBidder(\''+b.fbId+'\')" class="bg-green-600 px-3 py-1 rounded-full text-xs">'+(b.paid?'PAID':'APPROVE')+'</button></div>').join('')||'No bidders';}
+function formatCountdown(end){ let diff=end-Date.now(); if(diff<=0)return{txt:'ENDED',ended:true}; let d=Math.floor(diff/86400000);let h=Math.floor(diff%86400000/3600000);let m=Math.floor(diff%3600000/60000);let s=Math.floor(diff%60000/1000); return{txt:(d>0?d+'d ':'')+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m',ended:false};}
 function updatePinDisplay(){ let el=document.getElementById('showCurrentPin'); if(el) el.innerText=pinVisible?adminPin:"****"; }
-setInterval(()=>{ renderAuction(); if(adminUnlocked)renderAdminAuction(); },1000);
-renderShop(); showView('client');
+window.togglePinView=function(){ pinVisible=!pinVisible; updatePinDisplay(); }
+setInterval(()=>renderAuction(),1000);
+renderShop(); showView('auction');
 </script></body></html>

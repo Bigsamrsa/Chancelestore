@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KZN STORE - Winning Bidder WhatsApp Live PIN 10111</title>
+<title>KZN STORE - WhatsApp Only Admin PIN 10111</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
 body{font-family:system-ui,sans-serif}
@@ -18,28 +18,28 @@ body{font-family:system-ui,sans-serif}
 <h1 class="font-black">KZN<span class="text-yellow-400">.STORE</span></h1>
 <div class="flex gap-2">
 <button onclick="showView('wallet')" class="bg-yellow-400 text-black px-3 py-2 rounded-full font-black text-xs">💰 R<span id="hWallet">0</span></button>
-<button onclick="showView('auction')" class="bg-red-600 px-3 py-2 rounded-full text-xs font-black animate-pulse">LIVE 🔴</button>
+<button onclick="showView('auction')" class="bg-red-600 px-3 py-2 rounded-full text-xs font-black animate-pulse">AUCTION</button>
 <button onclick="openAdmin()" class="bg-zinc-800 px-3 py-2 rounded-full text-xs">🔒 ADMIN 10111</button>
 </div>
 </header>
 
 <div class="text-center py-6 border-b-2 border-yellow-500">
 <h1 class="text-5xl font-black gold">KZN STORE</h1>
-<p class="text-xs text-zinc-500 mt-2">WINNING BIDDER WHATSAPP LIVE • PIN 10111</p>
+<p class="text-xs text-zinc-500 mt-2">WhatsApp ONLY IN ADMIN • PIN 10111</p>
 <div class="mt-3 flex justify-center gap-2">
-<button onclick="showView('auction')" class="bg-red-600 px-5 py-2 rounded-full font-black text-xs">AUCTION LIVE</button>
+<button onclick="showView('auction')" class="bg-red-600 px-5 py-2 rounded-full font-black text-xs">AUCTION</button>
 <button onclick="showView('wallet')" class="bg-yellow-400 text-black px-5 py-2 rounded-full font-black text-xs">WALLET</button>
 </div>
 </div>
 
 <div class="max-w-7xl mx-auto p-4">
 <div id="walletView" class="hidden"><div class="bg-zinc-900 border border-yellow-500 rounded-2xl p-5"><h2 class="font-black text-yellow-400">💰 WALLET</h2><div id="walletStatus"></div><div class="mt-4 bg-black p-4 rounded-xl"><input id="topUpAmount" type="number" placeholder="500" class="w-full p-3 rounded-full bg-zinc-900 border"><div class="grid grid-cols-4 gap-2 mt-2"><button onclick="quickTopUp(100)" class="bg-zinc-800 py-2 rounded-full text-xs">+100</button><button onclick="quickTopUp(200)" class="bg-zinc-800 py-2 rounded-full text-xs">+200</button><button onclick="quickTopUp(500)" class="bg-zinc-800 py-2 rounded-full text-xs">+500</button><button onclick="quickTopUp(1000)" class="bg-zinc-800 py-2 rounded-full text-xs">+1000</button></div><button onclick="requestTopUp()" class="w-full mt-3 bg-yellow-400 text-black py-3 rounded-full font-black">REQUEST TOP UP</button></div><div id="walletHistory" class="mt-4 bg-zinc-900 p-4 rounded-xl"></div></div></div>
-<div id="auctionView"><div class="bg-red-900/30 border border-red-500 rounded-2xl p-4 mb-4"><h2 class="font-black flex items-center gap-2"><span class="w-3 h-3 bg-red-500 rounded-full live-dot"></span> LIVE AUCTION - WINNER UPDATES LIVE</h2><div id="regStatus" class="mt-2"></div></div><div id="regBox" class="bg-zinc-900 border border-yellow-500/30 rounded-2xl p-5 mb-6"><input id="regName" placeholder="Full Name" class="w-full p-3 rounded-full bg-black border"><input id="regPhone" placeholder="Phone WhatsApp" class="w-full mt-2 p-3 rounded-full bg-black border"><input id="regLoc" placeholder="Location" class="w-full mt-2 p-3 rounded-full bg-black border"><button onclick="registerAuction()" class="w-full mt-3 bg-yellow-400 text-black py-3 rounded-full font-black">REGISTER R40</button></div><div id="auctionGrid" class="grid md:grid-cols-2 gap-4"></div></div>
+<div id="auctionView"><div class="bg-red-900/30 border border-red-500 rounded-2xl p-4 mb-4"><h2 class="font-black flex items-center gap-2"><span class="w-3 h-3 bg-red-500 rounded-full live-dot"></span> LIVE AUCTION</h2><p class="text-[11px] text-zinc-400 mt-1">Public view - No personal info shown - Privacy protected</p><div id="regStatus" class="mt-2"></div></div><div id="regBox" class="bg-zinc-900 border border-yellow-500/30 rounded-2xl p-5 mb-6"><input id="regName" placeholder="Full Name" class="w-full p-3 rounded-full bg-black border"><input id="regPhone" placeholder="Phone WhatsApp (private, only admin sees)" class="w-full mt-2 p-3 rounded-full bg-black border"><input id="regLoc" placeholder="Location" class="w-full mt-2 p-3 rounded-full bg-black border"><button onclick="registerAuction()" class="w-full mt-3 bg-yellow-400 text-black py-3 rounded-full font-black">REGISTER R40</button></div><div id="auctionGrid" class="grid md:grid-cols-2 gap-4"></div></div>
 </div>
 
 <div id="pinModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
 <div class="bg-zinc-900 border-2 border-yellow-500 rounded-2xl p-6 w-full max-w-sm text-center">
-<h2 class="font-black text-yellow-400">PIN 10111</h2>
+<h2 class="font-black text-yellow-400">ADMIN PIN 10111</h2>
 <input id="pinInput" type="password" placeholder="10111" class="w-full mt-4 p-4 rounded-full bg-black border text-center text-xl">
 <button onclick="checkPin()" class="w-full mt-4 bg-yellow-400 text-black py-3 rounded-full font-black">UNLOCK</button>
 <button onclick="document.getElementById('pinModal').classList.add('hidden')" class="w-full mt-2 bg-zinc-800 py-2 rounded-full text-xs">Cancel</button>
@@ -61,22 +61,25 @@ body{font-family:system-ui,sans-serif}
 
 <div id="admin" class="hidden fixed inset-0 bg-black z-50 overflow-y-auto">
 <div class="max-w-7xl mx-auto p-3">
-<div class="bg-zinc-900 rounded-2xl p-4 flex justify-between items-center">
-<h2 class="font-black text-yellow-400 flex items-center gap-2"><span class="w-2 h-2 bg-green-500 rounded-full live-dot"></span> ADMIN - WINNING BIDDER WHATSAPP LIVE</h2>
+<div class="bg-zinc-900 rounded-2xl p-4 flex justify-between items-center border-2 border-yellow-500">
+<h2 class="font-black text-yellow-400 flex items-center gap-2"><span class="w-2 h-2 bg-green-500 rounded-full live-dot"></span> ADMIN ONLY - WhatsApp Numbers Here 🔒</h2>
 <div class="flex gap-2">
 <span class="bg-green-600 px-3 py-1 rounded-full text-xs font-black"><span id="liveCount">0</span> LIVE</span>
 <button onclick="logoutAdmin()" class="bg-red-600 px-3 py-1 rounded-full text-xs">LOCK 🔒</button>
 </div>
 </div>
 
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-3 mt-3">
+<p class="text-[11px] font-black text-red-400">🔒 PRIVATE ADMIN ONLY: Winning bidder WhatsApp numbers shown ONLY here on side panel - NOT visible to public users!</p>
+</div>
+
 <div class="flex gap-2 mt-3 overflow-x-auto">
-<button onclick="adminTab('auction')" id="at-auction" class="bg-yellow-400 text-black px-4 py-2 rounded-full font-black text-xs whitespace-nowrap">🔥 AUCTION + WINNERS SIDE</button>
+<button onclick="adminTab('auction')" id="at-auction" class="bg-yellow-400 text-black px-4 py-2 rounded-full font-black text-xs whitespace-nowrap">🔥 AUCTION + WINNERS WhatsApp SIDE</button>
 <button onclick="adminTab('bidders')" id="at-bidders" class="bg-zinc-800 px-4 py-2 rounded-full text-xs whitespace-nowrap">ALL BIDDERS</button>
 <button onclick="adminTab('topups')" id="at-topups" class="bg-zinc-800 px-4 py-2 rounded-full text-xs whitespace-nowrap">TOP UPS</button>
 </div>
 
 <div id="admin-auction" class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
-<!-- LEFT: AUCTION LIST -->
 <div class="lg:col-span-2">
 <div class="bg-black p-4 rounded-xl border border-red-500/30">
 <h3 class="font-black text-sm text-red-400">ADD AUCTION ITEM</h3>
@@ -98,27 +101,18 @@ body{font-family:system-ui,sans-serif}
 <div id="adminAuctionList" class="mt-4"></div>
 </div>
 
-<!-- RIGHT: SIDE PANEL WITH WINNING BIDDER + WHATSAPP -->
 <div class="lg:col-span-1">
-<div class="bg-gradient-to-b from-zinc-900 to-black border-2 border-green-500/30 rounded-xl p-3 sticky top-4">
+<div class="bg-gradient-to-b from-zinc-900 to-black border-2 border-yellow-500 rounded-xl p-3 sticky top-4">
 
-<!-- WINNING BIDDERS LIVE - MAIN REQUESTED FEATURE -->
 <div class="bg-black border-2 border-yellow-500 rounded-xl p-3">
-<h3 class="font-black text-sm text-yellow-400 flex items-center gap-2">🏆 CURRENT WINNERS - LIVE <span class="w-2 h-2 bg-red-500 rounded-full live-dot"></span></h3>
-<p class="text-[10px] text-zinc-400 mt-1">Winning bidder + WhatsApp updates automatically</p>
-<div id="winningBiddersLive" class="mt-3 space-y-3 max-h-[500px] overflow-y-auto"></div>
+<h3 class="font-black text-sm text-yellow-400 flex items-center gap-2">🏆 CURRENT WINNERS - ADMIN ONLY 🔒 <span class="w-2 h-2 bg-red-500 rounded-full live-dot"></span></h3>
+<p class="text-[10px] text-red-300 mt-1">WhatsApp numbers ONLY visible here - hidden from public!</p>
+<div id="winningBiddersLive" class="mt-3 space-y-3 max-h-[600px] overflow-y-auto"></div>
 </div>
 
-<!-- LIVE BIDDERS -->
 <div class="mt-4 bg-black rounded-xl p-3 border border-zinc-800">
-<h3 class="font-black text-xs flex items-center gap-2"><span class="w-2 h-2 bg-green-500 rounded-full live-dot"></span> LIVE BIDDERS (<span id="statTotal">0</span>)</h3>
+<h3 class="font-black text-xs flex items-center gap-2"><span class="w-2 h-2 bg-green-500 rounded-full live-dot"></span> ALL LIVE BIDDERS (<span id="statTotal">0</span>) - ADMIN ONLY</h3>
 <div id="liveBiddersSide" class="mt-2 max-h-[250px] overflow-y-auto space-y-1.5"></div>
-</div>
-
-<!-- LIVE FEED -->
-<div class="mt-4 bg-black rounded-xl p-3 border border-yellow-500/20">
-<h4 class="font-black text-[11px] text-yellow-400">🔴 LIVE BIDS FEED</h4>
-<div id="liveBidsFeed" class="mt-2 max-h-[180px] overflow-y-auto space-y-1 text-[10px]"></div>
 </div>
 
 <div class="mt-3 grid grid-cols-3 gap-2 text-center">
@@ -127,7 +121,7 @@ body{font-family:system-ui,sans-serif}
 <div class="bg-black rounded-lg p-2 border border-zinc-800"><p class="text-[9px] text-zinc-500">WALLET</p><p id="statWallet" class="font-black text-white text-[11px]">R0</p></div>
 </div>
 
-<button onclick="refreshLive()" class="w-full mt-3 bg-zinc-800 py-2 rounded-full text-xs">🔄 REFRESH LIVE DATA</button>
+<button onclick="refreshLive()" class="w-full mt-3 bg-zinc-800 py-2 rounded-full text-xs">🔄 REFRESH</button>
 </div>
 </div>
 </div>
@@ -167,18 +161,21 @@ function checkReg(){ let box=document.getElementById('regStatus'); if(!currentBi
 function selectBid(id,amt){ let item=auctionItems.find(x=>x.id===id); if(Date.now()>=item.end)return alert('Ended'); if(!currentBidder||!currentBidder.paid)return alert('Pay R40 first'); if((currentBidder.wallet||0)<amt)return alert('Wallet R'+(currentBidder.wallet||0)+' < R'+amt); pendingBid={id:id,amt:amt}; document.getElementById('bidText').innerHTML='Bid <b>R'+amt+'</b> for <b>'+item.n+'</b>?<br>Current R'+item.current+' → R'+amt; document.getElementById('bidWallet').innerHTML='Wallet R'+currentBidder.wallet+' → After R'+(currentBidder.wallet-amt); document.getElementById('bidModal').classList.remove('hidden');}
 function customBid(id){ let v=parseInt(document.getElementById('bid-'+id).value); let item=auctionItems.find(x=>x.id===id); if(!v)return alert('Enter amount'); if(v<=item.current)return alert('Must be > R'+item.current); if(v<item.current+(item.step||10))return alert('Min R'+(item.current+(item.step||10))); selectBid(id,v);}
 function confirmBid(){ let id=pendingBid.id; let amt=pendingBid.amt; let item=auctionItems.find(x=>x.id===id); if(Date.now()>=item.end){document.getElementById('bidModal').classList.add('hidden');return alert('Ended');} if(item.lockedBy){let prev=bidders.find(x=>x.id===item.lockedBy); if(prev){prev.wallet+=item.lockedAmount;}} currentBidder.wallet-=amt; currentBidder.lastActive=Date.now(); currentBidder.transactions.push({desc:'Bid '+item.n+' R'+amt,amount:-amt}); let idx=bidders.findIndex(x=>x.id===currentBidder.id); if(idx>=0)bidders[idx]=currentBidder; item.current=amt;item.lockedAmount=amt;item.lockedBy=currentBidder.id;item.bids.unshift({name:currentBidder.name,phone:currentBidder.phone,amount:amt,time:Date.now(),bidderId:currentBidder.id}); localStorage.setItem('kzn_bidders',JSON.stringify(bidders));localStorage.setItem('kzn_my',JSON.stringify(currentBidder));localStorage.setItem('kzn_auction',JSON.stringify(auctionItems)); document.getElementById('bidModal').classList.add('hidden'); renderAuction();renderWallet();renderLiveSide(); window.open('https://wa.me/'+WA+'?text=BID R'+amt+' '+item.n+' by '+currentBidder.name);}
-function renderAuction(){ checkReg();renderWallet(); document.getElementById('auctionGrid').innerHTML=auctionItems.map(item=>{let cd=formatCountdown(item.end);let canBid=currentBidder&&currentBidder.paid&&!cd.ended;let step=item.step||10;let next=item.current+step;let winner=item.lockedBy?bidders.find(b=>b.id===item.lockedBy):null;return '<div class="bg-zinc-900 border rounded-2xl overflow-hidden"><img src="'+item.img+'" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-black text-sm">'+item.n+'</h3><div class="bg-black rounded-full px-3 py-2 flex justify-between border mt-2"><span class="text-xs">⏰ '+(cd.ended?'ENDED':'ENDS')+'</span><span class="count text-xs '+(cd.ended?'text-red-500':'text-yellow-400')+'">'+cd.txt+'</span></div>'+(winner?'<div class="mt-2 bg-green-900/30 border border-green-500/50 rounded-xl p-2"><p class="text-[10px] text-green-400 font-black">🏆 WINNING: '+winner.name+' - R'+item.current+'</p><p class="text-[10px] text-zinc-300">📱 '+winner.phone+' • Wallet R'+(winner.wallet||0)+'</p></div>':'<div class="mt-2 bg-zinc-800 rounded-xl p-2 text-[10px] text-center">No winner yet - be first!</div>')+'<p class="text-xl font-black text-yellow-400 mt-2">R'+item.current+'</p><div class="bg-black p-2 rounded-xl mt-2 text-xs max-h-16 overflow-y-auto">'+(item.bids.slice(0,4).map(b=>'<div class="flex justify-between"><span>'+b.name+'</span><b>R'+b.amount+'</b></div>').join('')||'No bids')+'</div>'+(canBid?'<div class="mt-3 bg-black p-3 rounded-xl border"><p class="text-xs font-black text-yellow-400">Wallet R'+(currentBidder.wallet||0)+'</p><div class="grid grid-cols-4 gap-1 mt-2"><button onclick="selectBid('+item.id+','+next+')" class="bg-yellow-400 text-black py-2 rounded-full font-black text-xs">+'+step+'<br>R'+next+'</button><button onclick="selectBid('+item.id+','+(item.current+step*2)+')" class="bg-zinc-700 py-2 rounded-full text-xs">+'+(step*2)+'</button><button onclick="selectBid('+item.id+','+(item.current+step*5)+')" class="bg-zinc-700 py-2 rounded-full text-xs">+'+(step*5)+'</button><button onclick="selectBid('+item.id+','+(item.current+step*10)+')" class="bg-zinc-700 py-2 rounded-full text-xs">+'+(step*10)+'</button></div><div class="flex gap-2 mt-3"><input id="bid-'+item.id+'" type="number" value="'+next+'" class="flex-1 p-3 rounded-full bg-zinc-900 border text-center font-black"><button onclick="customBid('+item.id+')" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-black text-xs">BID</button></div></div>':'<div class="mt-3 bg-zinc-800 py-3 rounded-full text-center text-xs font-black">'+(cd.ended?'🔴 ENDED':'🔒 Pay R40 + Top Up')+'</div>')+'</div></div>';}).join('');}
+
+// PUBLIC AUCTION - PRIVACY PROTECTED - NO WHATSAPP NUMBERS!
+function renderAuction(){ checkReg();renderWallet(); document.getElementById('auctionGrid').innerHTML=auctionItems.map(item=>{let cd=formatCountdown(item.end);let canBid=currentBidder&&currentBidder.paid&&!cd.ended;let step=item.step||10;let next=item.current+step;return '<div class="bg-zinc-900 border rounded-2xl overflow-hidden"><img src="'+item.img+'" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-black text-sm">'+item.n+'</h3><div class="bg-black rounded-full px-3 py-2 flex justify-between border mt-2"><span class="text-xs">⏰ '+(cd.ended?'ENDED':'ENDS')+'</span><span class="count text-xs '+(cd.ended?'text-red-500':'text-yellow-400')+'">'+cd.txt+'</span></div><p class="text-xs text-zinc-500 mt-1">Ends: '+new Date(item.end).toLocaleString()+' • Step R'+step+'</p><p class="text-xl font-black text-yellow-400 mt-2">Current Bid: R'+item.current+'</p><p class="text-[10px] text-zinc-400">🔒 Bids: '+item.bids.length+' • Highest bid private - winner contact hidden from public</p><div class="bg-black p-2 rounded-xl mt-2 text-xs max-h-16 overflow-y-auto">'+(item.bids.slice(0,4).map(b=>'<div class="flex justify-between"><span>'+b.name.charAt(0)+'***</span><b>R'+b.amount+'</b></div>').join('')||'No bids yet - be first!')+'</div>'+(canBid?'<div class="mt-3 bg-black p-3 rounded-xl border"><p class="text-xs font-black text-yellow-400">Wallet R'+(currentBidder.wallet||0)+'</p><div class="grid grid-cols-4 gap-1 mt-2"><button onclick="selectBid('+item.id+','+next+')" class="bg-yellow-400 text-black py-2 rounded-full font-black text-xs">+'+step+'<br>R'+next+'</button><button onclick="selectBid('+item.id+','+(item.current+step*2)+')" class="bg-zinc-700 py-2 rounded-full text-xs">+'+(step*2)+'</button><button onclick="selectBid('+item.id+','+(item.current+step*5)+')" class="bg-zinc-700 py-2 rounded-full text-xs">+'+(step*5)+'</button><button onclick="selectBid('+item.id+','+(item.current+step*10)+')" class="bg-zinc-700 py-2 rounded-full text-xs">+'+(step*10)+'</button></div><div class="flex gap-2 mt-3"><input id="bid-'+item.id+'" type="number" value="'+next+'" class="flex-1 p-3 rounded-full bg-zinc-900 border text-center font-black"><button onclick="customBid('+item.id+')" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-black text-xs">BID</button></div></div>':'<div class="mt-3 bg-zinc-800 py-3 rounded-full text-center text-xs font-black">'+(cd.ended?'🔴 ENDED':'🔒 Pay R40 + Top Up to Bid')+'</div>')+'</div></div>';}).join('');}
+
 function renderBidders(){document.getElementById('biddersList').innerHTML=bidders.map(b=>'<div class="bg-black p-3 rounded-xl border mt-2 flex justify-between"><div><p class="font-bold text-xs">'+b.name+' '+(b.paid?'✅':'⏳')+'</p><p class="text-xs text-zinc-400">Wallet R'+(b.wallet||0)+' • '+b.phone+'</p></div><div class="flex flex-col gap-1">'+(!b.paid?'<button onclick="approveBidder('+b.id+')" class="bg-green-600 px-3 py-1 rounded-full text-xs">APPROVE</button>':'')+'<button onclick="addCredit('+b.id+')" class="bg-yellow-400 text-black px-3 py-1 rounded-full text-xs">+ADD</button></div></div>').join('')||'No bidders';}
 function addCredit(id){if(!adminUnlocked)return openAdmin();let amt=parseInt(prompt('Add R:'));if(!amt)return;let idx=bidders.findIndex(x=>x.id===id);bidders[idx].wallet=(bidders[idx].wallet||0)+amt;bidders[idx].lastActive=Date.now();localStorage.setItem('kzn_bidders',JSON.stringify(bidders));if(currentBidder&&currentBidder.id===id){currentBidder.wallet=bidders[idx].wallet;localStorage.setItem('kzn_my',JSON.stringify(currentBidder));renderWallet();}renderBidders();renderLiveSide();}
 function renderTopups(){document.getElementById('topupsList').innerHTML=topups.slice().reverse().map(r=>'<div class="bg-black p-3 rounded-xl border mt-2 flex justify-between"><div><p class="text-xs font-bold">'+r.name+' R'+r.amount+' '+(r.status==='pending'?'⏳':'✅')+'</p><p class="text-xs text-zinc-400">'+r.phone+'</p></div>'+(r.status==='pending'?'<button onclick="approveTopUp('+r.id+')" class="bg-green-600 px-4 py-2 rounded-full text-xs">APPROVE R'+r.amount+'</button>':'<span class="text-green-400 text-xs">Done</span>')+'</div>').join('')||'No requests';}
-function renderAdminAuction(){document.getElementById('adminAuctionList').innerHTML=auctionItems.map(a=>{let cd=formatCountdown(a.end);let winner=a.lockedBy?bidders.find(b=>b.id===a.lockedBy):null;return '<div class="bg-black p-3 rounded-xl border mt-3"><div class="flex gap-2"><img src="'+a.img+'" class="w-16 h-16 rounded"><div class="flex-1"><p class="font-bold text-xs">'+a.n+' Step R'+(a.step||10)+'</p><p class="text-xs text-yellow-400">R'+a.current+' locked R'+(a.lockedAmount||0)+'</p><p class="count text-xs '+(cd.ended?'text-red-500':'text-green-400')+'">⏰ '+cd.txt+'</p>'+(winner?'<div class="bg-green-900/40 border border-green-500 rounded-lg p-1.5 mt-1"><p class="text-[10px] font-black text-green-400">🏆 '+winner.name+' - R'+a.current+'</p><p class="text-[10px] text-white">📱 '+winner.phone+'</p><div class="flex gap-1 mt-1"><a href="https://wa.me/'+winner.phone.replace(/\\D/g,'')+'?text=You are winning '+a.n+' R'+a.current+'" target="_blank" class="bg-green-600 px-2 py-1 rounded-full text-[9px] font-black">WhatsApp Winner</a><a href="tel:'+winner.phone+'" class="bg-zinc-700 px-2 py-1 rounded-full text-[9px]">Call</a></div></div>':'<p class="text-[10px] text-zinc-500 mt-1">No bids yet</p>')+'</div></div><div class="grid grid-cols-4 gap-1 mt-3"><button onclick="extendTime('+a.id+',1)" class="bg-zinc-800 py-2 rounded-full text-xs">+1H</button><button onclick="extendTime('+a.id+',24)" class="bg-zinc-800 py-2 rounded-full text-xs">+24H</button><button onclick="extendTime('+a.id+',72)" class="bg-zinc-800 py-2 rounded-full text-xs">+3D</button><button onclick="endNow('+a.id+')" class="bg-red-600 py-2 rounded-full text-xs">END</button></div><div class="flex gap-1 mt-2"><input id="c-'+a.id+'" type="datetime-local" value="'+toLocal(a.end)+'" class="flex-1 p-2 rounded-full bg-zinc-900 border text-xs"><button onclick="setCustom('+a.id+')" class="bg-yellow-400 text-black px-3 py-2 rounded-full text-xs font-black">SET</button></div><div class="flex gap-1 mt-2"><button onclick="declareWinner('+a.id+')" class="flex-1 bg-green-600 py-2 rounded-full text-xs font-black">DECLARE WINNER & WhatsApp</button><button onclick="deleteAuction('+a.id+')" class="bg-zinc-700 px-3 py-2 rounded-full text-xs">Delete</button></div></div>';}).join('')||'No items';}
+function renderAdminAuction(){document.getElementById('adminAuctionList').innerHTML=auctionItems.map(a=>{let cd=formatCountdown(a.end);let winner=a.lockedBy?bidders.find(b=>b.id===a.lockedBy):null;return '<div class="bg-black p-3 rounded-xl border mt-3"><div class="flex gap-2"><img src="'+a.img+'" class="w-16 h-16 rounded"><div class="flex-1"><p class="font-bold text-xs">'+a.n+' Step R'+(a.step||10)+'</p><p class="text-xs text-yellow-400">R'+a.current+' locked R'+(a.lockedAmount||0)+'</p><p class="count text-xs '+(cd.ended?'text-red-500':'text-green-400')+'">⏰ '+cd.txt+'</p>'+(winner?'<div class="bg-green-900/40 border border-green-500 rounded-lg p-1.5 mt-1"><p class="text-[10px] font-black text-green-400">🏆 ADMIN ONLY: '+winner.name+' - R'+a.current+'</p><p class="text-[10px] text-white">📱 WhatsApp: '+winner.phone+' (PRIVATE)</p><div class="flex gap-1 mt-1"><a href="https://wa.me/'+winner.phone.replace(/\\D/g,'')+'?text=You are winning '+a.n+' R'+a.current+'" target="_blank" class="bg-green-600 px-2 py-1 rounded-full text-[9px] font-black">WhatsApp</a><a href="tel:'+winner.phone+'" class="bg-zinc-700 px-2 py-1 rounded-full text-[9px]">Call</a></div></div>':'<p class="text-[10px] text-zinc-500 mt-1">No bids yet</p>')+'</div></div><div class="grid grid-cols-4 gap-1 mt-3"><button onclick="extendTime('+a.id+',1)" class="bg-zinc-800 py-2 rounded-full text-xs">+1H</button><button onclick="extendTime('+a.id+',24)" class="bg-zinc-800 py-2 rounded-full text-xs">+24H</button><button onclick="extendTime('+a.id+',72)" class="bg-zinc-800 py-2 rounded-full text-xs">+3D</button><button onclick="endNow('+a.id+')" class="bg-red-600 py-2 rounded-full text-xs">END</button></div><div class="flex gap-1 mt-2"><input id="c-'+a.id+'" type="datetime-local" value="'+toLocal(a.end)+'" class="flex-1 p-2 rounded-full bg-zinc-900 border text-xs"><button onclick="setCustom('+a.id+')" class="bg-yellow-400 text-black px-3 py-2 rounded-full text-xs font-black">SET</button></div><div class="flex gap-1 mt-2"><button onclick="declareWinner('+a.id+')" class="flex-1 bg-green-600 py-2 rounded-full text-xs font-black">DECLARE WINNER</button><button onclick="deleteAuction('+a.id+')" class="bg-zinc-700 px-3 py-2 rounded-full text-xs">Delete</button></div></div>';}).join('')||'No items';}
 function extendTime(id,h){let i=auctionItems.find(x=>x.id===id);i.end+=h*3600000;localStorage.setItem('kzn_auction',JSON.stringify(auctionItems));renderAdminAuction();renderAuction();renderLiveSide();}
 function endNow(id){if(!confirm('End now?'))return;let i=auctionItems.find(x=>x.id===id);i.end=Date.now();localStorage.setItem('kzn_auction',JSON.stringify(auctionItems));renderAdminAuction();renderAuction();renderLiveSide();}
 function setCustom(id){let v=document.getElementById('c-'+id).value;if(!v)return alert('Pick date');let i=auctionItems.find(x=>x.id===id);i.end=new Date(v).getTime();localStorage.setItem('kzn_auction',JSON.stringify(auctionItems));renderAdminAuction();renderAuction();renderLiveSide();}
 function deleteAuction(id){if(!confirm('Delete?'))return;auctionItems=auctionItems.filter(x=>x.id!==id);localStorage.setItem('kzn_auction',JSON.stringify(auctionItems));renderAdminAuction();renderAuction();renderLiveSide();}
-function declareWinner(id){if(!adminUnlocked)return openAdmin();let item=auctionItems.find(x=>x.id===id);if(!item.lockedBy)return alert('No bids');let w=bidders.find(x=>x.id===item.lockedBy);window.open('https://wa.me/'+w.phone.replace(/\D/g,'')+'?text=🏆 CONGRATS! You WON '+item.n+' for R'+item.lockedAmount+' at KZN STORE! Wallet deducted R'+item.lockedAmount+'. Collect now! 078 931 3670');auctionItems=auctionItems.filter(x=>x.id!==id);localStorage.setItem('kzn_auction',JSON.stringify(auctionItems));renderAdminAuction();renderAuction();renderLiveSide();}
+function declareWinner(id){if(!adminUnlocked)return openAdmin();let item=auctionItems.find(x=>x.id===id);if(!item.lockedBy)return alert('No bids');let w=bidders.find(x=>x.id===item.lockedBy);window.open('https://wa.me/'+w.phone.replace(/\D/g,'')+'?text=🏆 CONGRATS! You WON '+item.n+' for R'+item.lockedAmount);auctionItems=auctionItems.filter(x=>x.id!==id);localStorage.setItem('kzn_auction',JSON.stringify(auctionItems));renderAdminAuction();renderAuction();renderLiveSide();}
 
-// NEW: WINNING BIDDER LIVE SIDE PANEL WITH WHATSAPP
+// ADMIN ONLY - WINNING BIDDER WHATSAPP LIVE SIDE PANEL
 function renderLiveSide(){
  let total=bidders.length; let paid=bidders.filter(b=>b.paid).length; let totalWallet=bidders.reduce((s,b)=>s+(b.wallet||0),0);
  document.getElementById('liveCount').innerText=total;
@@ -187,45 +184,37 @@ function renderLiveSide(){
  document.getElementById('statPaid').innerText=paid;
  document.getElementById('statWallet').innerText='R'+totalWallet;
 
- // 1. WINNING BIDDERS LIVE - WITH WHATSAPP NUMBER - AUTO UPDATE
+ // WINNING BIDDERS LIVE - ADMIN ONLY WITH WHATSAPP
  document.getElementById('winningBiddersLive').innerHTML=auctionItems.map(item=>{
   let cd=formatCountdown(item.end);
   let winner=item.lockedBy?bidders.find(b=>b.id===item.lockedBy):null;
   if(!winner){
-   return '<div class="bg-zinc-900/50 border border-zinc-700 rounded-xl p-3"><div class="flex gap-2"><img src="'+item.img+'" class="w-12 h-12 rounded-lg object-cover"><div class="flex-1"><p class="font-bold text-xs">'+item.n+'</p><p class="text-[10px] text-yellow-400">R'+item.current+' • '+cd.txt+'</p><p class="text-[10px] text-zinc-500 mt-1">No bids yet - No winner</p></div></div></div>';
+   return '<div class="bg-zinc-900/50 border border-zinc-700 rounded-xl p-3"><div class="flex gap-2"><img src="'+item.img+'" class="w-12 h-12 rounded-lg object-cover"><div class="flex-1"><p class="font-bold text-xs">'+item.n+'</p><p class="text-[10px] text-yellow-400">R'+item.current+' • '+cd.txt+'</p><p class="text-[10px] text-zinc-500 mt-1">No winner yet</p></div></div></div>';
   }
   return '<div class="bg-gradient-to-r from-green-900/40 to-black border-2 border-green-500/50 rounded-xl p-3">'+
    '<div class="flex gap-2"><img src="'+item.img+'" class="w-12 h-12 rounded-lg object-cover"><div class="flex-1">'+
-   '<p class="font-bold text-xs">'+item.n+'</p>'+
+   '<p class="font-bold text-xs">'+item.n+' 🔒 ADMIN ONLY</p>'+
    '<p class="count text-[10px] text-green-400">'+cd.txt+'</p>'+
    '</div><div class="text-right"><p class="text-[10px] bg-yellow-400 text-black px-2 py-1 rounded-full font-black">R'+item.current+'</p></div></div>'+
-   '<div class="mt-2 bg-black rounded-lg p-2 border border-green-500/30">'+
+   '<div class="mt-2 bg-black rounded-lg p-2 border-2 border-yellow-500/30">'+
    '<p class="text-[11px] font-black text-green-400 flex items-center gap-1">🏆 WINNING NOW: '+winner.name+' <span class="w-2 h-2 bg-green-500 rounded-full live-dot"></span></p>'+
-   '<p class="text-[11px] text-white mt-1 flex items-center gap-1">📱 WhatsApp: <b class="text-yellow-400">'+winner.phone+'</b></p>'+
+   '<p class="text-[11px] text-white mt-1">📱 WhatsApp: <b class="text-yellow-400 text-[12px]">'+winner.phone+'</b> 🔒 ADMIN ONLY</p>'+
    '<p class="text-[10px] text-zinc-400">💰 Wallet: R'+(winner.wallet||0)+' • Locked: R'+(item.lockedAmount||0)+'</p>'+
-   '<p class="text-[10px] text-zinc-500">'+(winner.loc||'No location')+'</p>'+
+   '<p class="text-[10px] text-zinc-500">📍 '+(winner.loc||'No location')+' • Last active: '+new Date(winner.lastActive||Date.now()).toLocaleTimeString()+'</p>'+
    '<div class="flex gap-1 mt-2">'+
-   '<a href="https://wa.me/'+winner.phone.replace(/\\D/g,'')+'?text=Hi '+winner.name+'! You are CURRENTLY WINNING '+item.n+' at R'+item.current+' - KZN STORE. Keep bidding! 078 931 3670" target="_blank" class="flex-1 bg-green-600 text-white px-3 py-2 rounded-full text-[10px] font-black text-center">💬 WhatsApp Winner</a>'+
+   '<a href="https://wa.me/'+winner.phone.replace(/\\D/g,'')+'?text=Hi '+winner.name+'! You are CURRENTLY WINNING '+item.n+' at R'+item.current+' - KZN STORE. Keep bidding! 078 931 3670" target="_blank" class="flex-1 bg-green-600 text-white px-3 py-2 rounded-full text-[10px] font-black text-center">💬 WhatsApp Winner NOW</a>'+
    '<a href="tel:'+winner.phone+'" class="bg-zinc-700 px-3 py-2 rounded-full text-[10px] font-black">📞 Call</a>'+
    '</div>'+
    '</div></div>';
- }).join('')||'<p class="text-xs text-zinc-500 text-center py-4">No auction items<br>Add items to see winners</p>';
+ }).join('')||'<p class="text-xs text-zinc-500 text-center py-4">No auction items</p>';
 
- // 2. LIVE BIDDERS LIST
+ // LIVE BIDDERS WITH WHATSAPP - ADMIN ONLY
  let sorted=[...bidders].sort((a,b)=>(b.lastActive||0)-(a.lastActive||0));
  document.getElementById('liveBiddersSide').innerHTML=sorted.slice(0,15).map(b=>{
   let isLive=Date.now()-(b.lastActive||0)<300000;
   let bidsCount=auctionItems.reduce((c,item)=>c+item.bids.filter(bid=>bid.bidderId===b.id).length,0);
-  return '<div class="bg-zinc-900/50 p-2 rounded-xl border '+(isLive?'border-green-500/30':'border-zinc-800')+' flex justify-between items-center"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full '+(b.paid?'bg-green-600':'bg-yellow-600')+' flex items-center justify-center font-black text-[10px]">'+b.name.charAt(0)+'</div><div><p class="font-bold text-[11px] flex items-center gap-1">'+b.name+' '+(isLive?'<span class="w-1.5 h-1.5 bg-green-500 rounded-full live-dot"></span>':'')+'</p><p class="text-[9px] text-zinc-400">'+b.phone+' • R'+(b.wallet||0)+' • '+bidsCount+' bids</p></div></div><p class="text-[9px] '+(isLive?'text-green-400':'text-zinc-500')+'">'+(isLive?'LIVE':'')+'</p></div>';
+  return '<div class="bg-zinc-900/50 p-2 rounded-xl border '+(isLive?'border-green-500/30':'border-zinc-800')+'"><div class="flex justify-between items-center"><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full '+(b.paid?'bg-green-600':'bg-yellow-600')+' flex items-center justify-center font-black text-[10px]">'+b.name.charAt(0)+'</div><div><p class="font-bold text-[11px] flex items-center gap-1">'+b.name+' '+(isLive?'<span class="w-1.5 h-1.5 bg-green-500 rounded-full live-dot"></span>':'')+'</p><p class="text-[9px] text-zinc-400">R'+(b.wallet||0)+' • '+bidsCount+' bids</p></div></div><p class="text-[9px] '+(isLive?'text-green-400':'text-zinc-500')+'">'+(isLive?'LIVE':'')+'</p></div><p class="text-[10px] text-yellow-400 mt-1">📱 '+b.phone+' 🔒 ADMIN ONLY</p></div>';
  }).join('')||'<p class="text-xs text-zinc-500 text-center py-2">No bidders</p>';
-
- // 3. LIVE BIDS FEED
- let allBids=[]; auctionItems.forEach(item=>{ item.bids.forEach(bid=>{ allBids.push({...bid,itemName:item.n}); }); });
- allBids.sort((a,b)=>(b.time||0)-(a.time||0));
- document.getElementById('liveBidsFeed').innerHTML=allBids.slice(0,10).map(bid=>{
-  let ago=Math.floor((Date.now()-(bid.time||0))/60000); let timeText=ago<1?'now':ago+'m ago';
-  return '<div class="flex justify-between bg-zinc-900/50 p-1.5 rounded-lg"><span><b class="text-yellow-400">R'+bid.amount+'</b> '+bid.name+'<br><span class="text-zinc-500">'+bid.itemName+'</span></span><span class="text-zinc-500">'+timeText+'<br>'+bid.phone+'</span></div>';
- }).join('')||'<p class="text-zinc-500 text-center">No bids</p>';
 }
 function refreshLive(){ bidders=JSON.parse(localStorage.getItem('kzn_bidders')||'[]'); topups=JSON.parse(localStorage.getItem('kzn_topups')||'[]'); auctionItems=JSON.parse(localStorage.getItem('kzn_auction')||'[]'); renderLiveSide(); renderAdminAuction(); renderBidders(); renderTopups(); }
 
